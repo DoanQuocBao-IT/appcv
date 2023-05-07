@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/homepage"
+        android:title="Home Page"/>
+    <item
+        android:id="@+id/navigation_cv"
+        android:icon="@drawable/cv"
+        android:title="CV &amp; Job"/>
+    <item
+        android:id="@+id/navigation_connect"
+        android:icon="@drawable/connect"
+        android:title="Top Connect"/>
+    <item
+        android:id="@+id/navigation_notify"
+        android:icon="@drawable/notice"
+        android:title="Notice"/>
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/profile"
+        android:title="Profile"/>
+</menu>

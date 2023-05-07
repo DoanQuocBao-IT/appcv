@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="25dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="360dp"
+            android:layout_height="250dp">
+
+            <ImageView
+                android:id="@+id/image_jcompany"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginStart="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvNameJob"
+                android:layout_width="170dp"
+                android:layout_height="100dp"
+                android:text="Name Job"
+                android:textAlignment="textStart"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toEndOf="@id/image_jcompany"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name company"
+                android:textAlignment="textStart"
+                android:textSize="17sp"
+                android:id="@+id/tvNameJCompany"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="25dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/image_jcompany"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:id="@+id/tvAddress"
+                android:text="Address"
+                android:textAlignment="textStart"
+                android:textSize="16sp"
+                android:background="@android:color/darker_gray"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="25dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvNameJCompany"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:id="@+id/tvExperience"
+                android:text="Experience"
+                android:textAlignment="textStart"
+                android:textSize="16sp"
+                android:background="@android:color/darker_gray"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="25dp"
+                app:layout_constraintStart_toEndOf="@id/tvAddress"
+                app:layout_constraintTop_toBottomOf="@id/tvNameJCompany"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:id="@+id/tvSalary"
+                android:text="Salary"
+                android:textAlignment="textStart"
+                android:textSize="16sp"
+                android:textColor="#4CAF50"
+                android:background="#BEDFBF"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="25dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvAddress"/>
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/timeleft"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="25dp"
+                app:layout_constraintTop_toBottomOf="@id/tvSalary"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:id="@+id/tvTime"
+                android:text="xx Ngày ứng tuyển "
+                android:textAlignment="textStart"
+                android:textSize="16sp"
+                android:background="@android:color/transparent"
+                android:layout_marginTop="12dp"
+                android:layout_marginStart="55dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvSalary"/>
+
+
+            <ImageButton
+                android:id="@+id/btnTag"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/btn_selector_tag"
+                android:backgroundTint="#4CAF50"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

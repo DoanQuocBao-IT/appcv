@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".Fragment.HomeFragment">
+
+        <!-- TODO: Update blank fragment layout -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:background="#ECE1E1"
+            android:layout_gravity="top|center_horizontal">
+
+            <ImageButton
+                android:id="@+id/imageHAvatar"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_margin="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/profile"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/tvHHello"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="Chào, Đoàn Quốc Bảo"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintStart_toEndOf="@id/imageHAvatar"
+                app:layout_constraintBottom_toTopOf="@id/btnFindJob"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <Button
+                android:id="@+id/btnHLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                android:layout_gravity="end"
+                android:layout_margin="15dp"
+                android:text="Đăng nhập"
+                android:textSize="16sp"
+                android:backgroundTint="#4CAF50"
+                app:cornerRadius="30dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <Button
+                android:id="@+id/btnFindJob"
+                android:layout_width="300dp"
+                android:layout_height="70dp"
+                android:layout_margin="15dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="@color/white"
+                android:text="Bạn muốn tìm việc?"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/findjob"
+                app:iconGravity="start"
+                app:iconSize="50dp"
+                app:iconTint="#4CAF50"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:strokeColor="#9E9F9E"
+                app:strokeWidth="2dp" />
+
+            <Button
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_margin="15dp"
+                android:backgroundTint="@color/white"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/map"
+                app:iconGravity="textTop"
+                app:iconSize="35dp"
+                app:iconTint="#4CAF50"
+                app:layout_constraintStart_toEndOf="@id/btnFindJob"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:strokeColor="#9E9F9E"
+                app:strokeWidth="2dp" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+       <androidx.constraintlayout.widget.ConstraintLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_gravity="top|center_horizontal"
+           android:layout_marginTop="170dp">
+
+           <TextView
+               android:id="@+id/imageViewtop"
+               android:layout_width="match_parent"
+               android:layout_height="40dp"
+               android:background="#4CAF50"
+               android:text="Chọn đúng việc - Đi đúng hướng"
+               android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+               android:textSize="19sp"
+               android:textStyle="bold"
+               android:textColor="@color/white"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toTopOf="parent" />
+
+           <ViewFlipper
+               android:layout_width="match_parent"
+               android:layout_height="200dp"
+               android:visibility="gone"
+               android:id="@+id/vfbanner"
+               android:layout_weight="1"
+               android:background="@drawable/connect"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toBottomOf="@id/imageViewtop"/>
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_margin="10dp"
+               android:text="Gợi ý việc làm phù hợp "
+               android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+               android:textSize="18sp"
+               android:textStyle="bold"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toBottomOf="@id/vfbanner" />
+
+           <ImageButton
+               android:id="@+id/btnAllJob"
+               android:layout_width="20dp"
+               android:layout_height="20dp"
+               android:layout_margin="10dp"
+               android:background="@drawable/right"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintTop_toBottomOf="@id/vfbanner"/>
+
+
+           <androidx.recyclerview.widget.RecyclerView
+               android:id="@+id/rc_job"
+               android:layout_width="match_parent"
+               android:layout_height="1600dp"
+               android:layout_margin="20dp"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toBottomOf="@id/btnAllJob" />
+
+
+
+       </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_marginTop="1850dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Công ty nổi bật"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/btnAllCompany"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/right"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rc_company"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:nestedScrollingEnabled="false"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnAllCompany"
+                app:spanCount="2" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</ScrollView>

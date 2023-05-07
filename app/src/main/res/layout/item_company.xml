@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="25dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="180dp"
+            android:layout_height="300dp">
+
+            <ImageView
+                android:id="@+id/image_company"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvNameCompany"
+                android:layout_width="170dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="20dp"
+                android:text="Name Company"
+                android:textAlignment="textStart"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/image_company" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="field"
+                android:textAlignment="textStart"
+                android:textSize="17sp"
+                android:id="@+id/tvField"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="25dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvNameCompany"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:id="@+id/tvInventory_job"
+                android:text="inventory_job"
+                android:textAlignment="textStart"
+                android:textSize="16sp"
+                android:background="@android:color/darker_gray"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="25dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvField"/>
+            <Button
+                android:id="@+id/btnSignup"
+                android:layout_width="130dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="5dp"
+                android:backgroundTint="@android:color/white"
+                android:text="Theo dõi"
+                android:textSize="16sp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="#4CAF50"
+                app:cornerRadius="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvInventory_job"
+                app:strokeColor="#4CAF50"
+                app:strokeWidth="2dp"
+                app:icon="@android:drawable/ic_input_add"
+                app:iconGravity="start"
+                app:iconSize="25dp"
+                app:iconTint="#4CAF50"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

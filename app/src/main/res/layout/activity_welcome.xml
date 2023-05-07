@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/welcomebg"
+    tools:context=".View.WelcomeActivity">
+    <ViewFlipper
+        android:id="@+id/viewFlipperMain"
+        android:layout_width="match_parent"
+        android:layout_height="360dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+    </ViewFlipper>
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="155dp"
+        android:layout_height="60dp"
+        android:text="Đăng nhập"
+        android:textSize="16sp"
+        android:backgroundTint="#4CAF50"
+        app:cornerRadius="30dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewFlipperMain"
+        android:layout_margin="25dp"/>
+
+    <Button
+        android:id="@+id/btnSignup"
+        android:layout_width="155dp"
+        android:layout_height="60dp"
+        android:layout_margin="25dp"
+        android:backgroundTint="@android:color/transparent"
+        android:text="Đăng kí"
+        android:textSize="16sp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="#4CAF50"
+        app:cornerRadius="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewFlipperMain"
+        app:strokeColor="#4CAF50"
+        app:strokeWidth="3dp" />
+    <Button
+        android:id="@+id/btnNoLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Trải nghiệm không cần đăng nhập"
+        android:textSize="16sp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="#4CAF50"
+        android:background="@android:color/transparent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="25dp"/>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

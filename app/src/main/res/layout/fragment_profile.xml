@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#E9E6E5"
+        tools:context=".Fragment.ProfileFragment">
+
+        <!-- TODO: Update blank fragment layout -->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:background="#E2F4E3"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="350dp"
+            android:layout_height="140dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/shapradius">
+            <ImageButton
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:id="@+id/imagePAvatar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="20dp"/>
+            <Button
+                android:id="@+id/btnPCamera"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:backgroundTint="@color/white"
+                app:cornerRadius="10dp"
+                app:icon="@drawable/rotate"
+                app:iconGravity="textTop"
+                app:iconSize="25dp"
+                app:iconTint="#4CAF50"
+                android:layout_marginTop="75dp"
+                android:layout_marginStart="67dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/tvPName"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginBottom="20dp"
+                android:text="Đoàn Quốc Bảo"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/imagePAvatar"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvPId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mã ứng viên: 6685964"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@id/imagePAvatar"
+                app:layout_constraintTop_toBottomOf="@id/tvPName"
+                android:layout_marginStart="15dp"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:layout_gravity="center|top"
+            android:layout_marginVertical="200dp"
+            android:background="@drawable/shape_constraint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:text="Kinh nghiệm làm việc"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btnPExperience"
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:background="@android:color/transparent"
+                android:text="Sửa"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="#4CAF50"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvPExperience"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="30dp"
+                android:background="#E4E1E1"
+                android:text=" Sắp đi làm "
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@drawable/shape_constraint"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginVertical="315dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:text="Công việc mong muốn"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:background="@android:color/transparent"
+                android:text="Sửa"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="#4CAF50"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvPProfession"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#E4E1E1"
+                android:text=" fresher intern java "
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_margin="30dp"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="420dp"
+            android:background="@drawable/shape_constraint">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:text="Địa điểm làm việc mong muốn "
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:background="@android:color/transparent"
+                android:text="Sửa"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="#4CAF50"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvPAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="30dp"
+                android:background="#E4E1E1"
+                android:text=" Hồ Chí Minh "
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="425dp"
+            android:background="@drawable/shape_constraint"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="525dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:text="Quản lí tìm việc "
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btnPJob"
+                android:layout_width="175dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="40dp"
+                android:backgroundTint="#E2F4E3"
+                android:text="Việc làm đã ứng tuyển "
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/job"
+                app:iconGravity="start"
+                app:iconSize="25dp"
+                app:iconTint="#4CAF50"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btnPTagJob"
+                android:layout_width="175dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="20dp"
+                android:backgroundTint="#E2F4E3"
+                android:text="Việc làm đã lưu "
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/untag"
+                app:iconGravity="start"
+                app:iconSize="25dp"
+                app:iconTint="#4CAF50"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btnPCompany"
+                android:layout_width="175dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#E2F4E3"
+                android:text="Việc làm phù hợp "
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/checked"
+                app:iconGravity="start"
+                app:iconSize="25dp"
+                app:iconTint="#4CAF50"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnPJob" />
+
+            <Button
+                android:id="@+id/btnPFollowCompany"
+                android:layout_width="175dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:backgroundTint="#E2F4E3"
+                android:text="Công ty đang theo dõi "
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/company"
+                app:iconGravity="start"
+                app:iconSize="25dp"
+                app:iconTint="#4CAF50"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnPTagJob" />
+
+            <Button
+                android:id="@+id/btnPCv"
+                android:layout_width="175dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#E2F4E3"
+                android:text="Cv của tôi "
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/cv"
+                app:iconGravity="start"
+                app:iconSize="25dp"
+                app:iconTint="#4CAF50"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnPCompany" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="#E4E1E1"
+                android:text="0"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/btnPJob"
+                app:layout_constraintEnd_toEndOf="@+id/btnPJob" />
+
+            <Button
+                android:id="@+id/btnPSetting"
+                android:layout_width="175dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:backgroundTint="#E2F4E3"
+                android:text="Cài đặt gợi ý việc làm "
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/settings"
+                app:iconGravity="start"
+                app:iconSize="25dp"
+                app:iconTint="#4CAF50"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnPFollowCompany" />
+
+            <ImageButton
+                android:layout_width="380dp"
+                android:layout_height="100dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/shapradius"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnPCv" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:background="@drawable/shape_constraint"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="450dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:text="Cài đặt tài khoản "
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btnPProfile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="40dp"
+                android:background="@android:color/transparent"
+                android:backgroundTint="#E2F4E3"
+                android:text="Hồ sơ "
+                android:textAlignment="textStart"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/cv"
+                app:iconGravity="start"
+                app:iconSize="25dp"
+                app:iconTint="#829183"
+                android:elevation="40dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <Button
+                android:id="@+id/btnPChangePassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:background="@android:color/transparent"
+                android:backgroundTint="#E2F4E3"
+                android:text="Đổi mật khẩu "
+                android:textAlignment="textStart"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/key"
+                app:iconGravity="start"
+                app:iconSize="25dp"
+                app:iconTint="#829183"
+                android:elevation="40dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnPProfile"/>
+            <Button
+                android:id="@+id/btnPAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:background="@android:color/transparent"
+                android:backgroundTint="#E2F4E3"
+                android:text="Địa chỉ của bạn "
+                android:textAlignment="textStart"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/address"
+                app:iconGravity="start"
+                app:iconSize="25dp"
+                app:iconTint="#829183"
+                android:elevation="40dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnPChangePassword"/>
+            <Button
+                android:id="@+id/btnPDeleteAccount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:background="@android:color/transparent"
+                android:backgroundTint="#E2F4E3"
+                android:text="Xóa tài khoản "
+                android:textAlignment="textStart"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/delete"
+                app:iconGravity="start"
+                app:iconSize="25dp"
+                app:iconTint="#829183"
+                android:elevation="40dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnPAddress"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:background="@drawable/shape_constraint"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="200dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:text="Chính sách và hỗ trợ "
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btnPTopcv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="40dp"
+                android:background="@android:color/transparent"
+                android:backgroundTint="#E2F4E3"
+                android:text="Giới thiệu về ứng dụng "
+                android:textAlignment="textStart"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/building"
+                app:iconGravity="start"
+                app:iconSize="25dp"
+                app:iconTint="#829183"
+                android:elevation="40dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <Button
+                android:id="@+id/btnPService"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:background="@android:color/transparent"
+                android:backgroundTint="#E2F4E3"
+                android:text="Điều khoản dịch vụ "
+                android:textAlignment="textStart"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/list"
+                app:iconGravity="start"
+                app:iconSize="25dp"
+                app:iconTint="#829183"
+                android:elevation="40dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnPTopcv"/>
+            <Button
+                android:id="@+id/btnPSecurity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:background="@android:color/transparent"
+                android:backgroundTint="#E2F4E3"
+                android:text="Chính sách bảo mật "
+                android:textAlignment="textStart"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/security"
+                app:iconGravity="start"
+                app:iconSize="25dp"
+                app:iconTint="#829183"
+                android:elevation="40dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnPService"/>
+            <Button
+                android:id="@+id/btnPHelp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:background="@android:color/transparent"
+                android:backgroundTint="#E2F4E3"
+                android:text="Trợ giúp "
+                android:textAlignment="textStart"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/call"
+                app:iconGravity="start"
+                app:iconSize="25dp"
+                app:iconTint="#829183"
+                android:elevation="40dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnPSecurity"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="160dp"
+            android:text="Phiên bản ứng dụng: 0.1 "
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:layout_marginTop="1470dp"
+            android:background="@android:color/transparent"/>
+
+        <Button
+            android:id="@+id/btnPLogout"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="100dp"
+            android:backgroundTint="@color/white"
+            android:elevation="40dp"
+            android:text="Đăng xuất"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:cornerRadius="15dp"
+            app:icon="@drawable/logout"
+            app:iconGravity="textEnd"
+            app:iconSize="25dp"
+            app:iconTint="#829183" />
+    </FrameLayout>
+</ScrollView>
