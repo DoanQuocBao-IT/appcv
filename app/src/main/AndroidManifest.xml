@@ -17,6 +17,69 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".View.CompanyDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.Edit.EditWorkActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.Edit.EditStudyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.Edit.EditGoalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.Edit.EditPrizeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.Edit.EditCvCertificateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.Edit.EditSkillActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.Edit.EditImageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.Edit.EditWebsiteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.Edit.EditIntroduceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.Edit.EditCertificateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.Edit.EditHobbyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.Edit.EditGenderActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.Edit.EditBirthdayActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.Edit.EditPhoneActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.Edit.EditEmailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.Edit.EditPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.Edit.EditNameActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.ProfileUserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.AddressActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.CreateCvActivity"
+            android:exported="false" />
+        <activity
             android:name=".View.SignupActivity"
             android:exported="false" />
         <activity

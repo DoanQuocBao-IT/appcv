@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".View.CompanyDetailActivity">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:background="@drawable/backgroundcompany"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            <ImageView
+                android:id="@+id/imageDCAvatar"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="20dp"/>
+
+            <TextView
+                android:id="@+id/tvDCName"
+                android:layout_width="300dp"
+                android:layout_height="46dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="Thông tin người dùng "
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/imageDCAvatar" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="165dp"
+            android:text="Giới thiệu"
+            android:layout_marginStart="20dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintInformation"
+            android:layout_width="390dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_constraint"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="200dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Giới thiệu"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_margin="10dp"/>
+            <TextView
+                android:id="@+id/tvDCInformation"
+                android:layout_width="370dp"
+                android:layout_height="wrap_content"
+                android:text="Thông tin người dùng ifndi nfienf infdujisf n fidsunf i  udsh fi dsnfi  idsuhnf i fei"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="30dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thành lập"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvDCInformation"
+                android:layout_marginStart="10dp"/>
+            <TextView
+                android:id="@+id/tvDCCreateAt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thông tin người dùng "
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvDCInformation"
+                android:layout_marginEnd="20dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text="Lĩnh vực"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginStart="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvDCInformation"
+                android:layout_marginTop="20dp"/>
+            <TextView
+                android:id="@+id/tvDCField"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thông tin người dùng "
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvDCCreateAt"
+                android:layout_marginEnd="20dp"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Địa chỉ"
+            android:layout_marginStart="20dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintInformation"/>
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/NSView1"
+            android:layout_width="match_parent"
+            android:layout_height="123dp"
+            android:layout_marginTop="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintInformation">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rc_DCAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="16dp" />
+        </androidx.core.widget.NestedScrollView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Liên hệ"
+            android:layout_marginStart="20dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/NSView1"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="390dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/constraintDcContact"
+            android:background="@drawable/shape_constraint"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="40dp"
+            app:layout_constraintTop_toBottomOf="@id/NSView1">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:text="Email"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/tvDCEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="nguyenvanc@gmail.com"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="10dp"
+                android:text="Số điện thoại"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvDCEmail"/>
+
+            <TextView
+                android:id="@+id/tvDCPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="0736452634"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvDCEmail"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="10dp"
+                android:text="Website"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvDCPhone"/>
+
+            <TextView
+                android:id="@+id/tvDCWebsite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="https://www.github.com/Doanquocbao_IT"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvDCPhone"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gợi ý việc làm phù hợp "
+            android:layout_marginStart="20dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/constraintDcContact" />
+
+        <ImageButton
+            android:id="@+id/btnAllJob"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/right"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/constraintDcContact"/>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rc_DCjob"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnAllJob" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@android:color/transparent"
+            android:text="Xem thêm nhiều việc hơn "
+            android:layout_marginStart="20dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rc_DCjob"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -52,12 +52,9 @@ public class LoginActivity extends AppCompatActivity {
                 call.enqueue(new Callback<JWTTokenDto>() {
                     @Override
                     public void onResponse(Call<JWTTokenDto> call, Response<JWTTokenDto> response) {
-                        Log.d("JWTTTT",response.body().toString());
-
                         if (response.isSuccessful()){
                             String jwtToken = response.body().getJwtToken();
                             SharedPrefManager.getInstance(getApplicationContext()).saveJwtToken(jwtToken);
-                            Toast.makeText(LoginActivity.this,"Dang nhap thanh cong voi nguoi dung " + jwtToken,Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(intent);
                             finish();

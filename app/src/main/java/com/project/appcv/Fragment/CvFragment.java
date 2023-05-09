@@ -1,13 +1,16 @@
 package com.project.appcv.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,6 +21,14 @@ import com.project.appcv.Model.Cv;
 import com.project.appcv.R;
 import com.project.appcv.RetrofitClient;
 import com.project.appcv.SharedPrefManager;
+import com.project.appcv.View.CreateCvActivity;
+import com.project.appcv.View.Edit.EditCertificateActivity;
+import com.project.appcv.View.Edit.EditGoalActivity;
+import com.project.appcv.View.Edit.EditPrizeActivity;
+import com.project.appcv.View.Edit.EditSkillActivity;
+import com.project.appcv.View.Edit.EditStudyActivity;
+import com.project.appcv.View.Edit.EditWorkActivity;
+import com.project.appcv.View.LoginActivity;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -42,7 +53,8 @@ public class CvFragment extends Fragment {
     TextView textViewBirthday,textViewGender,textViewPhone,textViewEmail,textViewWebsite,
     textViewAddress, textViewIntroduce,textViewStudy,textViewExperienceWork,
     textViewSkill,textViewPrize, textViewCertificate,textViewName,textViewPosition;
-    ImageView imageViewAvatar;
+    ImageView imageViewAvatar,btnEditSkill, btnEditPrize, btnEditCertificate, btnEditStudy,btnEditWork, btnEditGoal;
+    Button btnAddCv;
     APIService apiService;
     public CvFragment() {
         // Required empty public constructor
@@ -95,9 +107,69 @@ public class CvFragment extends Fragment {
         imageViewAvatar=view.findViewById(R.id.imageCvAvatar);
         textViewName=view.findViewById(R.id.tvCvName);
         textViewPosition=view.findViewById(R.id.tvCvPosition);
+
+        btnEditGoal=view.findViewById(R.id.btnCCVGoal);
+        btnEditStudy=view.findViewById(R.id.btnCCVStudy);
+        btnEditWork=view.findViewById(R.id.btnCCVWork);
+        btnEditSkill=view.findViewById(R.id.btnCCvSkill);
+        btnEditPrize=view.findViewById(R.id.btnCCVPrize);
+        btnEditCertificate=view.findViewById(R.id.btnCCVCertificate);
+
         constraintLayoutNoCv=view.findViewById(R.id.constraintNoCv);
         constraintLayoutPageCv=view.findViewById(R.id.constraintPageCv);
+
+        btnAddCv=view.findViewById(R.id.btnCvAddCV);
+        btnAddCv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent(getActivity(), CreateCvActivity.class);
+                startActivity(intent);
+            }
+        });
         GetCv();
+        btnEditGoal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getContext(), EditGoalActivity.class);
+                startActivity(intent);
+            }
+        });
+        btnEditStudy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getContext(), EditStudyActivity.class);
+                startActivity(intent);
+            }
+        });
+        btnEditWork.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getContext(), EditWorkActivity.class);
+                startActivity(intent);
+            }
+        });
+        btnEditSkill.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getContext(), EditSkillActivity.class);
+                startActivity(intent);
+            }
+        });
+        btnEditPrize.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getContext(), EditPrizeActivity.class);
+                startActivity(intent);
+            }
+        });
+        btnEditCertificate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getContext(), EditCertificateActivity.class);
+                startActivity(intent);
+            }
+        });
+
         return view;
     }
     private void GetCv(){
@@ -119,18 +191,23 @@ public class CvFragment extends Fragment {
                     textViewWebsite.setText(cv.getCandidates().getCandidate().getWebsite());
                     textViewAddress.setText(cv.getAddress().getCity());
                     textViewIntroduce.setText(cv.getCandidates().getIntroduce());
-
-                    textViewExperienceWork.setText(cv.getExperience());
+                    textViewStudy.setText(cv.getStudy());
+                    textViewExperienceWork.setText(cv.getWork());
+                    textViewSkill.setText(cv.getSkill());
+                    textViewPrize.setText(cv.getPrize());
+                    textViewCertificate.setText(cv.getCertificate());
 
                     Glide.with(getContext()).load(cv.getCandidates().getCandidate().getImage()).into(imageViewAvatar);
+
                 } else {
-                    constraintLayoutNoCv.setVisibility(View.VISIBLE);
-                    constraintLayoutPageCv.setVisibility(View.GONE);
+
                 }
             }
 
             @Override
             public void onFailure(Call<Cv> call, Throwable t) {
+                constraintLayoutNoCv.setVisibility(View.VISIBLE);
+                constraintLayoutPageCv.setVisibility(View.GONE);
 
             }
         });

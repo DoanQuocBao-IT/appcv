@@ -11,7 +11,12 @@ public class CompanyDto  implements Serializable {
     private String fname;
     @SerializedName("image")
     private String image;
-
+    @SerializedName("email")
+    private String email;
+    @SerializedName("phone")
+    private String phone;
+    @SerializedName("website")
+    private String website;
 
     public int getId() {
         return id;
@@ -37,4 +42,27 @@ public class CompanyDto  implements Serializable {
         this.image = image;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
+    }
 }

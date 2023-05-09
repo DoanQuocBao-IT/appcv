@@ -1,16 +1,27 @@
 package com.project.appcv.DTO;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-public class AddressWorkDto implements Serializable {
+public class AddressWorkDto implements Serializable{
     @SerializedName("id")
     private int id;
     @SerializedName("city")
     private String city;
     @SerializedName("address")
     private String address;
+
+    protected AddressWorkDto(Parcel in) {
+        id = in.readInt();
+        city = in.readString();
+        address = in.readString();
+    }
 
     public int getId() {
         return id;
@@ -35,4 +46,5 @@ public class AddressWorkDto implements Serializable {
     public void setCity(String city) {
         this.city = city;
     }
+
 }

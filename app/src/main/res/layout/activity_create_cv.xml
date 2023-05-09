@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View.CreateCvActivity">
+    <EditText
+        android:id="@+id/editTextCCvGoals"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Thêm mục tiêu công việc của bạn "
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextCCvStudy"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Thêm học vấn của bạn "
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCCvGoals" />
+
+    <EditText
+        android:id="@+id/editTextCCvWork"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Thêm kinh nghiẹm làm việc của bạn "
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextCCvStudy" />
+
+    <EditText
+        android:id="@+id/editTextCCvSkill"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Thêm kĩ năng của bạn "
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCCvWork" />
+    <EditText
+        android:id="@+id/editTextCCvPrize"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Thêm giải thưởng của bạn "
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCCvSkill" />
+    <EditText
+        android:id="@+id/editTextCCvCertificate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Thêm các chứng chỉ của bạn "
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCCvPrize" />
+    <EditText
+        android:id="@+id/editTextCCvProfession"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Thêm các chuyên ngành của bạn "
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCCvCertificate" />
+    <EditText
+        android:id="@+id/editTextCCvPosition"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Thêm vị trí bạn muốn ứng tuyển"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCCvProfession" />
+    <EditText
+        android:id="@+id/editTextCCvExperience"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Thêm năm kinh nghiệm của bạn "
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCCvPosition" />
+    <Button
+        android:id="@+id/btnCCvAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Thêm dia chỉ làm việc mong muốn của bạn "
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextCCvExperience"/>
+
+    <Button
+        android:id="@+id/btnCCvAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvCCvAddress"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCCvAddress"/>
+    <TextView
+        android:id="@+id/textViewError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/holo_red_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/buttonCCvAdd" />
+</androidx.constraintlayout.widget.ConstraintLayout>

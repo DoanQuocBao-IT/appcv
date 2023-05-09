@@ -1,5 +1,6 @@
 package com.project.appcv.Adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.project.appcv.Model.Company;
 import com.project.appcv.R;
+import com.project.appcv.View.CompanyDetailActivity;
 
 import java.util.List;
 
@@ -54,7 +56,10 @@ public class CompanyAdapter extends RecyclerView.Adapter<CompanyAdapter.MyViewHo
             @Override
             public void onClick(View v) {
                 Toast.makeText(context.getContext(),"Bạn đã chọn cong ty"+holder.fname.getText().toString(), Toast.LENGTH_SHORT).show();
-
+                Intent intent = new Intent(context.getContext(), CompanyDetailActivity.class);
+                String company_id=String.valueOf(company.getId());
+                intent.putExtra("company_id", company_id);
+                context.startActivity(intent);
             }
         });
         holder.field.setText(company.getField());

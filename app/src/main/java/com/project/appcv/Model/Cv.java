@@ -10,6 +10,19 @@ public class Cv implements Serializable {
     private int city;
     @SerializedName("candidates")
     private ProfileCandidate candidates;
+
+    @SerializedName("goals")
+    private String goals;
+    @SerializedName("study")
+    private String study;
+    @SerializedName("work")
+    private String work;
+    @SerializedName("skill")
+    private String skill;
+    @SerializedName("prize")
+    private String prize;
+    @SerializedName("certificate")
+    private String certificate;
     @SerializedName("profession")
     private String profession;
     @SerializedName("position")
@@ -33,6 +46,54 @@ public class Cv implements Serializable {
 
     public void setCandidates(ProfileCandidate candidates) {
         this.candidates = candidates;
+    }
+
+    public String getGoals() {
+        return goals;
+    }
+
+    public void setGoals(String goals) {
+        this.goals = goals;
+    }
+
+    public String getStudy() {
+        return study;
+    }
+
+    public void setStudy(String study) {
+        this.study = study;
+    }
+
+    public String getWork() {
+        return work;
+    }
+
+    public void setWork(String work) {
+        this.work = work;
+    }
+
+    public String getSkill() {
+        return skill;
+    }
+
+    public void setSkill(String skill) {
+        this.skill = skill;
+    }
+
+    public String getPrize() {
+        return prize;
+    }
+
+    public void setPrize(String prize) {
+        this.prize = prize;
+    }
+
+    public String getCertificate() {
+        return certificate;
+    }
+
+    public void setCertificate(String certificate) {
+        this.certificate = certificate;
     }
 
     public String getProfession() {

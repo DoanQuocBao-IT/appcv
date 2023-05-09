@@ -8,6 +8,8 @@ import java.io.Serializable;
 public class ProfileUser implements Serializable {
     @SerializedName("id")
     private int id;
+    @SerializedName("username")
+    private String username;
     @SerializedName("fname")
     private String fname;
     @SerializedName("image")
@@ -23,6 +25,14 @@ public class ProfileUser implements Serializable {
 
     public int getId() {
         return id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public void setId(int id) {

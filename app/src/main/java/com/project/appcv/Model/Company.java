@@ -12,8 +12,12 @@ public class Company  implements Serializable {
     private CompanyDto company;
     @SerializedName("field")
     private String field;
+    @SerializedName("information")
+    private String information;
     @SerializedName("inventoryJob")
     private int inventoryJob;
+    @SerializedName("formattedDate")
+    private String formattedDate;
 
     public int getId() {
         return id;
@@ -45,5 +49,21 @@ public class Company  implements Serializable {
 
     public void setInventoryJob(int inventoryJob) {
         this.inventoryJob = inventoryJob;
+    }
+
+    public String getInformation() {
+        return information;
+    }
+
+    public void setInformation(String information) {
+        this.information = information;
+    }
+
+    public String getFormattedDate() {
+        return formattedDate;
+    }
+
+    public void setFormattedDate(String formattedDate) {
+        this.formattedDate = formattedDate;
     }
 }

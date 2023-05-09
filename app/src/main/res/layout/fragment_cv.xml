@@ -18,7 +18,7 @@
             android:text="Quản lí CV"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textSize="26sp"
             android:textStyle="bold"/>
 
         <!-- TODO: Update blank fragment layout -->
@@ -30,7 +30,7 @@
             android:visibility="gone"
             android:layout_marginTop="30dp">
             <ImageButton
-                android:layout_width="330dp"
+                android:layout_width="360dp"
                 android:layout_height="200dp"
                 android:id="@+id/vfCV"
                 android:background="@drawable/banner"
@@ -40,11 +40,11 @@
                 android:layout_margin="10dp"></ImageButton>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="330dp"
+                android:layout_width="360dp"
                 android:layout_height="200dp"
                 android:id="@+id/constraintCV"
                 android:layout_margin="10dp"
-                android:background="@drawable/shape_constraint"
+                android:background="@drawable/shape_cv_constraint"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/vfCV">
@@ -82,7 +82,7 @@
                     app:layout_constraintTop_toTopOf="parent"/>
 
                 <Button
-                    android:id="@+id/btnAddCV"
+                    android:id="@+id/btnCvAddCV"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
@@ -100,11 +100,11 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="330dp"
+                android:layout_width="360dp"
                 android:layout_height="200dp"
                 android:layout_margin="10dp"
                 android:id="@+id/constraintUpload"
-                android:background="@drawable/shape_constraint"
+                android:background="@drawable/shape_cv_constraint"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/constraintCV">
@@ -141,7 +141,7 @@
                     app:layout_constraintTop_toTopOf="parent"/>
 
                 <Button
-                    android:id="@+id/btnAddUpload"
+                    android:id="@+id/btnCvAddUpload"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
@@ -158,11 +158,11 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="330dp"
+                android:layout_width="360dp"
                 android:layout_height="200dp"
                 android:layout_margin="10dp"
                 android:id="@+id/constraintProfile"
-                android:background="@drawable/shape_constraint"
+                android:background="@drawable/shape_cv_constraint"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/constraintUpload">
@@ -199,7 +199,7 @@
                     app:layout_constraintTop_toTopOf="parent"/>
 
                 <Button
-                    android:id="@+id/btnAddProfile"
+                    android:id="@+id/btnCvAddProfile"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
@@ -244,7 +244,7 @@
                     android:id="@+id/tvCvName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Đoàn Quốc Bảo"
+                    android:text=""
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                     android:textColor="@color/black"
                     android:textSize="26dp"
@@ -258,7 +258,7 @@
                     android:id="@+id/tvCvPosition"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Fresher Java Android"
+                    android:text=""
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                     android:textColor="@color/black"
                     android:textSize="16dp"
@@ -280,7 +280,7 @@
                     android:id="@+id/tvCvBirthday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="03/07/2002"
+                    android:text=""
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                     android:textColor="@color/black"
                     android:textSize="12dp"
@@ -292,6 +292,7 @@
                     android:layout_width="18dp"
                     android:layout_height="18dp"
                     android:src="@drawable/birthday"
+                    android:backgroundTint="#03A9F4"
                     android:layout_marginStart="10dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/tvCvBirthday"/>
@@ -299,12 +300,12 @@
                     android:id="@+id/tvCvGender"
                     android:layout_width="155dp"
                     android:layout_height="wrap_content"
-                    android:text="Nam"
+                    android:text=""
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                     android:textColor="@color/black"
                     android:textSize="11dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvCvBirthday"
+                    app:layout_constraintTop_toBottomOf="@id/tvCvPhone"
                     android:layout_marginTop="10dp"/>
                 <ImageView
                     android:layout_width="18dp"
@@ -317,13 +318,13 @@
                     android:id="@+id/tvCvPhone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0356524155"
+                    android:text=""
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                     android:textColor="@color/black"
                     android:textSize="12dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvCvGender"
+                    app:layout_constraintTop_toBottomOf="@id/tvCvBirthday"
                     android:layout_marginTop="10dp"/>
                 <ImageView
                     android:layout_width="18dp"
@@ -336,12 +337,12 @@
                     android:id="@+id/tvCvEmail"
                     android:layout_width="155dp"
                     android:layout_height="wrap_content"
-                    android:text="doanquocbao4117@gmail.com"
+                    android:text=""
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                     android:textColor="@color/black"
                     android:textSize="11dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvCvPhone"
+                    app:layout_constraintTop_toBottomOf="@id/tvCvGender"
                     android:layout_marginTop="10dp"/>
                 <ImageView
                     android:layout_width="18dp"
@@ -354,7 +355,7 @@
                     android:id="@+id/tvCvWebsite"
                     android:layout_width="155dp"
                     android:layout_height="wrap_content"
-                    android:text="https://github.com/DoanQuocBao-IT"
+                    android:text=""
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                     android:textColor="@color/black"
                     android:textSize="11dp"
@@ -372,7 +373,7 @@
                     android:id="@+id/tvCvAddress"
                     android:layout_width="155dp"
                     android:layout_height="wrap_content"
-                    android:text="278 Nguyễn Bá Luật, Bình Thọ, Thủ Đức, Hồ Chí Minh  "
+                    android:text=""
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                     android:textColor="@color/black"
                     android:textSize="11dp"
@@ -393,7 +394,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/constraintCvSkill"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="35dp"
+                android:layout_marginTop="45dp"
                 android:background="@drawable/shape_cv_constraint"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/constraintCvContact">
@@ -401,7 +402,7 @@
                     android:id="@+id/tvCvSkill"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Khả năng đọc hiểu tiếng anh cơ bản "
+                    android:text=""
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                     android:textColor="@color/black"
                     android:textSize="12dp"
@@ -418,7 +419,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/constraintCvPrize"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="35dp"
+                android:layout_marginTop="45dp"
                 android:background="@drawable/shape_cv_constraint"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/constraintCvSkill">
@@ -426,7 +427,7 @@
                     android:id="@+id/tvCvPrize"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Công ty xuất sắc nhất năm TopCV"
+                    android:text=""
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                     android:textColor="@color/black"
                     android:textSize="12dp"
@@ -443,7 +444,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/constraintCvCertificate"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="35dp"
+                android:layout_marginTop="45dp"
                 android:background="@drawable/shape_cv_constraint"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/constraintCvPrize">
@@ -451,7 +452,7 @@
                     android:id="@+id/tvCvCertificate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Khả năng đọc hiểu tiếng anh cơ bản "
+                    android:text=""
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                     android:textColor="@color/black"
                     android:textSize="12dp"
@@ -476,7 +477,7 @@
                     android:id="@+id/tvCvIntroduce"
                     android:layout_width="165dp"
                     android:layout_height="90dp"
-                    android:text="Áp dụng những kinh nghiệm về kĩ năng bán hàng và sự hiểu biết về thị trường để trở thành một nhân viên bán hàng chuyển nghiệp "
+                    android:text=""
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                     android:textColor="@color/black"
                     android:textSize="11dp"
@@ -486,10 +487,10 @@
                     app:layout_constraintTop_toTopOf="parent"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="80dp"
-                android:layout_height="40dp"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
                 android:id="@+id/constraintCvHeaderStudy"
-                android:background="@drawable/shape_cv_constraint"
+                android:background="@drawable/shape_constraint_header"
                 android:layout_margin="15dp"
                 app:layout_constraintStart_toEndOf="@+id/constraintCvContact"
                 app:layout_constraintTop_toBottomOf="@+id/constraintCvGoals">
@@ -504,6 +505,16 @@
                     app:layout_constraintTop_toTopOf="parent"
                     android:layout_marginTop="5dp"
                     android:layout_marginStart="10dp"/>
+                <ImageButton
+                    android:id="@+id/btnCCVStudy"
+                    android:layout_width="17dp"
+                    android:layout_height="17dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/pen"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="240dp"
@@ -533,7 +544,7 @@
                     android:id="@+id/tvCvStudy"
                     android:layout_width="180dp"
                     android:layout_height="wrap_content"
-                    android:text="Đại học Sư phạm Kĩ Thuật Thành phố Hồ Chí Minh | 2020-2024"
+                    android:text=""
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                     android:textColor="@color/black"
                     android:textSize="11dp"
@@ -545,10 +556,10 @@
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
+                android:layout_width="190dp"
+                android:layout_height="30dp"
                 android:id="@+id/constraintCvHeaderExperience"
-                android:background="@drawable/shape_cv_constraint"
+                android:background="@drawable/shape_constraint_header"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
                 app:layout_constraintStart_toEndOf="@+id/constraintCvContact"
@@ -564,10 +575,20 @@
                     app:layout_constraintTop_toTopOf="parent"
                     android:layout_marginTop="5dp"
                     android:layout_marginStart="10dp"/>
+                <ImageButton
+                    android:id="@+id/btnCCVWork"
+                    android:layout_width="17dp"
+                    android:layout_height="17dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/pen"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="240dp"
-                android:layout_height="90dp"
+                android:layout_height="190dp"
                 android:id="@+id/constraintCvExperience"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="10dp"
@@ -583,6 +604,7 @@
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         android:layout_marginStart="5dp"
                         android:layout_marginTop="5dp"
@@ -593,7 +615,7 @@
                     android:id="@+id/tvCvExperienceWork"
                     android:layout_width="180dp"
                     android:layout_height="wrap_content"
-                    android:text="Công ty TNHH TopCv | 2020-2021"
+                    android:text=""
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                     android:textColor="@color/black"
                     android:textSize="11dp"
@@ -602,6 +624,117 @@
                     android:layout_marginTop="10dp"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/shape_constraint_header"
+                app:layout_constraintBottom_toTopOf="@+id/constraintCvSkill"
+                app:layout_constraintEnd_toEndOf="@id/constraintCvSkill"
+                app:layout_constraintHorizontal_bias="0.492"
+                app:layout_constraintStart_toStartOf="@id/constraintCvSkill">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="  Kĩ năng  "
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"/>
+                <ImageButton
+                    android:id="@+id/btnCCvSkill"
+                    android:layout_width="17dp"
+                    android:layout_height="17dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/pen"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/shape_constraint_header"
+                app:layout_constraintBottom_toTopOf="@+id/constraintCvPrize"
+                app:layout_constraintEnd_toEndOf="@id/constraintCvPrize"
+                app:layout_constraintStart_toStartOf="@id/constraintCvPrize">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="  Giải thưởng  "
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"/>
+                <ImageButton
+                    android:id="@+id/btnCCVPrize"
+                    android:layout_width="17dp"
+                    android:layout_height="17dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/pen"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/shape_constraint_header"
+                app:layout_constraintBottom_toTopOf="@+id/constraintCvCertificate"
+                app:layout_constraintEnd_toEndOf="@id/constraintCvCertificate"
+                app:layout_constraintStart_toStartOf="@id/constraintCvCertificate">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="  Chứng chỉ  "
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"/>
+                <ImageButton
+                    android:id="@+id/btnCCVCertificate"
+                    android:layout_width="17dp"
+                    android:layout_height="17dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/pen"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/shape_constraint_header"
+                app:layout_constraintBottom_toTopOf="@+id/constraintCvGoals"
+                app:layout_constraintEnd_toEndOf="@id/constraintCvGoals"
+                app:layout_constraintStart_toStartOf="@id/constraintCvGoals">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="  Mục tiêu  "
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"/>
+                <ImageButton
+                    android:id="@+id/btnCCVGoal"
+                    android:layout_width="17dp"
+                    android:layout_height="17dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/pen"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/shape_constraint_header"
+                app:layout_constraintBottom_toTopOf="@+id/constraintCvContact"
+                app:layout_constraintEnd_toEndOf="@id/constraintCvContact"
+                app:layout_constraintStart_toStartOf="@id/constraintCvContact">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="  Thông tin  "
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"/>
+            </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </FrameLayout>
 </ScrollView>

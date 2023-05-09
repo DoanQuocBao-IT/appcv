@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#E9E6E5"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".View.ProfileUserActivity">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:text="Thông tin người dùng "
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="350dp"
+            android:layout_height="110dp"
+            android:layout_marginTop="50dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/shapradius">
+            <ImageButton
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:id="@+id/imagePUAvatar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="20dp"/>
+            <Button
+                android:id="@+id/btnPUCamera"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:backgroundTint="@color/white"
+                app:cornerRadius="10dp"
+                app:icon="@drawable/rotate"
+                app:iconGravity="textTop"
+                app:iconSize="25dp"
+                app:iconTint="@color/black"
+                android:layout_marginTop="70dp"
+                android:layout_marginStart="67dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/tvPUName"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginBottom="20dp"
+                android:text="Đoàn Quốc Bảo"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/imagePUAvatar"
+                app:layout_constraintTop_toTopOf="parent" />
+            <ImageButton
+                android:id="@+id/btnPUName"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/pen"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvPUName"/>
+
+            <TextView
+                android:id="@+id/tvPUId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mã ứng viên: 6685964"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@id/imagePUAvatar"
+                app:layout_constraintTop_toBottomOf="@id/tvPUName"
+                android:layout_marginStart="15dp"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="160dp"
+            android:text="Thông tin tài khoản "
+            android:layout_marginStart="20dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="390dp"
+            android:layout_height="200dp"
+            android:id="@+id/constraintPUAccount"
+            android:background="@drawable/shape_constraint"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="190dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:text="Tên đăng nhập "
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+            <ImageButton
+                android:id="@+id/btnPUUsername"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/right"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+            <TextView
+                android:id="@+id/tvPUUsername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Nguyenvanc"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@id/btnPUUsername"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="10dp"
+                android:text="Mật khẩu"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnPUUsername"/>
+            <ImageButton
+                android:id="@+id/btnPUPassword"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/right"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnPUUsername"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="*******"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@id/btnPUPassword"
+                app:layout_constraintTop_toBottomOf="@id/btnPUUsername"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="10dp"
+                android:text="Email"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnPUPassword"/>
+            <ImageButton
+                android:id="@+id/btnPUEmail"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/right"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnPUPassword"/>
+            <TextView
+                android:id="@+id/tvPUEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="nguyenvanc@gmail.com"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@id/btnPUEmail"
+                app:layout_constraintTop_toBottomOf="@id/btnPUPassword"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="10dp"
+                android:text="Số điện thoại"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnPUEmail"/>
+            <ImageButton
+                android:id="@+id/btnPUPhone"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/right"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnPUEmail"/>
+            <TextView
+                android:id="@+id/tvPUPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="0736452634"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@id/btnPUPhone"
+                app:layout_constraintTop_toBottomOf="@id/btnPUEmail"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="10dp"
+                android:text="Website"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnPUPhone"/>
+            <ImageButton
+                android:id="@+id/btnPUWebsite"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/right"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnPUPhone"/>
+            <TextView
+                android:id="@+id/tvPUWebsite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="https://www.github.com/Doanquocbao_IT"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@id/btnPUWebsite"
+                app:layout_constraintTop_toBottomOf="@id/btnPUPhone"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tvPUInforCandidate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Thông tin ứng viên"
+            android:layout_marginStart="20dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintPUAccount"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintPUAccountCandidate"
+            android:layout_width="390dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="179dp"
+            android:background="@drawable/shape_constraint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvPUInforCandidate">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Ngày sinh "
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/btnPUBirthday"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/right"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvPUBirthday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="19/07/2001"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@id/btnPUBirthday"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:text="Giới tính"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnPUBirthday" />
+
+            <ImageButton
+                android:id="@+id/btnPUGender"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/right"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnPUBirthday" />
+
+            <TextView
+                android:id="@+id/tvPUGender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Nam"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@id/btnPUGender"
+                app:layout_constraintTop_toBottomOf="@id/btnPUBirthday" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:text="Sở thích "
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnPUGender" />
+
+            <ImageButton
+                android:id="@+id/btnPUHobby"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/right"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnPUGender" />
+
+            <TextView
+                android:id="@+id/tvPUHobby"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="sport,music,eat"
+                android:textAlignment="textEnd"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@id/btnPUHobby"
+                app:layout_constraintTop_toBottomOf="@id/btnPUGender" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:text="Chứng chỉ"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnPUHobby" />
+
+            <ImageButton
+                android:id="@+id/btnPUCertificate"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/right"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnPUHobby" />
+
+            <TextView
+                android:id="@+id/tvPUCertificate"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Toeic 700"
+                android:textAlignment="textEnd"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@id/btnPUCertificate"
+                app:layout_constraintTop_toBottomOf="@id/btnPUHobby" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:text="Giới thiệu"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnPUCertificate" />
+
+            <ImageButton
+                android:id="@+id/btnPUIntroduce"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/right"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnPUCertificate" />
+
+            <TextView
+                android:id="@+id/tvPUIntroduce"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="https://www.github.com/Doanquocbao_IT juidfs  kds djsid djsid djsidjs dsijdisdj9is ijdsi smdims disd jdsi sdjdw8udhn dasnijd wd9asdn dwj dan9d sdj8w adw9aj"
+                android:textAlignment="textEnd"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@id/btnPUIntroduce"
+                app:layout_constraintTop_toBottomOf="@id/btnPUCertificate" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/btnPULogout"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/white"
+            android:elevation="40dp"
+            android:text="Đăng xuất"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:cornerRadius="15dp"
+            app:icon="@drawable/logout"
+            app:iconGravity="textEnd"
+            app:iconSize="25dp"
+            app:iconTint="#829183"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/constraintPUAccountCandidate"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

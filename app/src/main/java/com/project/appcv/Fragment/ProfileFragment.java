@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +21,9 @@ import com.project.appcv.DTO.UserPref;
 import com.project.appcv.R;
 import com.project.appcv.RetrofitClient;
 import com.project.appcv.SharedPrefManager;
+import com.project.appcv.View.AddressActivity;
 import com.project.appcv.View.LoginActivity;
+import com.project.appcv.View.ProfileUserActivity;
 import com.project.appcv.View.WelcomeActivity;
 
 import retrofit2.Call;
@@ -42,7 +46,7 @@ public class ProfileFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    Button btnLogout;
+    Button btnLogout,btnPAddress,btnPProfile, btnPCv;
     ImageButton imageButtonAvatar;
     TextView textViewName, textViewID, textViewExperience, textViewProfession,textViewAddress;
     APIService apiService;
@@ -83,6 +87,7 @@ public class ProfileFragment extends Fragment {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_profile, container, false);
         btnLogout=view.findViewById(R.id.btnPLogout);
+        btnPProfile=view.findViewById(R.id.btnPProfile);
         imageButtonAvatar=view.findViewById(R.id.imagePAvatar);
         textViewName=view.findViewById(R.id.tvPName);
         textViewID=view.findViewById(R.id.tvPId);
@@ -98,6 +103,39 @@ public class ProfileFragment extends Fragment {
                 // Chuyển người dùng đến màn hình đăng nhập
                 Intent intent = new Intent(getActivity(), WelcomeActivity.class);
                 startActivity(intent);
+            }
+        });
+        btnPAddress=view.findViewById(R.id.btnPAddress);
+        btnPAddress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getContext(), AddressActivity.class);
+                startActivity(intent);
+            }
+        });
+        imageButtonAvatar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getContext(), AddressActivity.class);
+                startActivity(intent);
+            }
+        });
+        btnPProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getContext(), ProfileUserActivity.class);
+                startActivity(intent);
+            }
+        });
+        btnPCv=view.findViewById(R.id.btnPCv);
+        btnPCv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.frame_container, new CvFragment());
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             }
         });
         return  view;
