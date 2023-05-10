@@ -1,15 +1,14 @@
 package com.project.appcv.Adapter;
 
+import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -19,16 +18,16 @@ import com.project.appcv.View.CompanyDetailActivity;
 
 import java.util.List;
 
-public class CompanyAdapter extends RecyclerView.Adapter<CompanyAdapter.MyViewHolder> {
+public class CompanyCTAdapter extends RecyclerView.Adapter<CompanyCTAdapter.MyViewHolder> {
     List<Company> companyList;
-    Fragment context;
+    Context context;
 
-    public CompanyAdapter(List<Company> companyList, Fragment context) {
+    public CompanyCTAdapter(List<Company> companyList, Context context) {
         this.companyList = companyList;
         this.context = context;
     }
 
-    public CompanyAdapter(List<Company> companyList) {
+    public CompanyCTAdapter(List<Company> companyList) {
         this.companyList = companyList;
     }
 
@@ -46,7 +45,7 @@ public class CompanyAdapter extends RecyclerView.Adapter<CompanyAdapter.MyViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CompanyAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CompanyCTAdapter.MyViewHolder holder, int position) {
         Company company =companyList.get(position);
         holder.fname.setText(company.getCompany().getFname());
         Glide.with(context)
@@ -55,7 +54,7 @@ public class CompanyAdapter extends RecyclerView.Adapter<CompanyAdapter.MyViewHo
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context.getContext(), CompanyDetailActivity.class);
+                Intent intent = new Intent(context, CompanyDetailActivity.class);
                 String company_id=String.valueOf(company.getId());
                 intent.putExtra("company_id", company_id);
                 context.startActivity(intent);

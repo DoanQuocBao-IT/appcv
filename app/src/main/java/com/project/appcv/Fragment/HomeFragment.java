@@ -27,6 +27,8 @@ import com.project.appcv.Model.Job;
 import com.project.appcv.R;
 import com.project.appcv.RetrofitClient;
 import com.project.appcv.SharedPrefManager;
+import com.project.appcv.View.CompanyActivity;
+import com.project.appcv.View.JobActivity;
 import com.project.appcv.View.LoginActivity;
 
 import java.util.List;
@@ -57,7 +59,7 @@ public class HomeFragment extends Fragment {
     APIService apiService;
     CompanyAdapter companyAdapter;
     JobAdapter jobAdapter;
-    ImageButton imageHAvatar;
+    ImageButton imageHAvatar,btnAllCompany,btnAllJob;
     TextView tvHHello;
     public HomeFragment() {
         // Required empty public constructor
@@ -98,6 +100,22 @@ public class HomeFragment extends Fragment {
         imageHAvatar=view.findViewById(R.id.imageHAvatar);
         tvHHello=view.findViewById(R.id.tvHHello);
         btnLogin=view.findViewById(R.id.btnHLogin);
+        btnAllCompany=view.findViewById(R.id.btnAllCompany);
+        btnAllCompany.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getContext(), CompanyActivity.class);
+                startActivity(intent);
+            }
+        });
+        btnAllJob=view.findViewById(R.id.btnAllJob);
+        btnAllJob.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getContext(), JobActivity.class);
+                startActivity(intent);
+            }
+        });
         // Kiểm tra nếu người dùng đã đăng nhập
         if (SharedPrefManager.getInstance(getContext()).isLoggedIn()) {
             btnLogin.setVisibility(View.GONE);
@@ -125,13 +143,11 @@ public class HomeFragment extends Fragment {
     }
     private void GetCompany(){
         apiService= RetrofitClient.getRetrofit().create(APIService.class);
-        apiService.getCompanyAll().enqueue(new Callback<List<Company>>() {
+        apiService.getTop6CompanyAll().enqueue(new Callback<List<Company>>() {
             @Override
             public void onResponse(Call<List<Company>> call, Response<List<Company>> response) {
                 if (response.isSuccessful()) {
                     companyList = response.body();
-                    Log.d("Kiemtr", response.toString());
-
                     companyAdapter = new CompanyAdapter(companyList, HomeFragment.this);
                     rcCompany.setHasFixedSize(true);
                     GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
@@ -149,13 +165,11 @@ public class HomeFragment extends Fragment {
     }
     private void GetJob(){
         apiService= RetrofitClient.getRetrofit().create(APIService.class);
-        apiService.getJobAll().enqueue(new Callback<List<Job>>() {
+        apiService.getTop6JobAll().enqueue(new Callback<List<Job>>() {
             @Override
             public void onResponse(Call<List<Job>> call, Response<List<Job>> response) {
                 if (response.isSuccessful()) {
                     jobList = response.body();
-                    Log.d("KiemtrJob", response.toString());
-
                     jobAdapter = new JobAdapter(jobList, HomeFragment.this);
                     rcJob.setHasFixedSize(true);
                     RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false);

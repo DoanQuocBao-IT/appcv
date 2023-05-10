@@ -102,7 +102,7 @@
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvDCInformation"
-                android:layout_marginEnd="20dp"/>
+                android:layout_marginEnd="120dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
@@ -125,7 +125,7 @@
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvDCCreateAt"
-                android:layout_marginEnd="20dp"/>
+                android:layout_marginEnd="120dp"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
         <TextView
             android:layout_width="wrap_content"
@@ -249,16 +249,17 @@
 
             <TextView
                 android:id="@+id/tvDCWebsite"
-                android:layout_width="wrap_content"
+                android:layout_width="290dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
                 android:text="https://www.github.com/Doanquocbao_IT"
+                android:textAlignment="textEnd"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textColor="@color/black"
                 android:textSize="14sp"
-                android:layout_marginEnd="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvDCPhone"/>
+                app:layout_constraintTop_toBottomOf="@id/tvDCPhone" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
         <TextView
@@ -294,12 +295,12 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@android:color/transparent"
             android:text="Xem thêm nhiều việc hơn "
-            android:layout_marginStart="20dp"
+            android:textSize="16sp"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             android:textColor="@color/black"
-            android:textSize="18sp"
+            android:background="@android:color/transparent"
+            android:layout_marginStart="20dp"
             android:textStyle="bold"
             android:layout_marginTop="10dp"
             app:layout_constraintStart_toStartOf="parent"

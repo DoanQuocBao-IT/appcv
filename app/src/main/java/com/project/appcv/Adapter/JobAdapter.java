@@ -1,5 +1,6 @@
 package com.project.appcv.Adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import com.bumptech.glide.Glide;
 import com.project.appcv.Model.Job;
 import com.project.appcv.R;
 import com.project.appcv.View.CompanyDetailActivity;
+import com.project.appcv.View.JobDetailActivity;
 
 import java.util.List;
 
@@ -57,8 +59,10 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.MyViewHolder> {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context.getContext(),"Bạn đã chọn cong ty"+holder.nameJob.getText().toString(), Toast.LENGTH_SHORT).show();
-
+                Intent intent = new Intent(context.getContext(), JobDetailActivity.class);
+                String job_id=String.valueOf(job.getId());
+                intent.putExtra("job_id", job_id);
+                context.startActivity(intent);
             }
         });
         holder.address.setText(job.getAddress().getCity());

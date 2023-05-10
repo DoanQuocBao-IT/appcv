@@ -17,6 +17,15 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".View.CompanyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.JobActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.JobDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".View.CompanyDetailActivity"
             android:exported="false" />
         <activity

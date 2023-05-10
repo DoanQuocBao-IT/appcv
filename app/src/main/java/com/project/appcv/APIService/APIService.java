@@ -22,9 +22,15 @@ import retrofit2.http.Path;
 
 public interface APIService {
     @GET("/api/appcv/top6/company")
-    Call<List<Company>> getCompanyAll();
+    Call<List<Company>> getTop6CompanyAll();
     @GET("/api/appcv/top6/recruit")
+    Call<List<Job>> getTop6JobAll();
+
+    @GET("/api/appcv/all/company")
+    Call<List<Company>> getCompanyAll();
+    @GET("/api/appcv/recruit")
     Call<List<Job>> getJobAll();
+
     @POST("/api/auth/login")
     Call<JWTTokenDto> login(@Body JsonObject body);
     @GET("/api/appcv/address/company/{address_id}")
@@ -33,6 +39,8 @@ public interface APIService {
     Call<List<Job>> getJobForCompany(@Path("company_id") int company_id);
     @GET("/api/appcv/company/{id}")
     Call<Company> getCompanyById(@Path("id") int id);
+    @GET("/api/appcv/recruit/{id}")
+    Call<Job> getJobById(@Path("id") int id);
     @GET("/api/candidate/user")
     Call<UserPref> getUser(@Header("Authorization") String token);
     @GET("/api/candidate/all/cv")
