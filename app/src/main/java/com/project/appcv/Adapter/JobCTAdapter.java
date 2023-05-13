@@ -1,5 +1,6 @@
 package com.project.appcv.Adapter;
 
+import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,30 +10,28 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.project.appcv.Model.Job;
 import com.project.appcv.R;
-import com.project.appcv.SharedPrefManager;
-import com.project.appcv.View.JobCompanyActivity;
 import com.project.appcv.View.JobDetailActivity;
 
 import java.util.List;
 
-public class JobCompanyAdapter extends RecyclerView.Adapter<JobCompanyAdapter.MyViewHolder> {
+public class JobCTAdapter extends RecyclerView.Adapter<JobCTAdapter.MyViewHolder> {
     List<Job> jobList;
-    Fragment context;
+    Context context;
     private boolean tag;
-    public JobCompanyAdapter(List<Job> jobList, Fragment context) {
+    public JobCTAdapter(List<Job> jobList, Context context) {
         this.jobList = jobList;
         this.context = context;
     }
 
-    public JobCompanyAdapter(List<Job> jobList) {
+    public JobCTAdapter(List<Job> jobList) {
         this.jobList = jobList;
     }
+
 
     public void setJobList(List<Job> jobList) {
         this.jobList = jobList;
@@ -48,7 +47,7 @@ public class JobCompanyAdapter extends RecyclerView.Adapter<JobCompanyAdapter.My
     }
 
     @Override
-    public void onBindViewHolder(@NonNull JobCompanyAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull JobCTAdapter.MyViewHolder holder, int position) {
         Job job =jobList.get(position);
         holder.nameJob.setText(job.getPosition());
         holder.nameCompany.setText(job.getCompany().getCompany().getFname());
@@ -58,7 +57,7 @@ public class JobCompanyAdapter extends RecyclerView.Adapter<JobCompanyAdapter.My
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context.getContext(), JobCompanyActivity.class);
+                Intent intent = new Intent(context.getApplicationContext(), JobDetailActivity.class);
                 String job_id=String.valueOf(job.getId());
                 intent.putExtra("job_id", job_id);
                 context.startActivity(intent);
@@ -105,3 +104,4 @@ public class JobCompanyAdapter extends RecyclerView.Adapter<JobCompanyAdapter.My
         }
     }
 }
+

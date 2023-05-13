@@ -21,6 +21,7 @@ import com.project.appcv.APIService.APIService;
 import com.project.appcv.Adapter.CompanyAdapter;
 import com.project.appcv.Adapter.JobAdapter;
 import com.project.appcv.DTO.ItemSpacingDecoration;
+import com.project.appcv.DTO.RoleDto;
 import com.project.appcv.DTO.UserPref;
 import com.project.appcv.Model.Company;
 import com.project.appcv.Model.Job;
@@ -32,6 +33,7 @@ import com.project.appcv.View.JobActivity;
 import com.project.appcv.View.LoginActivity;
 
 import java.util.List;
+import java.util.Set;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -135,6 +137,7 @@ public class HomeFragment extends Fragment {
         });
         rcCompany = view.findViewById(R.id.rc_company);
         rcCompany.setLayoutManager(new LinearLayoutManager(getContext()));
+        GetInforUser();
         GetCompany();
         rcJob=view.findViewById(R.id.rc_job);
         rcJob.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -177,7 +180,6 @@ public class HomeFragment extends Fragment {
                     rcJob.addItemDecoration(new ItemSpacingDecoration(50));
                     rcJob.setAdapter(jobAdapter);
                     jobAdapter.notifyDataSetChanged();
-                    GetInforUser();
                 }
             }
 
@@ -190,17 +192,25 @@ public class HomeFragment extends Fragment {
     private void GetInforUser(){
         String jwtToken= SharedPrefManager.getInstance(getContext()).getJwtToken();
         apiService= RetrofitClient.getRetrofit().create(APIService.class);
-        Call<UserPref> call=apiService.getUser("Bearer " + jwtToken);
+        Call<UserPref> call=apiService.getUserCandidate("Bearer " + jwtToken);
         call.enqueue(new Callback<UserPref>() {
             @Override
             public void onResponse(Call<UserPref> call, Response<UserPref> response) {
                 if (response.isSuccessful()) {
                     UserPref user = response.body();
+                    Set<RoleDto> roles = user.getRoles(); // user là đối tượng chứa Set<Role>
+                    if (!roles.isEmpty()) {
+                        RoleDto firstRole = roles.iterator().next();
+                        String roleName = firstRole.getName();
+                        SharedPrefManager.getInstance(getContext()).saveRole(roleName);
+
+                    }
                     // Xử lý thông tin user
                     tvHHello.setText("Chào, "+user.getFname());
                     Glide.with(getContext()).load(user.getImage()).into(imageHAvatar);
                 } else {
                     // Xử lý khi API trả về lỗi
+
                 }
             }
 

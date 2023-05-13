@@ -4,6 +4,7 @@ import com.google.gson.annotations.SerializedName;
 import com.project.appcv.DTO.AddressWorkDto;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class Job implements Serializable {
     @SerializedName("id")
@@ -37,7 +38,9 @@ public class Job implements Serializable {
     @SerializedName("address")
 
     private AddressWorkDto address;
+    @SerializedName("toDate")
 
+    private Date toDate;
     @SerializedName("countdown")
 
     private long countdown;
@@ -136,5 +139,13 @@ public class Job implements Serializable {
 
     public void setCountdown(long countdown) {
         this.countdown = countdown;
+    }
+
+    public Date getToDate() {
+        return toDate;
+    }
+
+    public void setToDate(Date toDate) {
+        this.toDate = toDate;
     }
 }

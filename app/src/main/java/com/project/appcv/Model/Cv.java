@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 public class Cv implements Serializable {
     @SerializedName("id")
-    private int city;
+    private int id;
     @SerializedName("candidates")
     private ProfileCandidate candidates;
 
@@ -32,12 +32,12 @@ public class Cv implements Serializable {
     @SerializedName("address")
     private AddressWorkDto address;
 
-    public int getCity() {
-        return city;
+    public int getId() {
+        return id;
     }
 
-    public void setCity(int city) {
-        this.city = city;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public ProfileCandidate getCandidates() {

@@ -7,18 +7,18 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".View.JobDetailActivity">
+        tools:context=".View.JobCompanyActivity">
         <ImageView
             android:layout_width="100dp"
             android:layout_height="70dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:id="@+id/DJAvatar"
+            android:id="@+id/DJCAvatar"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"/>
 
         <TextView
-            android:id="@+id/tvDJNameJob"
+            android:id="@+id/tvDJCNameJob"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -29,22 +29,45 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/DJAvatar"
+            app:layout_constraintStart_toEndOf="@id/DJCAvatar"
             app:layout_constraintTop_toTopOf="parent"/>
         <TextView
-            android:id="@+id/tvDJNameCompany"
+            android:id="@+id/tvDJCNameCompany"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@id/DJAvatar"
+            app:layout_constraintStart_toEndOf="@id/DJCAvatar"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvDJNameJob"
+            app:layout_constraintTop_toBottomOf="@id/tvDJCNameJob"
             android:text="Fresher Python"
             android:textAlignment="textStart"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             android:textColor="@color/black"
             android:textSize="14sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toEndOf="@id/DJCAvatar"
+            app:layout_constraintTop_toBottomOf="@id/tvDJCNameCompany"
+            android:text="ID Job: "
+            android:textAlignment="textStart"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="@color/black"
+            android:textSize="12sp"/>
+        <TextView
+            android:id="@+id/tvDJCID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            app:layout_constraintStart_toEndOf="@id/DJCAvatar"
+            app:layout_constraintTop_toBottomOf="@id/tvDJCNameCompany"
+            android:text="2"
+            android:textAlignment="textStart"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="@color/black"
+            android:textSize="12sp"/>
         <Button
-            android:id="@+id/btnDJInformation"
+            android:id="@+id/btnDJCInformation"
             android:layout_width="100dp"
             android:layout_height="45dp"
             android:text="Thông tin"
@@ -53,14 +76,14 @@
             app:cornerRadius="30dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/DJAvatar"
+            app:layout_constraintTop_toBottomOf="@+id/DJCAvatar"
             android:layout_margin="15dp"/>
         <androidx.constraintlayout.widget.ConstraintLayout
             android:background="@drawable/shape_constraint"
-            android:id="@+id/constraintInformation"
+            android:id="@+id/constraintCInformation"
             android:layout_width="390dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/btnDJInformation"
+            app:layout_constraintTop_toBottomOf="@id/btnDJCInformation"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
             <TextView
@@ -77,7 +100,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"/>
             <ImageView
-                android:id="@+id/imageDJSalary"
+                android:id="@+id/imageDJCSalary"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@drawable/money"
@@ -92,25 +115,33 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textColor="@color/black"
                 android:textSize="14dp"
-                app:layout_constraintStart_toStartOf="@id/imageDJSalary"
-                app:layout_constraintTop_toTopOf="@id/imageDJSalary"
+                app:layout_constraintStart_toStartOf="@id/imageDJCSalary"
+                app:layout_constraintTop_toTopOf="@id/imageDJCSalary"
                 android:layout_marginStart="50dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/tvDJSalary"
+                android:id="@+id/tvDJCSalary"
                 android:text="Thuong Luong"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@id/imageDJSalary"
-                app:layout_constraintTop_toTopOf="@id/imageDJSalary"
+                app:layout_constraintStart_toStartOf="@id/imageDJCSalary"
+                app:layout_constraintTop_toTopOf="@id/imageDJCSalary"
                 android:layout_marginStart="50dp"
                 android:layout_marginTop="20dp"/>
+            <ImageButton
+                android:id="@+id/btnDJCEditSalary"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:layout_marginEnd="25dp"
+                android:background="@drawable/pen"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/tvDJCSalary"/>
 
             <ImageView
-                android:id="@+id/imageDJInventory"
+                android:id="@+id/imageDJCInventory"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@drawable/inventory"
@@ -118,7 +149,7 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="10dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imageDJSalary"/>
+                app:layout_constraintTop_toBottomOf="@id/imageDJCSalary"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -126,31 +157,39 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textColor="@color/black"
                 android:textSize="14dp"
-                app:layout_constraintStart_toStartOf="@id/imageDJInventory"
-                app:layout_constraintTop_toTopOf="@id/imageDJInventory"
+                app:layout_constraintStart_toStartOf="@id/imageDJCInventory"
+                app:layout_constraintTop_toTopOf="@id/imageDJCInventory"
                 android:layout_marginStart="50dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/tvDJInventory"
+                android:id="@+id/tvDJCInventory"
                 android:text="Thuong Luong"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@id/imageDJInventory"
-                app:layout_constraintTop_toTopOf="@id/imageDJInventory"
+                app:layout_constraintStart_toStartOf="@id/imageDJCInventory"
+                app:layout_constraintTop_toTopOf="@id/imageDJCInventory"
                 android:layout_marginStart="50dp"
                 android:layout_marginTop="20dp"/>
+            <ImageButton
+                android:id="@+id/btnDJCEditInventory"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:layout_marginEnd="25dp"
+                android:background="@drawable/pen"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/tvDJCInventory"/>
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constraintDJGender"
-                android:layout_width="wrap_content"
+                android:id="@+id/constraintDJCGender"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:visibility="visible"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imageDJInventory">
+                app:layout_constraintTop_toBottomOf="@id/imageDJCInventory">
                 <ImageView
-                    android:id="@+id/imageDJGender"
+                    android:id="@+id/imageDJCGender"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:src="@drawable/male"
@@ -165,32 +204,41 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                     android:textColor="@color/black"
                     android:textSize="14dp"
-                    app:layout_constraintStart_toStartOf="@id/imageDJGender"
-                    app:layout_constraintTop_toTopOf="@id/imageDJGender"
+                    app:layout_constraintStart_toStartOf="@id/imageDJCGender"
+                    app:layout_constraintTop_toTopOf="@id/imageDJCGender"
                     android:layout_marginStart="50dp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tvDJGender"
+                    android:id="@+id/tvDJCGender"
                     android:text="Thuong Luong"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                     android:textColor="@color/black"
                     android:textSize="16dp"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@id/imageDJGender"
-                    app:layout_constraintTop_toTopOf="@id/imageDJGender"
+                    app:layout_constraintStart_toStartOf="@id/imageDJCGender"
+                    app:layout_constraintTop_toTopOf="@id/imageDJCGender"
                     android:layout_marginStart="50dp"
                     android:layout_marginTop="20dp"/>
+                <ImageButton
+                    android:id="@+id/btnDJCEditGender"
+                    android:layout_width="17dp"
+                    android:layout_height="17dp"
+                    android:layout_marginEnd="25dp"
+                    android:background="@drawable/pen"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@+id/constraintDJCGender"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
+
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constraintDJExperience"
-                android:layout_width="wrap_content"
+                android:id="@+id/constraintDJCExperience"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:visibility="visible"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/constraintDJGender">
+                app:layout_constraintTop_toBottomOf="@id/constraintDJCGender">
                 <ImageView
-                    android:id="@+id/imageDJExperience"
+                    android:id="@+id/imageDJCExperience"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:src="@drawable/experience"
@@ -205,67 +253,83 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                     android:textColor="@color/black"
                     android:textSize="14dp"
-                    app:layout_constraintStart_toStartOf="@id/imageDJExperience"
-                    app:layout_constraintTop_toTopOf="@id/imageDJExperience"
+                    app:layout_constraintStart_toStartOf="@id/imageDJCExperience"
+                    app:layout_constraintTop_toTopOf="@id/imageDJCExperience"
                     android:layout_marginStart="50dp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tvDJExperience"
+                    android:id="@+id/tvDJCExperience"
                     android:text="Thuong Luong"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                     android:textColor="@color/black"
                     android:textSize="16dp"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@id/imageDJExperience"
-                    app:layout_constraintTop_toTopOf="@id/imageDJExperience"
+                    app:layout_constraintStart_toStartOf="@id/imageDJCExperience"
+                    app:layout_constraintTop_toTopOf="@id/imageDJCExperience"
                     android:layout_marginStart="50dp"
                     android:layout_marginTop="20dp"/>
+                <ImageButton
+                    android:id="@+id/btnDJCEditExperience"
+                    android:layout_width="17dp"
+                    android:layout_height="17dp"
+                    android:layout_marginEnd="25dp"
+                    android:background="@drawable/pen"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@+id/constraintDJCExperience"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
-            <androidx.constraintlayout.widget.ConstraintLayout
-               android:id="@+id/constraintDJAddress"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:visibility="visible"
-               app:layout_constraintStart_toStartOf="parent"
-               app:layout_constraintTop_toBottomOf="@id/constraintDJExperience">
-               <ImageView
-                   android:id="@+id/imageDJAddress"
-                   android:layout_width="40dp"
-                   android:layout_height="40dp"
-                   android:src="@drawable/address"
-                   android:layout_marginStart="30dp"
-                   android:layout_marginTop="10dp"
-                   app:layout_constraintStart_toStartOf="parent"
-                   app:layout_constraintTop_toTopOf="parent"/>
-               <TextView
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:text="Địa chỉ:"
-                   android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                   android:textColor="@color/black"
-                   android:textSize="14dp"
-                   app:layout_constraintStart_toStartOf="@id/imageDJAddress"
-                   app:layout_constraintTop_toTopOf="@id/imageDJAddress"
-                   android:layout_marginStart="50dp"/>
-               <TextView
-                   android:layout_width="290dp"
-                   android:layout_height="wrap_content"
-                   android:id="@+id/tvDJAddress"
-                   android:text="Thuong Luong"
-                   android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                   android:textColor="@color/black"
-                   android:textSize="16dp"
-                   android:textStyle="bold"
-                   app:layout_constraintStart_toStartOf="@id/imageDJAddress"
-                   app:layout_constraintTop_toTopOf="@id/imageDJAddress"
-                   android:layout_marginStart="50dp"
-                   android:layout_marginTop="20dp"/>
 
-           </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintDJCAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/constraintDJCExperience">
+                <ImageView
+                    android:id="@+id/imageDJCAddress"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/address"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Địa chỉ:"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+                    app:layout_constraintStart_toStartOf="@id/imageDJCAddress"
+                    app:layout_constraintTop_toTopOf="@id/imageDJCAddress"
+                    android:layout_marginStart="50dp"/>
+                <TextView
+                    android:layout_width="290dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvDJCAddress"
+                    android:text="Thuong Luong"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@id/imageDJCAddress"
+                    app:layout_constraintTop_toTopOf="@id/imageDJCAddress"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="20dp"/>
+                <ImageButton
+                    android:id="@+id/btnDJCEditAddress"
+                    android:layout_width="17dp"
+                    android:layout_height="17dp"
+                    android:layout_marginEnd="25dp"
+                    android:background="@drawable/pen"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@+id/constraintDJCAddress"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <Button
-                android:id="@+id/btnDJExpend"
+                android:id="@+id/btnDJCExpend"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Thu gọn"
@@ -276,17 +340,17 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/constraintDJAddress"/>
+                app:layout_constraintTop_toBottomOf="@id/constraintDJCAddress"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintResponsibilities"
+            android:id="@+id/constraintCResponsibilities"
             android:layout_width="390dp"
             android:layout_height="wrap_content"
             android:background="@drawable/shape_cv_constraint"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="10dp"
-            app:layout_constraintTop_toBottomOf="@id/constraintInformation">
+            app:layout_constraintTop_toBottomOf="@id/constraintCInformation">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -300,9 +364,17 @@
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"/>
-
+            <ImageButton
+                android:id="@+id/btnDJCEditResponsibilities"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:layout_marginEnd="25dp"
+                android:background="@drawable/pen"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
             <TextView
-                android:id="@+id/tvDJResponsibilities"
+                android:id="@+id/tvDJCResponsibilities"
                 android:layout_width="340dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
@@ -318,18 +390,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvDJResponsibilities"/>
+                app:layout_constraintTop_toBottomOf="@id/tvDJCResponsibilities"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintQualifications"
+            android:id="@+id/constraintCQualifications"
             android:layout_width="390dp"
             android:layout_height="wrap_content"
             android:background="@drawable/shape_cv_constraint"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="10dp"
-            app:layout_constraintTop_toBottomOf="@id/constraintResponsibilities">
+            app:layout_constraintTop_toBottomOf="@id/constraintCResponsibilities">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -343,9 +415,17 @@
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"/>
-
+            <ImageButton
+                android:id="@+id/btnDJCEditQualifications"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:layout_marginEnd="25dp"
+                android:background="@drawable/pen"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
             <TextView
-                android:id="@+id/tvDJQualifications"
+                android:id="@+id/tvDJCQualifications"
                 android:layout_width="340dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
@@ -361,18 +441,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvDJQualifications"/>
+                app:layout_constraintTop_toBottomOf="@id/tvDJCQualifications"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintInterests"
+            android:id="@+id/constraintCInterests"
             android:layout_width="390dp"
             android:layout_height="wrap_content"
             android:background="@drawable/shape_cv_constraint"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="10dp"
-            app:layout_constraintTop_toBottomOf="@id/constraintQualifications">
+            app:layout_constraintTop_toBottomOf="@id/constraintCQualifications">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -386,9 +466,17 @@
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"/>
-
+            <ImageButton
+                android:id="@+id/btnDJCEditInterests"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:layout_marginEnd="25dp"
+                android:background="@drawable/pen"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
             <TextView
-                android:id="@+id/tvDJInterests"
+                android:id="@+id/tvDJCInterests"
                 android:layout_width="340dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
@@ -404,19 +492,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvDJInterests"/>
+                app:layout_constraintTop_toBottomOf="@id/tvDJCInterests"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
+
         <Button
             android:id="@+id/btnDJCApply"
-            android:layout_width="100dp"
+            android:layout_width="110dp"
             android:layout_height="45dp"
-            android:text="Công ty"
+            android:text="Ứng tuyển"
             android:textSize="16sp"
             android:backgroundTint="#4CAF50"
             app:cornerRadius="30dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintInterests"
+            app:layout_constraintTop_toBottomOf="@+id/constraintCInterests"
             android:layout_margin="15dp"/>
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintCApply"
@@ -430,7 +519,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Thông tin công ty "
+                android:text="Hạn cuối ứng tuyển "
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textColor="@color/black"
@@ -440,8 +529,17 @@
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"/>
+            <ImageButton
+                android:id="@+id/btnDJCEditDeadline"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:layout_marginEnd="25dp"
+                android:background="@drawable/pen"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
             <TextView
-                android:id="@+id/tvDJCompany"
+                android:id="@+id/tvDJCDeadline"
                 android:layout_width="340dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
@@ -457,21 +555,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvDJCompany"/>
+                app:layout_constraintTop_toBottomOf="@id/tvDJCDeadline"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/constraintCompanyJob"
-            android:visibility="visible"
-            android:layout_marginTop="10dp"
+            android:id="@+id/constraintCCountdown"
+            android:layout_width="390dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_cv_constraint"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintCApply">
-
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/constraintCApply">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Việc làm cùng công ty"
+                android:text="Thời gian còn lại"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textColor="@color/black"
@@ -482,37 +580,29 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"/>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rc_DJjob"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="50dp"
+            <TextView
+                android:id="@+id/tvDJCCountdown"
+                android:layout_width="340dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="Mô tả công việc jds ns dh hdwu dhwusd ksad hadshd siskhd dhwoi dsdh owd hs"
+                android:textAlignment="textStart"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="16sp"
                 android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvDJCCountdown"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
-        <Button
-            android:id="@+id/btnDJApply"
-            android:layout_width="110dp"
-            android:layout_height="45dp"
-            android:visibility="visible"
-            android:layout_alignParentBottom="true"
-            android:text="Ứng tuyển"
-            android:textSize="16sp"
-            android:backgroundTint="#4CAF50"
-            app:cornerRadius="30dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="30dp"
-            android:layout_marginTop="15dp"
-            app:layout_constraintTop_toBottomOf="@+id/constraintInterests" />
-
         <TextView
             android:layout_width="20dp"
             android:layout_height="50dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintCompanyJob"/>
-
+            app:layout_constraintTop_toBottomOf="@+id/constraintCCountdown"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

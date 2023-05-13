@@ -4,36 +4,18 @@ import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.project.appcv.APIService.APIService;
-import com.project.appcv.Adapter.AddressAdapter;
-import com.project.appcv.DTO.AddressWorkDto;
-import com.project.appcv.DTO.OnAddressSelectedListener;
-import com.project.appcv.Model.Cv;
 import com.project.appcv.R;
-import com.project.appcv.RetrofitClient;
-import com.project.appcv.SharedPrefManager;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class CreateCvActivity extends AppCompatActivity{
     EditText editTextGoal, editTextStudy, editTextWork, editTextSkill, editTextPrize, editTextCertificate, editTextProfession, editTextPosition, editTextExperience;

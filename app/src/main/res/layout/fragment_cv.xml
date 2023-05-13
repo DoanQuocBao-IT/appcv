@@ -7,10 +7,11 @@
     android:layout_height="match_parent">
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         tools:context=".Fragment.CvFragment">
 
         <TextView
+            android:id="@+id/tvCvHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -241,6 +242,29 @@
                     app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginStart="20dp"/>
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ID CV: "
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="30dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/imageCvAvatar"/>
+                <TextView
+                    android:id="@+id/tvCvID"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ID "
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="70dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/imageCvAvatar"/>
+                <TextView
                     android:id="@+id/tvCvName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -388,6 +412,11 @@
                     android:layout_marginBottom="20dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/tvCvAddress"/>
+                <TextView
+                    android:layout_width="30dp"
+                    android:layout_height="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvCvAddress"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="145dp"
@@ -410,7 +439,12 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     android:layout_marginStart="10dp"
-                    android:layout_marginTop="25dp"/>
+                    android:layout_marginTop="15dp"/>
+                <TextView
+                    android:layout_width="30dp"
+                    android:layout_height="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvCvSkill"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -435,8 +469,12 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     android:layout_marginStart="10dp"
-                    android:layout_marginTop="25dp"/>
-
+                    android:layout_marginTop="15dp"/>
+                <TextView
+                    android:layout_width="30dp"
+                    android:layout_height="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvCvPrize"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -450,9 +488,9 @@
                 app:layout_constraintTop_toBottomOf="@+id/constraintCvPrize">
                 <TextView
                     android:id="@+id/tvCvCertificate"
-                    android:layout_width="wrap_content"
+                    android:layout_width="130dp"
                     android:layout_height="wrap_content"
-                    android:text=""
+                    android:text="uifenef nfeui fnfuie nnf ein feihf ehifne fenf efn en dfne fndsif nef df  hfid f"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                     android:textColor="@color/black"
                     android:textSize="12dp"
@@ -460,13 +498,18 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     android:layout_marginStart="10dp"
-                    android:layout_marginTop="25dp"/>
+                    android:layout_marginTop="15dp"/>
+                <TextView
+                    android:layout_width="30dp"
+                    android:layout_height="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvCvCertificate"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="180dp"
-                android:layout_height="130dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="35dp"
                 android:layout_marginEnd="10dp"
                 android:id="@+id/constraintCvGoals"
@@ -476,15 +519,20 @@
                 <TextView
                     android:id="@+id/tvCvIntroduce"
                     android:layout_width="165dp"
-                    android:layout_height="90dp"
+                    android:layout_height="wrap_content"
                     android:text=""
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                     android:textColor="@color/black"
                     android:textSize="11dp"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginStart="10dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"/>
+                <TextView
+                    android:layout_width="30dp"
+                    android:layout_height="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvCvIntroduce"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="100dp"
@@ -493,7 +541,7 @@
                 android:background="@drawable/shape_constraint_header"
                 android:layout_margin="15dp"
                 app:layout_constraintStart_toEndOf="@+id/constraintCvContact"
-                app:layout_constraintTop_toBottomOf="@+id/constraintCvGoals">
+                app:layout_constraintTop_toBottomOf="@+id/constraintCvContact">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -734,7 +782,28 @@
                     android:textColor="@color/black"
                     android:textSize="18dp"/>
             </LinearLayout>
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/constraintCvCertificate"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/constraintPageJob"
+            android:visibility="gone"
+            android:layout_gravity="center|center_horizontal"
+            android:layout_marginTop="40dp">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rc_JCjob"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>
 </ScrollView>

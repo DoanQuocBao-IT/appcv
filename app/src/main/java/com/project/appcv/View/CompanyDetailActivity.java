@@ -1,7 +1,6 @@
 package com.project.appcv.View;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,12 +12,10 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.project.appcv.APIService.APIService;
 import com.project.appcv.Adapter.AddressAdapter;
-import com.project.appcv.Adapter.CompanyAdapter;
-import com.project.appcv.Adapter.JobAdapter;
-import com.project.appcv.Adapter.JobCompanyAdapter;
+import com.project.appcv.Adapter.AddressCompanyAdapter;
+import com.project.appcv.Adapter.JobCTAdapter;
 import com.project.appcv.DTO.AddressWorkDto;
 import com.project.appcv.DTO.ItemSpacingDecoration;
-import com.project.appcv.Fragment.HomeFragment;
 import com.project.appcv.Model.Company;
 import com.project.appcv.Model.Job;
 import com.project.appcv.R;
@@ -35,8 +32,8 @@ public class CompanyDetailActivity extends AppCompatActivity {
     TextView textViewName,textViewInformation,textViewFoundedAt,textViewField,
     textViewEmail,textViewPhone,textViewWebsite;
     ImageView imageViewAvatar;
-    AddressAdapter addressAdapter;
-    JobCompanyAdapter jobAdapter;
+    AddressCompanyAdapter addressAdapter;
+    JobCTAdapter jobAdapter;
     APIService apiService;
     List<AddressWorkDto> addressWorkDtoList;
     List<Job> jobList;
@@ -54,9 +51,9 @@ public class CompanyDetailActivity extends AppCompatActivity {
         textViewWebsite=findViewById(R.id.tvDCWebsite);
         imageViewAvatar=findViewById(R.id.imageDCAvatar);
         String company_id = (String) getIntent().getStringExtra("company_id");
+        int id=Integer.parseInt(company_id);
         rcAddress=findViewById(R.id.rc_DCAddress);
         rcAddress.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        int id=Integer.parseInt(company_id);
         GetCompany(id);
         rcJob=findViewById(R.id.rc_DCjob);
         rcJob.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
@@ -70,7 +67,7 @@ public class CompanyDetailActivity extends AppCompatActivity {
             public void onResponse(Call<List<AddressWorkDto>> call, Response<List<AddressWorkDto>> response) {
                 if (response.isSuccessful()) {
                     addressWorkDtoList = response.body();
-                    addressAdapter = new AddressAdapter(addressWorkDtoList, CompanyDetailActivity.this);
+                    addressAdapter = new AddressCompanyAdapter(addressWorkDtoList, CompanyDetailActivity.this);
                     rcAddress.setHasFixedSize(true);
                     RecyclerView.LayoutManager layoutManager=new LinearLayoutManager((getApplicationContext()),LinearLayoutManager.HORIZONTAL,false);
                     rcAddress.setLayoutManager(layoutManager);
@@ -90,7 +87,7 @@ public class CompanyDetailActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     jobList = response.body();
                     Log.d("KiemtrdsJob", response.toString());
-                    jobAdapter = new JobCompanyAdapter(jobList, CompanyDetailActivity.this);
+                    jobAdapter = new JobCTAdapter(jobList, CompanyDetailActivity.this);
                     rcJob.setHasFixedSize(true);
                     RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(getApplicationContext(),RecyclerView.VERTICAL,false);
                     rcJob.setLayoutManager(layoutManager);

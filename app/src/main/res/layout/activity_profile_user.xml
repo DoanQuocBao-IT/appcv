@@ -31,7 +31,7 @@
             app:layout_constraintTop_toTopOf="parent"
             android:background="@drawable/shapradius">
             <ImageButton
-                android:layout_width="80dp"
+                android:layout_width="90dp"
                 android:layout_height="80dp"
                 android:id="@+id/imagePUAvatar"
                 app:layout_constraintStart_toStartOf="parent"
@@ -100,7 +100,7 @@
             app:layout_constraintTop_toTopOf="parent"/>
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="390dp"
-            android:layout_height="200dp"
+            android:layout_height="wrap_content"
             android:id="@+id/constraintPUAccount"
             android:background="@drawable/shape_constraint"
             app:layout_constraintStart_toStartOf="parent"
@@ -259,18 +259,24 @@
                 android:background="@drawable/right"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/btnPUPhone"/>
+
             <TextView
                 android:id="@+id/tvPUWebsite"
-                android:layout_width="wrap_content"
+                android:layout_width="270dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="https://www.github.com/Doanquocbao_IT"
+                android:textAlignment="textEnd"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toStartOf="@id/btnPUWebsite"
-                app:layout_constraintTop_toBottomOf="@id/btnPUPhone"/>
-
+                app:layout_constraintTop_toBottomOf="@id/btnPUPhone" />
+            <TextView
+                android:layout_width="10dp"
+                android:layout_height="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvPUWebsite"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
         <TextView
             android:id="@+id/tvPUInforCandidate"
@@ -297,6 +303,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tvPUInforCandidate">
 
             <TextView
+                android:id="@+id/tvPUBirthdayHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -331,6 +338,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                android:id="@+id/tvPUGenderHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -366,6 +374,7 @@
                 app:layout_constraintTop_toBottomOf="@id/btnPUBirthday" />
 
             <TextView
+                android:id="@+id/tvPUHobbyHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -403,6 +412,7 @@
 
 
             <TextView
+                android:id="@+id/tvPUCertificateHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -473,7 +483,11 @@
                 android:textSize="14sp"
                 app:layout_constraintEnd_toStartOf="@id/btnPUIntroduce"
                 app:layout_constraintTop_toBottomOf="@id/btnPUCertificate" />
-
+            <TextView
+                android:layout_width="10dp"
+                android:layout_height="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvPUIntroduce"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
         <Button
             android:id="@+id/btnPULogout"

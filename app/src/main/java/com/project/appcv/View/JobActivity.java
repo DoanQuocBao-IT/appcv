@@ -11,10 +11,8 @@ import android.widget.Button;
 import android.widget.ScrollView;
 
 import com.project.appcv.APIService.APIService;
-import com.project.appcv.Adapter.JobAdapter;
-import com.project.appcv.Adapter.JobCompanyAdapter;
+import com.project.appcv.Adapter.JobCTAdapter;
 import com.project.appcv.DTO.ItemSpacingDecoration;
-import com.project.appcv.Fragment.HomeFragment;
 import com.project.appcv.Model.Job;
 import com.project.appcv.R;
 import com.project.appcv.RetrofitClient;
@@ -30,7 +28,7 @@ public class JobActivity extends AppCompatActivity {
     Button buttonGoUp;
     APIService apiService;
     List<Job>jobList;
-    JobCompanyAdapter jobAdapter;
+    JobCTAdapter jobAdapter;
     ScrollView scrollView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +52,7 @@ public class JobActivity extends AppCompatActivity {
             public void onResponse(Call<List<Job>> call, Response<List<Job>> response) {
                 if (response.isSuccessful()) {
                     jobList = response.body();
-                    jobAdapter = new JobCompanyAdapter(jobList, JobActivity.this);
+                    jobAdapter = new JobCTAdapter(jobList, JobActivity.this);
                     rcJob.setHasFixedSize(true);
                     RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(getApplicationContext(),RecyclerView.VERTICAL,false);
                     rcJob.setLayoutManager(layoutManager);

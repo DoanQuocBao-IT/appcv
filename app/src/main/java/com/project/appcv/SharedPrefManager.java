@@ -10,6 +10,7 @@ import com.project.appcv.View.LoginActivity;
 public class SharedPrefManager {
     private static final String SHARED_PREF_NAME = "my_shared_pref";
     private static final String KEY_JWT_TOKEN = "jwt_token";
+    private static final String KEY_ROLE = "role";
 
     private static SharedPrefManager instance;
     private Context context;
@@ -39,6 +40,18 @@ public class SharedPrefManager {
     public String getJwtToken() {
         SharedPreferences sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return sharedPreferences.getString(KEY_JWT_TOKEN, null);
+    }
+
+    public void saveRole(String role) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(KEY_ROLE, role);
+        editor.apply();
+    }
+
+    public String getRole() {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(KEY_ROLE, null);
     }
 
     public void clear() {

@@ -16,12 +16,17 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.project.appcv.APIService.APIService;
+import com.project.appcv.DTO.CompanyDto;
 import com.project.appcv.DTO.ProfileUserDto;
 import com.project.appcv.DTO.UserPref;
+import com.project.appcv.Model.Company;
+import com.project.appcv.Model.ProfileCandidate;
+import com.project.appcv.Model.ProfileUser;
 import com.project.appcv.R;
 import com.project.appcv.RetrofitClient;
 import com.project.appcv.SharedPrefManager;
 import com.project.appcv.View.AddressActivity;
+import com.project.appcv.View.Edit.EditCvCandidateActivity;
 import com.project.appcv.View.LoginActivity;
 import com.project.appcv.View.ProfileUserActivity;
 import com.project.appcv.View.WelcomeActivity;
@@ -46,9 +51,10 @@ public class ProfileFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    Button btnLogout,btnPAddress,btnPProfile, btnPCv;
+    Button btnLogout,btnPAddress,btnPProfile, btnPCv, btnEditExperience, btnEditProfession, btnEditAddress;
     ImageButton imageButtonAvatar;
-    TextView textViewName, textViewID, textViewExperience, textViewProfession,textViewAddress;
+    TextView textViewName, textViewID, textViewExperience, textViewProfession,textViewAddress,
+    textViewExperienceHeader,textViewPositionHeader,textViewAddressHeader;
     APIService apiService;
     public ProfileFragment() {
         // Required empty public constructor
@@ -94,7 +100,12 @@ public class ProfileFragment extends Fragment {
         textViewExperience=view.findViewById(R.id.tvPExperience);
         textViewProfession=view.findViewById(R.id.tvPProfession);
         textViewAddress=view.findViewById(R.id.tvPAddress);
-        GetInforUser();
+        textViewExperienceHeader=view.findViewById(R.id.tvPExperienceHeader);
+        textViewPositionHeader=view.findViewById(R.id.tvPPositionHeader);
+        textViewAddressHeader=view.findViewById(R.id.tvAddressHeader);
+        btnEditExperience=view.findViewById(R.id.btnPExperience);
+        btnEditProfession=view.findViewById(R.id.btnPProfession);
+        btnEditAddress=view.findViewById(R.id.btnPEditAddress);
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -138,12 +149,59 @@ public class ProfileFragment extends Fragment {
                 fragmentTransaction.commit();
             }
         });
+        EditInforCV();
+        String role= SharedPrefManager.getInstance(getContext()).getRole();
+        if (role.equals("candidate"))
+            GetInforUser();
+        else if (role.equals("company")) {
+            GetInforUserCompany();
+        }
         return  view;
+    }
+    private void EditInforCV(){
+        String role= SharedPrefManager.getInstance(getContext()).getRole();
+        btnEditExperience.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (role.equals("candidate")){
+                    Intent intent=new Intent(getContext(), EditCvCandidateActivity.class);
+                    String id=textViewID.getText().toString();
+                    intent.putExtra("cv_id", id);
+                    String experience=textViewExperience.getText().toString();
+                    intent.putExtra("experience", experience);
+                    startActivity(intent);
+                } else if (role.equals("company")) {
+
+                }
+
+            }
+        });
+        btnEditProfession.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (role.equals("candidate")) {
+                    Intent intent = new Intent(getContext(), EditCvCandidateActivity.class);
+                    String id = textViewID.getText().toString();
+                    intent.putExtra("cv_id", id);
+                    String profession = textViewProfession.getText().toString();
+                    intent.putExtra("profession", profession);
+                    startActivity(intent);
+                } else if (role.equals("company")) {
+
+                }
+            }
+        });
+        btnEditAddress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
     private void GetInforUser(){
         String jwtToken= SharedPrefManager.getInstance(getContext()).getJwtToken();
         apiService= RetrofitClient.getRetrofit().create(APIService.class);
-        Call<UserPref> call=apiService.getUser("Bearer " + jwtToken);
+        Call<UserPref> call=apiService.getUserCandidate("Bearer " + jwtToken);
         call.enqueue(new Callback<UserPref>() {
             @Override
             public void onResponse(Call<UserPref> call, Response<UserPref> response) {
@@ -169,7 +227,7 @@ public class ProfileFragment extends Fragment {
                 if (response.isSuccessful()) {
                     ProfileUserDto user = response.body();
                     // Xử lý thông tin user
-                    textViewID.setText("Mã ứng viên: "+user.getId());
+                    textViewID.setText(""+user.getId());
                     textViewExperience.setText(user.getExperience());
                     textViewProfession.setText(user.getProfession());
                     textViewAddress.setText(user.getAddress().getCity());
@@ -180,6 +238,54 @@ public class ProfileFragment extends Fragment {
 
             @Override
             public void onFailure(Call<ProfileUserDto> call, Throwable t) {
+
+            }
+        });
+    }
+    private void GetInforUserCompany(){
+        String jwtToken= SharedPrefManager.getInstance(getContext()).getJwtToken();
+        apiService= RetrofitClient.getRetrofit().create(APIService.class);
+        Call<ProfileUser> call=apiService.getInforUserCompany("Bearer " + jwtToken);
+        call.enqueue(new Callback<ProfileUser>() {
+            @Override
+            public void onResponse(Call<ProfileUser> call, Response<ProfileUser> response) {
+                if (response.isSuccessful()) {
+                    ProfileUser user = response.body();
+                    // Xử lý thông tin user
+                    textViewName.setText(user.getFname());
+                    Glide.with(getContext()).load(user.getImage()).into(imageButtonAvatar);
+                } else {
+                    // Xử lý khi API trả về lỗi
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ProfileUser> call, Throwable t) {
+
+            }
+        });
+        Call<Company> callProfile= apiService.getInforCompany("Bearer " + jwtToken);
+        callProfile.enqueue(new Callback<Company>() {
+            @Override
+            public void onResponse(Call<Company> call, Response<Company> response) {
+                if (response.isSuccessful()) {
+                    Company company = response.body();
+                    // Xử lý thông tin user
+                    textViewID.setText(company.getId()+"");
+                    textViewExperienceHeader.setText("Số lượng công việc hiện tại");
+                    btnEditExperience.setVisibility(View.GONE);
+                    textViewExperience.setText(company.getInventoryJob()+"");
+                    textViewPositionHeader.setText("Lĩnh vực của công ty");
+                    textViewProfession.setText(company.getField());
+                    textViewAddressHeader.setText("Ngày thành lập ");
+                    textViewAddress.setText(company.getFormattedDate());
+                } else {
+                    // Xử lý khi API trả về lỗi
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Company> call, Throwable t) {
 
             }
         });

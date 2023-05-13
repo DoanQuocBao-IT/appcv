@@ -3,6 +3,7 @@ package com.project.appcv.DTO;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
+import java.util.Set;
 
 public class UserPref implements Serializable {
     @SerializedName("id")
@@ -11,6 +12,8 @@ public class UserPref implements Serializable {
     private String fname;
     @SerializedName("image")
     private String image;
+    @SerializedName("roles")
+    private Set<RoleDto> roles;
 
     public UserPref(int id, String fname, String image) {
         this.id = id;
@@ -40,5 +43,13 @@ public class UserPref implements Serializable {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public Set<RoleDto> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<RoleDto> roles) {
+        this.roles = roles;
     }
 }

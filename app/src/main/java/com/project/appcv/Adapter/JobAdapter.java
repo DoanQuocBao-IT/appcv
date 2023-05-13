@@ -17,7 +17,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.project.appcv.Model.Job;
 import com.project.appcv.R;
+import com.project.appcv.SharedPrefManager;
 import com.project.appcv.View.CompanyDetailActivity;
+import com.project.appcv.View.JobCompanyActivity;
 import com.project.appcv.View.JobDetailActivity;
 
 import java.util.List;

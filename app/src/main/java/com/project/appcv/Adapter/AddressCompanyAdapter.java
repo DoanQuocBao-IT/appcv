@@ -1,12 +1,10 @@
 package com.project.appcv.Adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,21 +13,19 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.project.appcv.DTO.AddressWorkDto;
 import com.project.appcv.R;
-import com.project.appcv.View.Edit.EditProfileUserActivity;
-import com.project.appcv.View.EditJob.EditAddressActivity;
-import com.project.appcv.View.ProfileUserActivity;
 
 import java.util.List;
 
-public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.MyViewHolder>{
+public class AddressCompanyAdapter extends RecyclerView.Adapter<AddressCompanyAdapter.MyViewHolder>{
     List<AddressWorkDto> addressWorkDtoList;
     Context context;
-    public AddressAdapter(List<AddressWorkDto> addressWorkDtoList, Context context) {
+
+    public AddressCompanyAdapter(List<AddressWorkDto> addressWorkDtoList, Context context) {
         this.addressWorkDtoList = addressWorkDtoList;
         this.context = context;
     }
 
-    public AddressAdapter(List<AddressWorkDto> addressWorkDtoList) {
+    public AddressCompanyAdapter(List<AddressWorkDto> addressWorkDtoList) {
         this.addressWorkDtoList = addressWorkDtoList;
     }
 
@@ -41,7 +37,7 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.MyViewHo
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_address,null);
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_address_company,null);
         MyViewHolder myViewHolder=new MyViewHolder(view);
         return myViewHolder;
     }
@@ -59,19 +55,6 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.MyViewHo
                 Log.d("AdapteGui",addressWorkDto.getAddress());
             }
         });
-        holder.btnEditAddress.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, EditAddressActivity.class);
-                String city = addressWorkDto.getCity();
-                intent.putExtra("city", city);
-                String address = addressWorkDto.getAddress();
-                intent.putExtra("address", address);
-                String address_id = Integer.toString(addressWorkDto.getId());
-                intent.putExtra("address_id", address_id);
-                context.startActivity(intent);
-            }
-        });
     }
 
     @Override
@@ -81,12 +64,11 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.MyViewHo
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView textViewCity,textViewAddress;
-        public Button btnEditAddress;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             textViewCity=itemView.findViewById(R.id.tvACity);
             textViewAddress=itemView.findViewById(R.id.tvAAddress);
-            btnEditAddress=itemView.findViewById(R.id.btnEditAddress);
         }
     }
 }
+

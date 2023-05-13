@@ -6,14 +6,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.util.Log;
 
 import com.project.appcv.APIService.APIService;
 import com.project.appcv.Adapter.AddressAdapter;
 import com.project.appcv.DTO.AddressWorkDto;
 import com.project.appcv.DTO.ItemSpacingDecoration;
-import com.project.appcv.DTO.OnAddressSelectedListener;
 import com.project.appcv.R;
 import com.project.appcv.RetrofitClient;
 import com.project.appcv.SharedPrefManager;
@@ -24,7 +22,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class AddressActivity extends AppCompatActivity implements OnAddressSelectedListener{
+public class AddressActivity extends AppCompatActivity{
     RecyclerView rcAddress;
     List<AddressWorkDto> addressWorkDtoList;
     APIService apiService;
@@ -65,14 +63,5 @@ public class AddressActivity extends AppCompatActivity implements OnAddressSelec
             }
         });
 
-    }
-
-    @Override
-    public void onAddressSelected(AddressWorkDto address) {
-        Intent intent=new Intent();
-        intent.putExtra("name",address.getAddress());
-        Log.d("KitraInter",address.getAddress());
-        setResult(RESULT_OK, intent);
-        finish();
     }
 }
