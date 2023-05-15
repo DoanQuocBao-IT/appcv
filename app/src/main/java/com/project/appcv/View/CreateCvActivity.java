@@ -14,25 +14,23 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.gson.JsonObject;
 import com.project.appcv.APIService.APIService;
+import com.project.appcv.Model.Cv;
+import com.project.appcv.Model.Job;
 import com.project.appcv.R;
+import com.project.appcv.RetrofitClient;
+import com.project.appcv.SharedPrefManager;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class CreateCvActivity extends AppCompatActivity{
     EditText editTextGoal, editTextStudy, editTextWork, editTextSkill, editTextPrize, editTextCertificate, editTextProfession, editTextPosition, editTextExperience;
-    TextView tvCCvAddress;
-    Button btnCreateCv,btnAddress;
+    Button btnCreateCv;
     APIService apiService;
-    private ActivityResultLauncher<Intent> selectAddressLauncher= registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
-        @Override
-        public void onActivityResult(ActivityResult result) {
-            if (result != null && result.getResultCode() == RESULT_OK) {
-                if (result.getData() != null && result.getData().getStringExtra("name") != null) {
-                    tvCCvAddress.setText(result.getData().getStringExtra("name"));
-                    Log.d("Nhan",result.getData().getStringExtra("name"));
-                }
-            }
-        }
-    });
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,24 +44,34 @@ public class CreateCvActivity extends AppCompatActivity{
         editTextCertificate=findViewById(R.id.editTextCCvCertificate);
         editTextProfession=findViewById(R.id.editTextCCvProfession);
         editTextPosition=findViewById(R.id.editTextCCvPosition);
-        editTextExperience=findViewById(R.id.editTextCCvExperience);
         btnCreateCv=findViewById(R.id.btnCCvAdd);
-        btnAddress=findViewById(R.id.btnCCvAddress);
-        tvCCvAddress=findViewById(R.id.tvCCvAddress);
+        String jwtToken= SharedPrefManager.getInstance(getApplicationContext()).getJwtToken();
 
-
-
-        btnAddress.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(CreateCvActivity.this, AddressActivity.class);
-                selectAddressLauncher.launch(intent);
-            }
-        });
         btnCreateCv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                apiService= RetrofitClient.getRetrofit().create(APIService.class);
+                JsonObject jsonObject = new JsonObject();
+                jsonObject.addProperty("goals", editTextGoal.getText().toString());
+                jsonObject.addProperty("study", editTextStudy.getText().toString());
+                jsonObject.addProperty("work", editTextWork.getText().toString());
+                jsonObject.addProperty("skill", editTextSkill.getText().toString());
+                jsonObject.addProperty("prize", editTextPrize.getText().toString());
+                jsonObject.addProperty("certificate", editTextCertificate.getText().toString());
+                jsonObject.addProperty("profession", editTextProfession.getText().toString());
+                jsonObject.addProperty("position", editTextPosition.getText().toString());
+                Call<Cv> call=apiService.createCvForCandidate("Bearer " + jwtToken,jsonObject);
+                call.enqueue(new Callback<Cv>() {
+                    @Override
+                    public void onResponse(Call<Cv> call, Response<Cv> response) {
+                        finish();
+                    }
 
+                    @Override
+                    public void onFailure(Call<Cv> call, Throwable t) {
+
+                    }
+                });
             }
         });
     }

@@ -18,6 +18,7 @@ import com.project.appcv.Model.ProfileUser;
 import com.project.appcv.R;
 import com.project.appcv.RetrofitClient;
 import com.project.appcv.SharedPrefManager;
+import com.project.appcv.View.Edit.EditBirthdayActivity;
 import com.project.appcv.View.Edit.EditGenderActivity;
 import com.project.appcv.View.Edit.EditImageActivity;
 import com.project.appcv.View.Edit.EditProfileCandidateActivity;
@@ -297,13 +298,13 @@ public class ProfileUserActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (role.equals("candidate")) {
-                    Intent intent = new Intent(ProfileUserActivity.this, EditProfileCandidateActivity.class);
+                    Intent intent = new Intent(ProfileUserActivity.this, EditBirthdayActivity.class);
                     String birthday = textViewBirthday.getText().toString();
                     intent.putExtra("birthday", birthday);
                     startActivity(intent);
                     finish();
                 }else if (role.equals("company")) {
-                    Intent intent = new Intent(ProfileUserActivity.this, EditProfileCompanyActivity.class);
+                    Intent intent = new Intent(ProfileUserActivity.this, EditBirthdayActivity.class);
                     String foundedAt = textViewBirthday.getText().toString();
                     intent.putExtra("foundedAt", foundedAt);
                     startActivity(intent);
@@ -316,8 +317,10 @@ public class ProfileUserActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (role.equals("candidate")) {
                     Intent intent = new Intent(ProfileUserActivity.this, EditGenderActivity.class);
+                    String gender = textViewGender.getText().toString();
+                    intent.putExtra("gender", gender);
                     startActivity(intent);
-                    recreate();
+                    finish();
                 }else if (role.equals("company")) {
                     Intent intent = new Intent(ProfileUserActivity.this, EditProfileCompanyActivity.class);
                     String field = textViewGender.getText().toString();

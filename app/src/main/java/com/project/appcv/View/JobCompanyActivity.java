@@ -17,9 +17,8 @@ import com.project.appcv.Model.Job;
 import com.project.appcv.R;
 import com.project.appcv.RetrofitClient;
 import com.project.appcv.SharedPrefManager;
-import com.project.appcv.View.EditJob.EditAddressActivity;
+import com.project.appcv.View.Edit.EditGenderActivity;
 import com.project.appcv.View.EditJob.EditExperienceActivity;
-import com.project.appcv.View.EditJob.EditGenderActivity;
 import com.project.appcv.View.EditJob.EditJobCompanyActivity;
 
 import retrofit2.Call;
@@ -83,6 +82,8 @@ public class JobCompanyActivity extends AppCompatActivity {
         GetJob(id);
 
     }
+
+
     private void GetJob(int job_id){
         apiService= RetrofitClient.getRetrofit().create(APIService.class);
         Call<Job> call= apiService.getJobById(job_id);
@@ -111,8 +112,11 @@ public class JobCompanyActivity extends AppCompatActivity {
                     btnEditAddress.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent intent=new Intent(JobCompanyActivity.this, EditAddressActivity.class);
+                            Intent intent = new Intent(JobCompanyActivity.this, SelectAddressActivity.class);
+                            String id=Integer.toString(job_id);
+                            intent.putExtra("job_id", id);
                             startActivity(intent);
+                            finish();
                         }
                     });
                 }
@@ -157,7 +161,11 @@ public class JobCompanyActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(JobCompanyActivity.this, EditGenderActivity.class);
+                intent.putExtra("job_id", job_id);
+                String gender = textViewGender.getText().toString();
+                intent.putExtra("gender", gender);
                 startActivity(intent);
+                finish();
             }
         });
         btnEditExperience=findViewById(R.id.btnDJCEditExperience);
@@ -165,7 +173,11 @@ public class JobCompanyActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(JobCompanyActivity.this, EditExperienceActivity.class);
+                intent.putExtra("job_id", job_id);
+                String experience = textViewExperience.getText().toString();
+                intent.putExtra("experience", experience);
                 startActivity(intent);
+                finish();
             }
         });
         btnEditResponsibilities=findViewById(R.id.btnDJCEditResponsibilities);
@@ -212,5 +224,4 @@ public class JobCompanyActivity extends AppCompatActivity {
             }
         });
     }
-
 }

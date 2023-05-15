@@ -21,10 +21,15 @@ import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface APIService {
     @POST("/api/auth/login")
     Call<JWTTokenDto> login(@Body JsonObject body);
+    @POST("/api/auth/register")
+    Call<JWTTokenDto> signup(@Body JsonObject body);
+
+
     @GET("/api/appcv/top6/company")
     Call<List<Company>> getTop6CompanyAll();
     @GET("/api/appcv/all/company")
@@ -46,6 +51,11 @@ public interface APIService {
     Call<List<Job>> getJobForCompany(@Path("company_id") int company_id);
     @GET("/api/company/all/recruit")
     Call<List<Job>> getAllJobForCompany(@Header("Authorization") String token);
+    @GET("/api/candidate/recruit/apply")
+    Call<List<Job>> getAllJobForApply(@Header("Authorization") String token);
+    @GET("/api/appcv/job")
+    Call<List<Job>> findJob(@Query("search") String search);
+
 
 
     @GET("/api/appcv/address/company/{address_id}")
@@ -54,7 +64,8 @@ public interface APIService {
     Call<List<AddressWorkDto>> getAddressUser(@Header("Authorization") String token);
     @PUT("/user/update/address/{id}")
     Call<AddressWorkDto> updateAddress(@Header("Authorization") String token,@Path("id") int id,@Body JsonObject body);
-
+    @POST("/user/create/address")
+    Call<AddressWorkDto> createAddressUser(@Header("Authorization") String token,@Body JsonObject body);
 
 
     @GET("/api/candidate/all/cv")
@@ -80,6 +91,9 @@ public interface APIService {
     Call<ProfileCandidate> updateProfileUserCandidate(@Header("Authorization") String token,@Body JsonObject body);
     @PUT("/api/candidate/update/cv/{id}")
     Call<Cv> updateCvCandidate(@Header("Authorization") String token,@Path("id") int id,@Body JsonObject body);
+    @POST("/api/candidate/create/cv")
+    Call<Cv> createCvForCandidate(@Header("Authorization") String token,@Body JsonObject body);
+
 
 
     @POST("/api/company/update/profile")
@@ -88,5 +102,18 @@ public interface APIService {
     Call<Company> updateProfileUserCompany(@Header("Authorization") String token,@Body JsonObject body);
     @PUT("/api/company/update/recruit/{id}")
     Call<Job> updateJobCompany(@Header("Authorization") String token,@Path("id") int id,@Body JsonObject body);
+    @POST("/api/company/create/recruit")
+    Call<Job> createJobForCompany(@Header("Authorization") String token,@Body JsonObject body);
+
+
+    @GET("/api/company/cv/apply/recruit/{id}")
+    Call<List<Cv>> getAllCvForApply(@Header("Authorization") String token,@Path("id") int id);
+    @GET("/api/company/apply/recruit/{id}")
+    Call<Integer> countApplyCV(@Header("Authorization") String token,@Path("id") int id);
+
+
+    @GET("/api/candidate/apply/{id}")
+    Call<Job> applyCvToRecruit(@Header("Authorization") String token,@Path("id") int id);
+
 
 }

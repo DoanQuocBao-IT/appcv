@@ -17,6 +17,18 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".View.CvApplyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.CreateJobActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.CreateAddressActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.SelectAddressActivity"
+            android:exported="false" />
+        <activity
             android:name=".View.EditJob.EditJobCompanyActivity"
             android:exported="false" />
         <activity
@@ -38,9 +50,6 @@
             android:name=".View.EditJob.EditExperienceActivity"
             android:exported="false" />
         <activity
-            android:name=".View.EditJob.EditGenderActivity"
-            android:exported="false" />
-        <activity
             android:name=".View.JobCompanyActivity"
             android:exported="false" />
         <activity
@@ -54,9 +63,6 @@
             android:exported="false" />
         <activity
             android:name=".View.CompanyDetailActivity"
-            android:exported="false" />
-        <activity
-            android:name=".View.Edit.EditCvCertificateActivity"
             android:exported="false" />
         <activity
             android:name=".View.Edit.EditImageActivity"

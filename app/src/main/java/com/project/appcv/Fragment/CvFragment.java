@@ -26,7 +26,9 @@ import com.project.appcv.R;
 import com.project.appcv.RetrofitClient;
 import com.project.appcv.SharedPrefManager;
 import com.project.appcv.View.CreateCvActivity;
+import com.project.appcv.View.CreateJobActivity;
 import com.project.appcv.View.Edit.EditCvCandidateActivity;
+import com.project.appcv.View.SelectAddressActivity;
 
 import java.util.List;
 
@@ -53,8 +55,8 @@ public class CvFragment extends Fragment {
     TextView textViewHeader, textViewBirthday,textViewGender,textViewPhone,textViewEmail,textViewWebsite,
     textViewAddress, textViewIntroduce,textViewStudy,textViewExperienceWork,
     textViewSkill,textViewPrize, textViewCertificate,textViewName,textViewPosition,textViewID;
-    ImageView imageViewAvatar,btnEditSkill, btnEditPrize, btnEditCertificate, btnEditStudy,btnEditWork, btnEditGoal;
-    Button btnAddCv;
+    ImageView imageViewAvatar,btnEditSkill, btnEditPrize, btnEditCertificate, btnEditStudy,btnEditWork, btnEditGoal,btnEditAddress,btnEditPosition;
+    Button btnAddCv,btnAddJob;
     APIService apiService;
     List<Job> jobList;
     JobCompanyAdapter jobAdapter;
@@ -119,6 +121,8 @@ public class CvFragment extends Fragment {
         btnEditSkill=view.findViewById(R.id.btnCCvSkill);
         btnEditPrize=view.findViewById(R.id.btnCCVPrize);
         btnEditCertificate=view.findViewById(R.id.btnCCVCertificate);
+        btnEditAddress=view.findViewById(R.id.btnCVEditAddress);
+        btnEditPosition=view.findViewById(R.id.btnCCVPosition);
 
         constraintLayoutNoCv=view.findViewById(R.id.constraintNoCv);
         constraintLayoutPageCv=view.findViewById(R.id.constraintPageCv);
@@ -132,26 +136,34 @@ public class CvFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
+        btnAddJob=view.findViewById(R.id.btnAddJob);
+        btnAddJob.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent(getActivity(), CreateJobActivity.class);
+                startActivity(intent);
+            }
+        });
         rc_job=view.findViewById(R.id.rc_JCjob);
         rc_job.setLayoutManager(new LinearLayoutManager(getContext()));
+        constraintLayoutPageJob.setVisibility(View.GONE);
+        constraintLayoutNoCv.setVisibility(View.VISIBLE);
+        constraintLayoutPageCv.setVisibility(View.GONE);
+        if (SharedPrefManager.getInstance(getContext()).getRole()!=null) {
+            String role = SharedPrefManager.getInstance(getContext()).getRole();
 
-        String role= SharedPrefManager.getInstance(getContext()).getRole();
-        if (role.equals("company")){
-            textViewHeader.setText("Tin tuyển dụng của công ty");
-            constraintLayoutPageJob.setVisibility(View.VISIBLE);
-            constraintLayoutNoCv.setVisibility(View.GONE);
-            constraintLayoutPageCv.setVisibility(View.GONE);
-            GetJob();
-        } else if (role.equals("candidate")) {
-            constraintLayoutPageJob.setVisibility(View.GONE);
-            constraintLayoutNoCv.setVisibility(View.GONE);
-            constraintLayoutPageCv.setVisibility(View.VISIBLE);
-            GetCv();
-        }else{
-            constraintLayoutPageJob.setVisibility(View.GONE);
-            constraintLayoutNoCv.setVisibility(View.VISIBLE);
-            constraintLayoutPageCv.setVisibility(View.GONE);
+            if (role.equals("company")) {
+                textViewHeader.setText("Tin tuyển dụng của công ty");
+                constraintLayoutPageJob.setVisibility(View.VISIBLE);
+                constraintLayoutNoCv.setVisibility(View.GONE);
+                constraintLayoutPageCv.setVisibility(View.GONE);
+                GetJob();
+            } else if (role.equals("candidate")) {
+                constraintLayoutPageJob.setVisibility(View.GONE);
+                constraintLayoutNoCv.setVisibility(View.GONE);
+                constraintLayoutPageCv.setVisibility(View.VISIBLE);
+                GetCv();
+            }
         }
 
         return view;
@@ -220,6 +232,26 @@ public class CvFragment extends Fragment {
                 intent.putExtra("cv_id", id);
                 String certificate=textViewCertificate.getText().toString();
                 intent.putExtra("certificate", certificate);
+                startActivity(intent);
+            }
+        });
+        btnEditAddress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getContext(), SelectAddressActivity.class);
+                String id=textViewID.getText().toString();
+                intent.putExtra("cv_id", id);
+                startActivity(intent);
+            }
+        });
+        btnEditPosition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getContext(), EditCvCandidateActivity.class);
+                String id=textViewID.getText().toString();
+                intent.putExtra("cv_id", id);
+                String position=textViewPosition.getText().toString();
+                intent.putExtra("position", position);
                 startActivity(intent);
             }
         });

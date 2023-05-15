@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import com.project.appcv.APIService.APIService;
 import com.project.appcv.Adapter.AddressAdapter;
@@ -15,6 +17,7 @@ import com.project.appcv.DTO.ItemSpacingDecoration;
 import com.project.appcv.R;
 import com.project.appcv.RetrofitClient;
 import com.project.appcv.SharedPrefManager;
+import com.project.appcv.View.EditJob.EditAddressActivity;
 
 import java.util.List;
 
@@ -27,11 +30,21 @@ public class AddressActivity extends AppCompatActivity{
     List<AddressWorkDto> addressWorkDtoList;
     APIService apiService;
     AddressAdapter addressAdapter;
+    Button btnAddAddress;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_address);
         rcAddress=findViewById(R.id.rc_address);
+        btnAddAddress=findViewById(R.id.btnAddAddress);
+        btnAddAddress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(AddressActivity.this, CreateAddressActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         GetIAddressUser();
     }
     private void GetIAddressUser(){

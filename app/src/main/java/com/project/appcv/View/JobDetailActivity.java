@@ -1,5 +1,6 @@
 package com.project.appcv.View;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -8,11 +9,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.project.appcv.APIService.APIService;
@@ -84,14 +87,31 @@ public class JobDetailActivity extends AppCompatActivity {
             }
         });
         String role= SharedPrefManager.getInstance(getApplicationContext()).getRole();
-
+        String jwtToken= SharedPrefManager.getInstance(getApplicationContext()).getJwtToken();
         String job_id = (String) getIntent().getStringExtra("job_id");
         int id=Integer.parseInt(job_id);
         if (role.equals("company")){
             btnApply.setVisibility(View.GONE);
         } else if (role.equals("candidate")) {
             btnApply.setVisibility(View.VISIBLE);
+            btnApply.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    apiService= RetrofitClient.getRetrofit().create(APIService.class);
+                    apiService.applyCvToRecruit("Bearer " + jwtToken,id).enqueue(new Callback<Job>() {
+                        @Override
+                        public void onResponse(Call<Job> call, Response<Job> response) {
+                            if (response.isSuccessful())
+                                showSuccessDialog();
+                        }
 
+                        @Override
+                        public void onFailure(Call<Job> call, Throwable t) {
+
+                        }
+                    });
+                }
+            });
         }else{
             btnApply.setVisibility(View.VISIBLE);
 
@@ -130,7 +150,6 @@ public class JobDetailActivity extends AppCompatActivity {
         });
     }
     private void GetJobForCompany(int company_id){
-        String jwtToken= SharedPrefManager.getInstance(getApplicationContext()).getJwtToken();
         apiService=RetrofitClient.getRetrofit().create(APIService.class);
         apiService.getJobForCompany(company_id).enqueue(new Callback<List<Job>>() {
             @Override
@@ -152,5 +171,29 @@ public class JobDetailActivity extends AppCompatActivity {
                 Log.d("logg",t.getMessage());
             }
         });
+    }
+    private void showSuccessDialog() {
+        // Tạo một AlertDialog
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View view = LayoutInflater.from(this).inflate(R.layout.success_message, null);
+        builder.setView(view);
+        AlertDialog dialog = builder.create();
+
+        // Lấy reference tới TextView và Button trong layout
+        TextView tvSuccessMessage = view.findViewById(R.id.tv_success_message);
+        Button btnOK = view.findViewById(R.id.btn_ok);
+
+        // Đặt message cho TextView
+        tvSuccessMessage.setText("Thao tác thành công");
+
+        // Xử lý khi người dùng nhấn OK
+        btnOK.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss(); // Đóng dialog
+            }
+        });
+
+        dialog.show(); // Hiển thị dialog
     }
 }

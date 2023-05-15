@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -54,7 +56,7 @@ public class HomeFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    Button btnLogin,btnSignup;
+    Button btnLogin,btnSignup,btnFindJob;
     RecyclerView rcCompany,rcJob;
     List<Company> companyList;
     List<Job> jobList;
@@ -142,6 +144,17 @@ public class HomeFragment extends Fragment {
         rcJob=view.findViewById(R.id.rc_job);
         rcJob.setLayoutManager(new LinearLayoutManager(getContext()));
         GetJob();
+        btnFindJob=view.findViewById(R.id.btnFindJob);
+        btnFindJob.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.frame_container, new ConnectFragment());
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
         return view;
     }
     private void GetCompany(){
@@ -206,7 +219,9 @@ public class HomeFragment extends Fragment {
 
                     }
                     // Xử lý thông tin user
-                    tvHHello.setText("Chào, "+user.getFname());
+                    if (user.getFname()!=null)
+                        tvHHello.setText("Chào, "+user.getFname());
+                    else tvHHello.setText("Chào, Hãy cập nhật tên người dùng");
                     Glide.with(getContext()).load(user.getImage()).into(imageHAvatar);
                 } else {
                     // Xử lý khi API trả về lỗi

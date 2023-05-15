@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.AddressActivity">
+    tools:context=".View.SelectAddressActivity">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Địa chỉ của bạn "
+        android:text="Chọn địa chỉ của bạn "
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textColor="@color/black"
         android:textSize="26sp"
@@ -17,23 +17,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="10dp"/>
-    <Button
-        android:id="@+id/btnAddAddress"
-        android:layout_width="135dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="35dp"
-        android:backgroundTint="@android:color/transparent"
-        android:text="Thêm địa chỉ "
-        android:textSize="16sp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textColor="#4CAF50"
-        app:cornerRadius="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:strokeColor="#4CAF50"
-        app:strokeWidth="3dp" />
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rc_address"
+    <ListView
+        android:id="@+id/rc_select_address"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="90dp"

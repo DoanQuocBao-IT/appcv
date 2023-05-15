@@ -8,7 +8,7 @@
     tools:context=".View.WelcomeActivity">
     <ViewFlipper
         android:id="@+id/viewFlipperMain"
-        android:layout_width="match_parent"
+        android:layout_width="360dp"
         android:layout_height="360dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

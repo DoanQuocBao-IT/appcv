@@ -1,15 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragment.NoticeFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:id="@+id/tvConnect"
+        android:id="@+id/tvCvHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:text="Công việc đã ứng tuyển"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="@color/black"
+        android:textSize="26sp"
+        android:textStyle="bold"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/constraintPageJobApply"
+        android:visibility="visible"
+        android:layout_gravity="center|center_horizontal"
+        android:layout_marginTop="40dp">
+        <Button
+            android:id="@+id/btnAllJob"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="Xem thêm việc làm "
+            android:backgroundTint="#4CAF50"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            app:cornerRadius="30dp"
+            app:icon="@android:drawable/ic_input_add"
+            app:iconGravity="start"
+            app:iconSize="15dp"
+            android:layout_marginEnd="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rc_jobApply"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnAllJob" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/constraintPageCandidateApply"
+        android:visibility="gone"
+        android:layout_gravity="center|center_horizontal"
+        android:layout_marginTop="40dp">
+        <Button
+            android:id="@+id/btnAllCandidate"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="Xem thêm ứng viên"
+            android:backgroundTint="#4CAF50"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            app:cornerRadius="30dp"
+            app:icon="@android:drawable/ic_input_add"
+            app:iconGravity="start"
+            app:iconSize="15dp"
+            android:layout_marginEnd="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rc_candidateApply"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnAllCandidate" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </FrameLayout>

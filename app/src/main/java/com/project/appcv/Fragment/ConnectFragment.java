@@ -3,16 +3,31 @@ package com.project.appcv.Fragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.project.appcv.APIService.APIService;
+import com.project.appcv.Adapter.JobAdapter;
+import com.project.appcv.DTO.ItemSpacingDecoration;
+import com.project.appcv.Model.Job;
 import com.project.appcv.R;
+import com.project.appcv.RetrofitClient;
 import com.project.appcv.SharedPrefManager;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,7 +44,12 @@ public class ConnectFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    TextView tvConnect;
+    EditText editTextSearchJob;
+    Button btnSearchJob;
+    RecyclerView rc_findJob;
+    APIService apiService;
+    List<Job> jobList;
+    JobAdapter jobAdapter;
 
     public ConnectFragment() {
         // Required empty public constructor
@@ -67,6 +87,58 @@ public class ConnectFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_connect, container, false);
+        editTextSearchJob=view.findViewById(R.id.editTextSearchJob);
+        btnSearchJob=view.findViewById(R.id.btnSearchJob);
+        rc_findJob=view.findViewById(R.id.rc_search_job);
+        apiService= RetrofitClient.getRetrofit().create(APIService.class);
+        apiService.getTop6JobAll().enqueue(new Callback<List<Job>>() {
+            @Override
+            public void onResponse(Call<List<Job>> call, Response<List<Job>> response) {
+                if (response.isSuccessful()) {
+                    jobList = response.body();
+                    jobAdapter = new JobAdapter(jobList, ConnectFragment.this);
+                    rc_findJob.setHasFixedSize(true);
+                    RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false);
+                    rc_findJob.setLayoutManager(layoutManager);
+                    rc_findJob.addItemDecoration(new ItemSpacingDecoration(50));
+                    rc_findJob.setAdapter(jobAdapter);
+                    jobAdapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Job>> call, Throwable t) {
+                Log.d("logg",t.getMessage());
+            }
+        });
+        btnSearchJob.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                jobList.clear();
+                jobAdapter.notifyDataSetChanged();
+                apiService= RetrofitClient.getRetrofit().create(APIService.class);
+                apiService.findJob(editTextSearchJob.getText().toString()).enqueue(new Callback<List<Job>>() {
+                    @Override
+                    public void onResponse(Call<List<Job>> call, Response<List<Job>> response) {
+                        if (response.isSuccessful()) {
+                            jobList = response.body();
+                            jobAdapter = new JobAdapter(jobList, ConnectFragment.this);
+                            rc_findJob.setHasFixedSize(true);
+                            RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false);
+                            rc_findJob.setLayoutManager(layoutManager);
+                            rc_findJob.addItemDecoration(new ItemSpacingDecoration(50));
+                            rc_findJob.setAdapter(jobAdapter);
+                            jobAdapter.notifyDataSetChanged();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<List<Job>> call, Throwable t) {
+                        Log.d("logg",t.getMessage());
+                    }
+                });
+            }
+        });
         return  view;
     }
 }

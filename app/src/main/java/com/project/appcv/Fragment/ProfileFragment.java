@@ -26,9 +26,13 @@ import com.project.appcv.R;
 import com.project.appcv.RetrofitClient;
 import com.project.appcv.SharedPrefManager;
 import com.project.appcv.View.AddressActivity;
+import com.project.appcv.View.Edit.EditBirthdayActivity;
 import com.project.appcv.View.Edit.EditCvCandidateActivity;
+import com.project.appcv.View.EditJob.EditExperienceActivity;
+import com.project.appcv.View.EditJob.EditProfileCompanyActivity;
 import com.project.appcv.View.LoginActivity;
 import com.project.appcv.View.ProfileUserActivity;
+import com.project.appcv.View.SelectAddressActivity;
 import com.project.appcv.View.WelcomeActivity;
 
 import retrofit2.Call;
@@ -51,7 +55,8 @@ public class ProfileFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    Button btnLogout,btnPAddress,btnPProfile, btnPCv, btnEditExperience, btnEditProfession, btnEditAddress;
+    Button btnLogout,btnPAddress,btnPProfile, btnPCv, btnEditExperience, btnEditProfession, btnEditAddress,
+    btnJobApply,btnJobForCandidate;
     ImageButton imageButtonAvatar;
     TextView textViewName, textViewID, textViewExperience, textViewProfession,textViewAddress,
     textViewExperienceHeader,textViewPositionHeader,textViewAddressHeader;
@@ -113,6 +118,7 @@ public class ProfileFragment extends Fragment {
 
                 // Chuyển người dùng đến màn hình đăng nhập
                 Intent intent = new Intent(getActivity(), WelcomeActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
             }
         });
@@ -127,7 +133,7 @@ public class ProfileFragment extends Fragment {
         imageButtonAvatar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getContext(), AddressActivity.class);
+                Intent intent=new Intent(getContext(), ProfileUserActivity.class);
                 startActivity(intent);
             }
         });
@@ -149,12 +155,38 @@ public class ProfileFragment extends Fragment {
                 fragmentTransaction.commit();
             }
         });
-        EditInforCV();
-        String role= SharedPrefManager.getInstance(getContext()).getRole();
-        if (role.equals("candidate"))
-            GetInforUser();
-        else if (role.equals("company")) {
-            GetInforUserCompany();
+        btnJobApply=view.findViewById(R.id.btnPJob);
+        btnJobApply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.frame_container, new NoticeFragment());
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+        btnJobForCandidate=view.findViewById(R.id.btnPCompany);
+        btnJobForCandidate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.frame_container, new ConnectFragment());
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+
+
+        if (SharedPrefManager.getInstance(getContext()).getRole()!=null) {
+
+            String role = SharedPrefManager.getInstance(getContext()).getRole();
+            if (role.equals("candidate"))
+                GetInforUser();
+            else if (role.equals("company")) {
+                GetInforUserCompany();
+            }
         }
         return  view;
     }
@@ -164,7 +196,7 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (role.equals("candidate")){
-                    Intent intent=new Intent(getContext(), EditCvCandidateActivity.class);
+                    Intent intent=new Intent(getContext(), EditExperienceActivity.class);
                     String id=textViewID.getText().toString();
                     intent.putExtra("cv_id", id);
                     String experience=textViewExperience.getText().toString();
@@ -180,21 +212,42 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (role.equals("candidate")) {
+                    /*
                     Intent intent = new Intent(getContext(), EditCvCandidateActivity.class);
                     String id = textViewID.getText().toString();
                     intent.putExtra("cv_id", id);
                     String profession = textViewProfession.getText().toString();
                     intent.putExtra("profession", profession);
+                    startActivity(intent);*/
+
+                    Intent intent=new Intent(getContext(), EditCvCandidateActivity.class);
+                    String id=textViewID.getText().toString();
+                    intent.putExtra("cv_id", id);
+                    String position=textViewProfession.getText().toString();
+                    intent.putExtra("position", position);
                     startActivity(intent);
                 } else if (role.equals("company")) {
-
+                    Intent intent = new Intent(getContext(), EditProfileCompanyActivity.class);
+                    String field = textViewProfession.getText().toString();
+                    intent.putExtra("field", field);
+                    startActivity(intent);
                 }
             }
         });
         btnEditAddress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                if (role.equals("candidate")) {
+                    Intent intent = new Intent(getContext(), SelectAddressActivity.class);
+                    String id = textViewID.getText().toString();
+                    intent.putExtra("cv_id", id);
+                    startActivity(intent);
+                }else if (role.equals("company")) {
+                    Intent intent = new Intent(getContext(), EditBirthdayActivity.class);
+                    String foundedAt = textViewAddress.getText().toString();
+                    intent.putExtra("foundedAt", foundedAt);
+                    startActivity(intent);
+                }
             }
         });
     }
@@ -229,8 +282,10 @@ public class ProfileFragment extends Fragment {
                     // Xử lý thông tin user
                     textViewID.setText(""+user.getId());
                     textViewExperience.setText(user.getExperience());
-                    textViewProfession.setText(user.getProfession());
+                    textViewProfession.setText(user.getPosition());
                     textViewAddress.setText(user.getAddress().getCity());
+                    EditInforCV();
+
                 } else {
                     // Xử lý khi API trả về lỗi
                 }
@@ -279,6 +334,8 @@ public class ProfileFragment extends Fragment {
                     textViewProfession.setText(company.getField());
                     textViewAddressHeader.setText("Ngày thành lập ");
                     textViewAddress.setText(company.getFormattedDate());
+                    EditInforCV();
+
                 } else {
                     // Xử lý khi API trả về lỗi
                 }

@@ -26,10 +26,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
-    EditText editTextUsername;
-    EditText editTextPassword;
-    Button buttonLogin;
-    TextView textViewError;
+    EditText editTextUsername,editTextPassword;
+    Button buttonLogin,buttonSignUp;
     APIService apiService;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +36,6 @@ public class LoginActivity extends AppCompatActivity {
         editTextUsername=findViewById(R.id.editTextUsername);
         editTextPassword=findViewById(R.id.editTextPassword);
         buttonLogin=findViewById(R.id.buttonLogin);
-        textViewError=findViewById(R.id.textViewError);
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,6 +67,15 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(LoginActivity.this, "Lỗi kết nối", Toast.LENGTH_SHORT).show();
                     }
                 });
+            }
+        });
+        buttonSignUp=findViewById(R.id.buttonLoginSignup);
+        buttonSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(LoginActivity.this,SignupActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }

@@ -4,82 +4,113 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.CreateCvActivity">
+    tools:context=".View.CreateJobActivity">
     <EditText
-        android:id="@+id/editTextCCvGoals"
+        android:id="@+id/editTextCJobProfession"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Thêm mục tiêu công việc của bạn "
+        android:hint="Thêm yêu cầu chuyên ngành "
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextCCvStudy"
+        android:id="@+id/editTextCJobSalary"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Thêm học vấn của bạn "
+        android:hint="Thêm mức lương  "
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextCCvGoals" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextCJobProfession" />
 
     <EditText
-        android:id="@+id/editTextCCvWork"
+        android:id="@+id/editTextCJobPosition"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Thêm kinh nghiẹm làm việc của bạn "
+        android:hint="Thêm vị trí tuyển dụng  "
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextCCvStudy" />
+        app:layout_constraintTop_toBottomOf="@id/editTextCJobSalary" />
 
     <EditText
-        android:id="@+id/editTextCCvSkill"
+        android:id="@+id/editTextCJobInventory"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Thêm kĩ năng của bạn "
+        android:hint="Thêm số lượng tuyển dụng  "
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextCCvWork" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextCJobPosition" />
     <EditText
-        android:id="@+id/editTextCCvPrize"
+        android:id="@+id/editTextCJobResponsibilities"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Thêm giải thưởng của bạn "
+        android:hint="Thêm mô tả công việc  "
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextCCvSkill" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextCJobInventory" />
     <EditText
-        android:id="@+id/editTextCCvCertificate"
+        android:id="@+id/editTextCJobQualifications"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Thêm các chứng chỉ của bạn "
+        android:hint="Thêm yêu cầu công việc "
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextCCvPrize" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextCJobResponsibilities" />
     <EditText
-        android:id="@+id/editTextCCvProfession"
+        android:id="@+id/editTextCJobInterests"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Thêm các chuyên ngành của bạn "
+        android:hint="Thêm quyền lợi công việc "
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextCCvCertificate" />
-    <EditText
-        android:id="@+id/editTextCCvPosition"
-        android:layout_width="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCJobQualifications" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Thêm vị trí bạn muốn ứng tuyển"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:text="Hạn ứng tuyển "
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:layout_marginStart="30dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextCCvProfession" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextCJobInterests"/>
+    <Button
+        android:id="@+id/btnCJobSelectDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chọn"
+        android:backgroundTint="@android:color/transparent"
+        android:textSize="16sp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="#4CAF50"
+        app:cornerRadius="30dp"
+        app:layout_constraintStart_toStartOf="@+id/tvCJobDeadline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCJobInterests"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvCJobDeadline"
+        android:text="2023-04-05 "
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCJobInterests"/>
     <TextView
         android:id="@+id/textViewError"
         android:layout_width="wrap_content"
@@ -87,12 +118,12 @@
         android:textColor="@android:color/holo_red_dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/btnCCvAdd" />
+        app:layout_constraintBottom_toTopOf="@+id/btnCJobAdd" />
     <Button
-        android:id="@+id/btnCCvAdd"
+        android:id="@+id/btnCJobAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tạo cv"
+        android:text="Tạo công việc "
         android:backgroundTint="#4CAF50"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         app:cornerRadius="30dp"
@@ -100,9 +131,8 @@
         app:iconGravity="start"
         app:iconSize="15dp"
         android:layout_marginEnd="15dp"
-        app:layout_constraintTop_toTopOf="@+id/editTextCCvPosition"
+        app:layout_constraintTop_toTopOf="@+id/editTextCJobInterests"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
