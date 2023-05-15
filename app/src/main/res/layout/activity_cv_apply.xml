@@ -19,14 +19,43 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
-
+    <Button
+        android:id="@+id/btnAllCvApproved"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="Các CV đã chấp nhận"
+        android:backgroundTint="#4CAF50"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:cornerRadius="30dp"
+        app:icon="@android:drawable/ic_input_add"
+        app:iconGravity="start"
+        app:iconSize="15dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <Button
+        android:id="@+id/btnAllCvPending"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="Các CV đang xử lí"
+        android:backgroundTint="#4CAF50"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:cornerRadius="30dp"
+        app:icon="@android:drawable/ic_input_add"
+        app:iconGravity="start"
+        app:iconSize="15dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rc_cvApply"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="20dp"
         android:layout_marginStart="25dp"
         android:layout_marginEnd="25dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/btnAllCvApproved" />
 </androidx.constraintlayout.widget.ConstraintLayout>

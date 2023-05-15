@@ -116,4 +116,13 @@ public interface APIService {
     Call<Job> applyCvToRecruit(@Header("Authorization") String token,@Path("id") int id);
 
 
+    @GET("/api/company/cv/apply/approved/recruit/{id}")
+    Call<List<Cv>> getAllCvForApplyApproved(@Header("Authorization") String token,@Path("id") int id);
+    @GET("/api/company/cv/apply/pending/recruit/{id}")
+    Call<List<Cv>> getAllCvForApplyPending(@Header("Authorization") String token,@Path("id") int id);
+    @GET("/api/company/cv/{cv_id}/approved/recruit/{recruit_id}")
+    Call<List<Cv>> approvedCv(@Header("Authorization") String token,@Path("cv_id") int cv_id,@Path("recruit_id") int recruit_id);
+
+
+
 }

@@ -2,31 +2,53 @@ package com.project.appcv.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.project.appcv.APIService.APIService;
+import com.project.appcv.DTO.ItemSpacingDecoration;
 import com.project.appcv.Model.Cv;
 import com.project.appcv.Model.Job;
 import com.project.appcv.R;
+import com.project.appcv.RetrofitClient;
+import com.project.appcv.SharedPrefManager;
+import com.project.appcv.View.CvApplyActivity;
 import com.project.appcv.View.JobDetailActivity;
 
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class CvAdapter extends RecyclerView.Adapter<CvAdapter.MyViewHolder> {
     List<Cv> cvList;
     Context context;
+    int job_id;
+    boolean approved;
+    APIService apiService;
     public CvAdapter(List<Cv> cvList, Context context) {
         this.cvList = cvList;
         this.context = context;
+    }
+
+    public CvAdapter(List<Cv> cvList, Context context, int job_id, boolean approved) {
+        this.cvList = cvList;
+        this.context = context;
+        this.job_id = job_id;
+        this.approved = approved;
     }
 
     public CvAdapter(List<Cv> cvList) {
@@ -73,7 +95,29 @@ public class CvAdapter extends RecyclerView.Adapter<CvAdapter.MyViewHolder> {
         holder.textViewGoal.setText(cv.getGoals());
         holder.textViewStudy.setText(cv.getStudy());
         holder.textViewWork.setText(cv.getWork());
+        String jwtToken= SharedPrefManager.getInstance(context).getJwtToken();
+        if (approved==false) {
+            holder.btnApproved.setVisibility(View.VISIBLE);
+            holder.btnApproved.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    apiService = RetrofitClient.getRetrofit().create(APIService.class);
+                    apiService.approvedCv("Bearer " + jwtToken, cv.getId(), job_id).enqueue(new Callback<List<Cv>>() {
+                        @Override
+                        public void onResponse(Call<List<Cv>> call, Response<List<Cv>> response) {
+                            if (response.isSuccessful()) {
+                                Log.d("ThanhCong", response.toString());
+                            }
+                        }
 
+                        @Override
+                        public void onFailure(Call<List<Cv>> call, Throwable t) {
+
+                        }
+                    });
+                }
+            });
+        }else holder.btnApproved.setVisibility(View.GONE);
     }
 
     @Override
@@ -86,6 +130,7 @@ public class CvAdapter extends RecyclerView.Adapter<CvAdapter.MyViewHolder> {
         public TextView nameCandidate,textViewPosition,textViewID,
                 textViewBirthday,textViewPhone,textViewGender,textViewEmail,textViewWebsite,textViewAddress,
                 textViewSkill,textViewPrize,textViewCertificate,textViewGoal,textViewStudy,textViewWork;
+        public Button btnApproved;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             imageAvatar=itemView.findViewById(R.id.imageCvApplyAvatar);
@@ -105,7 +150,7 @@ public class CvAdapter extends RecyclerView.Adapter<CvAdapter.MyViewHolder> {
             textViewGoal=itemView.findViewById(R.id.tvCvApplyGoals);
             textViewStudy=itemView.findViewById(R.id.tvCvApplyStudy);
             textViewWork=itemView.findViewById(R.id.tvCvApplyExperienceWork);
-
+            btnApproved=itemView.findViewById(R.id.btnApproved);
         }
     }
 }

@@ -532,6 +532,21 @@
                     android:textColor="@color/black"
                     android:textSize="16dp"/>
             </LinearLayout>
+            <Button
+                android:id="@+id/btnApproved"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:backgroundTint="@android:color/transparent"
+                android:text="Phê duyệt"
+                android:textSize="16sp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="#4CAF50"
+                app:cornerRadius="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:strokeColor="#4CAF50"
+                app:strokeWidth="3dp" />
             <TextView
                 android:layout_width="40dp"
                 android:layout_height="30dp"
