@@ -28,6 +28,7 @@ import com.project.appcv.SharedPrefManager;
 import com.project.appcv.View.CreateCvActivity;
 import com.project.appcv.View.CreateJobActivity;
 import com.project.appcv.View.Edit.EditCvCandidateActivity;
+import com.project.appcv.View.LoginActivity;
 import com.project.appcv.View.SelectAddressActivity;
 
 import java.util.List;
@@ -129,13 +130,27 @@ public class CvFragment extends Fragment {
         constraintLayoutPageJob=view.findViewById(R.id.constraintPageJob);
 
         btnAddCv=view.findViewById(R.id.btnCvAddCV);
-        btnAddCv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent =new Intent(getActivity(), CreateCvActivity.class);
-                startActivity(intent);
+        if (SharedPrefManager.getInstance(getContext()).getRole()!=null) {
+            String role = SharedPrefManager.getInstance(getContext()).getRole();
+
+            if (role.equals("candidate")) {
+                btnAddCv.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getActivity(), CreateCvActivity.class);
+                        startActivity(intent);
+                    }
+                });
             }
-        });
+        }else {
+            btnAddCv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getActivity(), LoginActivity.class);
+                    startActivity(intent);
+                }
+            });
+        }
         btnAddJob=view.findViewById(R.id.btnAddJob);
         btnAddJob.setOnClickListener(new View.OnClickListener() {
             @Override

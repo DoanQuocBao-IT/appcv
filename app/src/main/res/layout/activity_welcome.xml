@@ -6,10 +6,30 @@
     android:layout_height="match_parent"
     android:background="@drawable/welcomebg"
     tools:context=".View.WelcomeActivity">
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/iconcv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="80dp"
+        android:layout_marginStart="50dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Find Job"
+        android:textSize="54sp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="#4CAF50"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="30dp"/>
     <ViewFlipper
         android:id="@+id/viewFlipperMain"
-        android:layout_width="360dp"
-        android:layout_height="360dp"
+        android:layout_width="380dp"
+        android:layout_height="270dp"
+        android:layout_marginTop="30dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"

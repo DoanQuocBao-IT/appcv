@@ -133,6 +133,14 @@ public class NoticeFragment extends Fragment {
                     }
                 });
             }
+        }else {
+            btnAllJob.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getContext(), JobActivity.class);
+                    startActivity(intent);
+                }
+            });
         }
         return view;
     }

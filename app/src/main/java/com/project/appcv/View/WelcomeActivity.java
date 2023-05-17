@@ -63,9 +63,13 @@ public class WelcomeActivity extends AppCompatActivity {
     }
     private void ActionViewFlipperWelcome(){
         List<String> arrayListFlipper=new ArrayList<>();
-        arrayListFlipper.add("https://th.bing.com/th/id/OIP.Cq7dycHJrdvXHksgY0YqCQHaFy?w=228&h=180&c=7&r=0&o=5&pid=1.7");
-        arrayListFlipper.add("https://th.bing.com/th/id/OIP.A6V3OBCZpOxtPrCuETaN8wHaE7?w=263&h=180&c=7&r=0&o=5&pid=1.7");
-        arrayListFlipper.add("https://th.bing.com/th/id/OIP.XVqCHQRLtp5bSQBcZ6KuoQHaFp?w=230&h=180&c=7&r=0&o=5&pid=1.7");
+        arrayListFlipper.add("https://th.bing.com/th/id/OIP.wNH9T6Q2rfIG5K9CAPztrQHaE8?w=255&h=180&c=7&r=0&o=5&pid=1.7");
+        arrayListFlipper.add("https://th.bing.com/th/id/OIP.8ym_U2DMyLhNVJt6438ufQHaE8?w=261&h=180&c=7&r=0&o=5&pid=1.7");
+        arrayListFlipper.add("https://th.bing.com/th/id/OIP.aArltRqdWqrf0ZUMcCefyQHaE8?w=278&h=186&c=7&r=0&o=5&pid=1.7");
+        arrayListFlipper.add("https://th.bing.com/th/id/OIP.sSHMiEa0UtdBOqhgmLn7uQHaFX?w=242&h=180&c=7&r=0&o=5&pid=1.7");
+        arrayListFlipper.add("https://th.bing.com/th/id/OIP.pCk_rmwdsMs1x4dPMTGaXAHaFj?w=234&h=180&c=7&r=0&o=5&pid=1.7");
+        arrayListFlipper.add("https://th.bing.com/th/id/OIP.MxGCQzM0KDtE-nplvupigwHaE6?w=255&h=180&c=7&r=0&o=5&pid=1.7");
+        arrayListFlipper.add("https://th.bing.com/th/id/OIP.F3vDzN5kPPYdYfvgMoUlJgHaE7?w=266&h=180&c=7&r=0&o=5&pid=1.7");
         for (int i=0;i<arrayListFlipper.size();i++){
             ImageView imageView=new ImageView(getApplicationContext());
             Glide.with(getApplicationContext()).load(arrayListFlipper.get(i)).into(imageView);

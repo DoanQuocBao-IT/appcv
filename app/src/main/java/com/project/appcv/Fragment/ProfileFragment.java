@@ -131,7 +131,6 @@ public class ProfileFragment extends Fragment {
         btnPCamera=view.findViewById(R.id.btnPCamera);
         btnChangePassword=view.findViewById(R.id.btnPChangePassword);
 
-        String role= SharedPrefManager.getInstance(getContext()).getRole();
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -143,27 +142,76 @@ public class ProfileFragment extends Fragment {
                 startActivity(intent);
             }
         });
-        btnPAddress.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(getContext(), AddressActivity.class);
-                startActivity(intent);
+        if (SharedPrefManager.getInstance(getContext()).getRole()!=null) {
+            String role = SharedPrefManager.getInstance(getContext()).getRole();
+            if (role.equals("company") || role.equals("candidate")) {
+                btnPAddress.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getContext(), AddressActivity.class);
+                        startActivity(intent);
+                    }
+                });
+                imageButtonAvatar.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getContext(), ProfileUserActivity.class);
+                        startActivity(intent);
+                    }
+                });
+                btnPProfile.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getContext(), ProfileUserActivity.class);
+                        startActivity(intent);
+                    }
+                });
+
+                btnJobPassed.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (role.equals("candidate")) {
+                            Intent intent = new Intent(getContext(), JobPassedActivity.class);
+                            String cv_id = textViewID.getText().toString();
+                            intent.putExtra("cv_id", cv_id);
+                            startActivity(intent);
+                        }
+                    }
+                });
+                btnJobFollow.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (role.equals("candidate")) {
+                            Intent intent = new Intent(getContext(), JobFollowActivity.class);
+                            startActivity(intent);
+                        }
+                    }
+                });
+                btnCompanyFollow.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (role.equals("candidate")) {
+                            Intent intent = new Intent(getContext(), CompanyFollowActivity.class);
+                            startActivity(intent);
+                        }
+                    }
+                });
+                btnPCamera.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getContext(), EditImageActivity.class);
+                        startActivity(intent);
+                    }
+                });
+                btnChangePassword.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getContext(), EditPasswordActivity.class);
+                        startActivity(intent);
+                    }
+                });
             }
-        });
-        imageButtonAvatar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(getContext(), ProfileUserActivity.class);
-                startActivity(intent);
-            }
-        });
-        btnPProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(getContext(), ProfileUserActivity.class);
-                startActivity(intent);
-            }
-        });
+        }
         btnPCv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -194,51 +242,8 @@ public class ProfileFragment extends Fragment {
                 fragmentTransaction.commit();
             }
         });
-        btnJobPassed.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (role.equals("candidate")) {
-                    Intent intent = new Intent(getContext(), JobPassedActivity.class);
-                    String cv_id = textViewID.getText().toString();
-                    intent.putExtra("cv_id", cv_id);
-                    startActivity(intent);
-                }
-            }
-        });
-        btnJobFollow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (role.equals("candidate")) {
-                    Intent intent = new Intent(getContext(), JobFollowActivity.class);
-                    startActivity(intent);
-                }
-            }
-        });
-        btnCompanyFollow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (role.equals("candidate")) {
-                    Intent intent = new Intent(getContext(), CompanyFollowActivity.class);
-                    startActivity(intent);
-                }
-            }
-        });
-        btnPCamera.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(getContext(), EditImageActivity.class);
-                startActivity(intent);
-            }
-        });
-        btnChangePassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(getContext(), EditPasswordActivity.class);
-                startActivity(intent);
-            }
-        });
-
         if (SharedPrefManager.getInstance(getContext()).getRole()!=null) {
+            String role = SharedPrefManager.getInstance(getContext()).getRole();
             if (role.equals("candidate"))
                 GetInforUser();
             else if (role.equals("company")) {

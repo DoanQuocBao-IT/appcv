@@ -23,6 +23,7 @@ import com.project.appcv.Adapter.JobCTAdapter;
 import com.project.appcv.Adapter.JobCompanyAdapter;
 import com.project.appcv.DTO.ItemSpacingDecoration;
 import com.project.appcv.Fragment.CvFragment;
+import com.project.appcv.Model.Cv;
 import com.project.appcv.Model.Job;
 import com.project.appcv.R;
 import com.project.appcv.RetrofitClient;
@@ -86,35 +87,63 @@ public class JobDetailActivity extends AppCompatActivity {
                 }
             }
         });
-        String role= SharedPrefManager.getInstance(getApplicationContext()).getRole();
         String jwtToken= SharedPrefManager.getInstance(getApplicationContext()).getJwtToken();
         String job_id = (String) getIntent().getStringExtra("job_id");
         int id=Integer.parseInt(job_id);
-        if (role.equals("company")){
-            btnApply.setVisibility(View.GONE);
-        } else if (role.equals("candidate")) {
+        if (SharedPrefManager.getInstance(getApplicationContext()).getRole()!=null) {
+            String role = SharedPrefManager.getInstance(getApplicationContext()).getRole();
+            if (role.equals("company")) {
+                btnApply.setVisibility(View.GONE);
+            } else if (role.equals("candidate")) {
+                btnApply.setVisibility(View.VISIBLE);
+                btnApply.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        apiService = RetrofitClient.getRetrofit().create(APIService.class);
+                        Call<Cv> call=apiService.getCvUser("Bearer "+ jwtToken);
+                        call.enqueue(new Callback<Cv>() {
+                            @Override
+                            public void onResponse(Call<Cv> call, Response<Cv> response) {
+                                if (response.isSuccessful()) {
+                                    apiService = RetrofitClient.getRetrofit().create(APIService.class);
+                                    apiService.applyCvToRecruit("Bearer " + jwtToken, id).enqueue(new Callback<Job>() {
+                                        @Override
+                                        public void onResponse(Call<Job> call, Response<Job> response) {
+                                            if (response.isSuccessful())
+                                                showSuccessDialog();
+                                        }
+
+                                        @Override
+                                        public void onFailure(Call<Job> call, Throwable t) {
+
+                                        }
+                                    });
+                                } else {
+                                    Toast.makeText(JobDetailActivity.this,"Bạn cần tạo CV trước khi ứng tuyển",Toast.LENGTH_SHORT).show();
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<Cv> call, Throwable t) {
+                                Toast.makeText(JobDetailActivity.this,"Bạn cần tạo CV trước khi ứng tuyển công việc này",Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                    }
+                });
+            } else {
+                btnApply.setVisibility(View.VISIBLE);
+            }
+        }
+        else {
             btnApply.setVisibility(View.VISIBLE);
             btnApply.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    apiService= RetrofitClient.getRetrofit().create(APIService.class);
-                    apiService.applyCvToRecruit("Bearer " + jwtToken,id).enqueue(new Callback<Job>() {
-                        @Override
-                        public void onResponse(Call<Job> call, Response<Job> response) {
-                            if (response.isSuccessful())
-                                showSuccessDialog();
-                        }
-
-                        @Override
-                        public void onFailure(Call<Job> call, Throwable t) {
-
-                        }
-                    });
+                    Intent intent=new Intent(JobDetailActivity.this,LoginActivity.class);
+                    startActivity(intent);
                 }
             });
-        }else{
-            btnApply.setVisibility(View.VISIBLE);
-
         }
 
         GetJob(id);
