@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -29,12 +30,14 @@ public class LoginActivity extends AppCompatActivity {
     EditText editTextUsername,editTextPassword;
     Button buttonLogin,buttonSignUp;
     APIService apiService;
+    TextView textViewErrorLogin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         editTextUsername=findViewById(R.id.editTextUsername);
         editTextPassword=findViewById(R.id.editTextPassword);
+        textViewErrorLogin=findViewById(R.id.tvErrorLogin);
         buttonLogin=findViewById(R.id.buttonLogin);
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,7 +60,8 @@ public class LoginActivity extends AppCompatActivity {
                             finish();
                         }else {
                             // Xử lý lỗi đăng nhập
-                            Toast.makeText(LoginActivity.this, "Đăng nhập thất bại", Toast.LENGTH_SHORT).show();
+                            textViewErrorLogin.setText("Tên đăng nhập hoặc mật khẩu không chính xác");
+                            textViewErrorLogin.setTextColor(Color.RED);
                         }
                     }
 
