@@ -28,7 +28,7 @@ import retrofit2.Response;
 public class SignupActivity extends AppCompatActivity {
     EditText editTextUsername,editTextPassword,editTextConfirmPassword;
     Button buttonSignUpCandidate,buttonSignUpCompany,btnLogin;
-    TextView textViewErrorConfirm;
+    TextView textViewErrorConfirm,textViewErrorUsername,textViewErrorPassword;
     APIService apiService;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +38,8 @@ public class SignupActivity extends AppCompatActivity {
         editTextPassword=findViewById(R.id.editTextPassword);
         editTextConfirmPassword=findViewById(R.id.editTextConfirmPassword);
         textViewErrorConfirm=findViewById(R.id.tvErrorConfirm);
+        textViewErrorUsername=findViewById(R.id.tvErrorUsername);
+        textViewErrorPassword=findViewById(R.id.tvErrorPassword);
         btnLogin=findViewById(R.id.buttonSignupLogin);
         editTextConfirmPassword.addTextChangedListener(new TextWatcher() {
             @Override
@@ -66,6 +68,44 @@ public class SignupActivity extends AppCompatActivity {
                     textViewErrorConfirm.setText("Mật khẩu nhập lại không chính xác");
                     textViewErrorConfirm.setTextColor(Color.RED);
                 }
+            }
+        });
+        editTextUsername.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String pattern = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@#$%^&+=]).{6,}$";
+                if (editTextUsername.getText().toString().matches(pattern)){
+                    textViewErrorUsername.setText("Tên đăng nhập hợp lệ");
+                    textViewErrorUsername.setTextColor(Color.GREEN);
+                }else {
+                    textViewErrorUsername.setText("Tên đăng nhập phải có ít 6 kí tự gồm ít nhất 1 chữ cái, 1 chữ số, 1 kí tự ");
+                    textViewErrorUsername.setTextColor(Color.RED);
+                }
+            }
+        });
+        editTextPassword.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
             }
         });
         buttonSignUpCandidate=findViewById(R.id.buttonSignupCandidate);
