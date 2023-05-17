@@ -32,16 +32,16 @@
                 android:layout_marginStart="20dp"/>
             <Button
                 android:id="@+id/btnPCamera"
-                android:layout_width="35dp"
+                android:layout_width="30dp"
                 android:layout_height="35dp"
                 android:backgroundTint="@color/white"
                 app:cornerRadius="10dp"
                 app:icon="@drawable/rotate"
                 app:iconGravity="textTop"
-                app:iconSize="25dp"
+                app:iconSize="20dp"
                 app:iconTint="#4CAF50"
                 android:layout_marginTop="75dp"
-                android:layout_marginStart="67dp"
+                android:layout_marginStart="80dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
 
@@ -60,6 +60,7 @@
                 app:layout_constraintStart_toEndOf="@id/imagePAvatar"
                 app:layout_constraintTop_toTopOf="parent" />
             <TextView
+                android:id="@+id/tvCompanytIDHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Mã ứng viên: "
@@ -233,6 +234,7 @@
             android:layout_marginTop="525dp">
 
             <TextView
+                android:id="@+id/findjobHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
@@ -371,11 +373,21 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btnPFollowCompany" />
 
-            <ImageButton
+            <Button
+                android:id="@+id/btnJobPassed"
                 android:layout_width="380dp"
                 android:layout_height="100dp"
                 android:layout_marginBottom="10dp"
-                android:background="@drawable/shapradius"
+                android:backgroundTint="#E2F4E3"
+                android:text="Các việc làm bạn đã trúng tuyển"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/approved"
+                app:iconGravity="start"
+                app:iconSize="100dp"
+                app:iconTint="#5EBA61"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

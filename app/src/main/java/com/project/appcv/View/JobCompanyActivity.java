@@ -17,6 +17,7 @@ import com.project.appcv.Model.Job;
 import com.project.appcv.R;
 import com.project.appcv.RetrofitClient;
 import com.project.appcv.SharedPrefManager;
+import com.project.appcv.View.Edit.EditBirthdayActivity;
 import com.project.appcv.View.Edit.EditGenderActivity;
 import com.project.appcv.View.EditJob.EditExperienceActivity;
 import com.project.appcv.View.EditJob.EditJobCompanyActivity;
@@ -31,7 +32,7 @@ public class JobCompanyActivity extends AppCompatActivity {
     ImageView imageViewAvatar;
     Button btnExpend;
     ImageButton btnEditSalary,btnEditInventory,btnEditGender,btnEditExperience,btnEditAddress,btnEditResponsibilities,btnEditQualifications,
-            btnEditInterests,btnEditDeadline;
+            btnEditInterests,btnEditDeadline,btnEditPosition;
     APIService apiService;
     private boolean state;
     ConstraintLayout constraintLayoutGender,constraintLayoutExperience,constraintLayoutAddress;
@@ -130,6 +131,20 @@ public class JobCompanyActivity extends AppCompatActivity {
     }
     private void EditJob(String job_id){
         String role= SharedPrefManager.getInstance(getApplicationContext()).getRole();
+        btnEditPosition=findViewById(R.id.btnDJCEditPosition);
+        btnEditPosition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (role.equals("company")) {
+                    Intent intent = new Intent(JobCompanyActivity.this, EditJobCompanyActivity.class);
+                    intent.putExtra("job_id", job_id);
+                    String position = textViewNameJob.getText().toString();
+                    intent.putExtra("position", position);
+                    startActivity(intent);
+                    finish();
+                }
+            }
+        });
         btnEditSalary=findViewById(R.id.btnDJCEditSalary);
         btnEditSalary.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -220,7 +235,12 @@ public class JobCompanyActivity extends AppCompatActivity {
         btnEditDeadline.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(JobCompanyActivity.this, EditBirthdayActivity.class);
+                intent.putExtra("job_id", job_id);
+                String toDate = textViewDeadline.getText().toString();
+                intent.putExtra("toDate", toDate);
+                startActivity(intent);
+                finish();
             }
         });
     }

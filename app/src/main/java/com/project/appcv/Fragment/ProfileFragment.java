@@ -26,10 +26,16 @@ import com.project.appcv.R;
 import com.project.appcv.RetrofitClient;
 import com.project.appcv.SharedPrefManager;
 import com.project.appcv.View.AddressActivity;
+import com.project.appcv.View.CompanyFollowActivity;
 import com.project.appcv.View.Edit.EditBirthdayActivity;
 import com.project.appcv.View.Edit.EditCvCandidateActivity;
+import com.project.appcv.View.Edit.EditImageActivity;
+import com.project.appcv.View.Edit.EditPasswordActivity;
 import com.project.appcv.View.EditJob.EditExperienceActivity;
 import com.project.appcv.View.EditJob.EditProfileCompanyActivity;
+import com.project.appcv.View.JobActivity;
+import com.project.appcv.View.JobFollowActivity;
+import com.project.appcv.View.JobPassedActivity;
 import com.project.appcv.View.LoginActivity;
 import com.project.appcv.View.ProfileUserActivity;
 import com.project.appcv.View.SelectAddressActivity;
@@ -56,10 +62,11 @@ public class ProfileFragment extends Fragment {
     private String mParam2;
 
     Button btnLogout,btnPAddress,btnPProfile, btnPCv, btnEditExperience, btnEditProfession, btnEditAddress,
-    btnJobApply,btnJobForCandidate;
+    btnJobApply,btnJobForCandidate,btnJobPassed,btnJobFollow,btnCompanyFollow,btnPCamera,btnChangePassword;
     ImageButton imageButtonAvatar;
     TextView textViewName, textViewID, textViewExperience, textViewProfession,textViewAddress,
-    textViewExperienceHeader,textViewPositionHeader,textViewAddressHeader;
+    textViewExperienceHeader,textViewPositionHeader,textViewAddressHeader,textViewFindJobHeader
+            ,textViewIDHeader;
     APIService apiService;
     public ProfileFragment() {
         // Required empty public constructor
@@ -102,15 +109,29 @@ public class ProfileFragment extends Fragment {
         imageButtonAvatar=view.findViewById(R.id.imagePAvatar);
         textViewName=view.findViewById(R.id.tvPName);
         textViewID=view.findViewById(R.id.tvPId);
+        textViewIDHeader=view.findViewById(R.id.tvCompanytIDHeader);
         textViewExperience=view.findViewById(R.id.tvPExperience);
         textViewProfession=view.findViewById(R.id.tvPProfession);
         textViewAddress=view.findViewById(R.id.tvPAddress);
         textViewExperienceHeader=view.findViewById(R.id.tvPExperienceHeader);
         textViewPositionHeader=view.findViewById(R.id.tvPPositionHeader);
         textViewAddressHeader=view.findViewById(R.id.tvAddressHeader);
+        textViewFindJobHeader=view.findViewById(R.id.findjobHeader);
         btnEditExperience=view.findViewById(R.id.btnPExperience);
         btnEditProfession=view.findViewById(R.id.btnPProfession);
         btnEditAddress=view.findViewById(R.id.btnPEditAddress);
+
+        btnPAddress=view.findViewById(R.id.btnPAddress);
+        btnPCv=view.findViewById(R.id.btnPCv);
+        btnJobApply=view.findViewById(R.id.btnPJob);
+        btnJobForCandidate=view.findViewById(R.id.btnPCompany);
+        btnJobPassed=view.findViewById(R.id.btnJobPassed);
+        btnJobFollow=view.findViewById(R.id.btnPTagJob);
+        btnCompanyFollow=view.findViewById(R.id.btnPFollowCompany);
+        btnPCamera=view.findViewById(R.id.btnPCamera);
+        btnChangePassword=view.findViewById(R.id.btnPChangePassword);
+
+        String role= SharedPrefManager.getInstance(getContext()).getRole();
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -122,7 +143,6 @@ public class ProfileFragment extends Fragment {
                 startActivity(intent);
             }
         });
-        btnPAddress=view.findViewById(R.id.btnPAddress);
         btnPAddress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -144,7 +164,6 @@ public class ProfileFragment extends Fragment {
                 startActivity(intent);
             }
         });
-        btnPCv=view.findViewById(R.id.btnPCv);
         btnPCv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -155,7 +174,6 @@ public class ProfileFragment extends Fragment {
                 fragmentTransaction.commit();
             }
         });
-        btnJobApply=view.findViewById(R.id.btnPJob);
         btnJobApply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -166,7 +184,6 @@ public class ProfileFragment extends Fragment {
                 fragmentTransaction.commit();
             }
         });
-        btnJobForCandidate=view.findViewById(R.id.btnPCompany);
         btnJobForCandidate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -177,15 +194,64 @@ public class ProfileFragment extends Fragment {
                 fragmentTransaction.commit();
             }
         });
-
+        btnJobPassed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (role.equals("candidate")) {
+                    Intent intent = new Intent(getContext(), JobPassedActivity.class);
+                    String cv_id = textViewID.getText().toString();
+                    intent.putExtra("cv_id", cv_id);
+                    startActivity(intent);
+                }
+            }
+        });
+        btnJobFollow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (role.equals("candidate")) {
+                    Intent intent = new Intent(getContext(), JobFollowActivity.class);
+                    startActivity(intent);
+                }
+            }
+        });
+        btnCompanyFollow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (role.equals("candidate")) {
+                    Intent intent = new Intent(getContext(), CompanyFollowActivity.class);
+                    startActivity(intent);
+                }
+            }
+        });
+        btnPCamera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getContext(), EditImageActivity.class);
+                startActivity(intent);
+            }
+        });
+        btnChangePassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getContext(), EditPasswordActivity.class);
+                startActivity(intent);
+            }
+        });
 
         if (SharedPrefManager.getInstance(getContext()).getRole()!=null) {
-
-            String role = SharedPrefManager.getInstance(getContext()).getRole();
             if (role.equals("candidate"))
                 GetInforUser();
             else if (role.equals("company")) {
                 GetInforUserCompany();
+                textViewAddressHeader.setText("Ngày thành lập ");
+                textViewPositionHeader.setText("Lĩnh vực của công ty");
+                textViewExperienceHeader.setText("Số lượng công việc hiện tại");
+                textViewFindJobHeader.setText("Quản lí tuyển dụng");
+                btnJobApply.setText("Các công việc đang tuyển dụng");
+                btnJobForCandidate.setText("Công việc quanh đây");
+                btnPCv.setText("Việc làm của công ty");
+                btnJobPassed.setText("Tất cả ứng viên đã được tuyển dụng");
+                textViewIDHeader.setText("Mã công ty: ");
             }
         }
         return  view;
@@ -327,12 +393,9 @@ public class ProfileFragment extends Fragment {
                     Company company = response.body();
                     // Xử lý thông tin user
                     textViewID.setText(company.getId()+"");
-                    textViewExperienceHeader.setText("Số lượng công việc hiện tại");
                     btnEditExperience.setVisibility(View.GONE);
                     textViewExperience.setText(company.getInventoryJob()+"");
-                    textViewPositionHeader.setText("Lĩnh vực của công ty");
                     textViewProfession.setText(company.getField());
-                    textViewAddressHeader.setText("Ngày thành lập ");
                     textViewAddress.setText(company.getFormattedDate());
                     EditInforCV();
 

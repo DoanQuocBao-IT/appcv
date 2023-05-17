@@ -1,30 +1,39 @@
 package com.project.appcv.Adapter;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.project.appcv.APIService.APIService;
 import com.project.appcv.Model.Job;
 import com.project.appcv.R;
+import com.project.appcv.RetrofitClient;
 import com.project.appcv.SharedPrefManager;
 import com.project.appcv.View.JobCompanyActivity;
 import com.project.appcv.View.JobDetailActivity;
 
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class JobCompanyAdapter extends RecyclerView.Adapter<JobCompanyAdapter.MyViewHolder> {
     List<Job> jobList;
     Fragment context;
     private boolean tag;
+    APIService apiService;
     public JobCompanyAdapter(List<Job> jobList, Fragment context) {
         this.jobList = jobList;
         this.context = context;
@@ -68,16 +77,61 @@ public class JobCompanyAdapter extends RecyclerView.Adapter<JobCompanyAdapter.My
         holder.experience.setText(job.getExperience());
         holder.salary.setText(job.getSalary());
         holder.countdown.setText("Còn "+job.getCountdown()+" ngày để ứng tuyẻn ");
-        tag=true;
+        String jwtToken= SharedPrefManager.getInstance(context.getContext()).getJwtToken();
+        apiService = RetrofitClient.getRetrofit().create(APIService.class);
+        apiService.followedJob("Bearer " + jwtToken,job.getId()).enqueue(new Callback<Boolean>() {
+            @Override
+            public void onResponse(Call<Boolean> call, Response<Boolean> response) {
+                if (response.isSuccessful()){
+                    tag=response.body();
+                    if (tag==false){
+                        holder.btnTag.setBackgroundResource(R.drawable.tag);
+                    }else holder.btnTag.setBackgroundResource(R.drawable.untag);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Boolean> call, Throwable t) {
+
+            }
+        });
         holder.btnTag.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (tag) {
-                    holder.btnTag.setBackgroundResource(R.drawable.untag);
-                    tag=false;
+                if (tag==false) {
+                    apiService.followJob("Bearer " + jwtToken,job.getId()).enqueue(new Callback<Void>() {
+                        @Override
+                        public void onResponse(Call<Void> call, Response<Void> response) {
+                            Log.d("khtarespone",response.toString());
+                            if (response.isSuccessful()){
+                                Toast.makeText(context.getContext(), "Follow thanh cong",Toast.LENGTH_SHORT).show();
+                                holder.btnTag.setBackgroundResource(R.drawable.untag);
+                                tag=false;
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<Void> call, Throwable t) {
+
+                        }
+                    });
+
                 }else {
-                    holder.btnTag.setBackgroundResource(R.drawable.tag);
-                    tag=true;
+                    apiService.delfollowJob("Bearer " + jwtToken,job.getId()).enqueue(new Callback<Void>() {
+                        @Override
+                        public void onResponse(Call<Void> call, Response<Void> response) {
+                            if (response.isSuccessful()){
+                                Toast.makeText(context.getContext(), "Xoa Follow thanh cong",Toast.LENGTH_SHORT).show();
+                                holder.btnTag.setBackgroundResource(R.drawable.tag);
+                                tag=true;
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<Void> call, Throwable t) {
+
+                        }
+                    });
                 }
             }
         });

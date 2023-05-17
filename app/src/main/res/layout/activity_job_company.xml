@@ -19,7 +19,7 @@
 
         <TextView
             android:id="@+id/tvDJCNameJob"
-            android:layout_width="300dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="Fresher Python"
@@ -28,9 +28,17 @@
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="10dp"
             app:layout_constraintStart_toEndOf="@id/DJCAvatar"
             app:layout_constraintTop_toTopOf="parent"/>
+        <ImageButton
+            android:id="@+id/btnDJCEditPosition"
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/pen"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/tvDJCNameJob"/>
         <TextView
             android:id="@+id/tvDJCNameCompany"
             android:layout_width="300dp"
@@ -39,6 +47,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvDJCNameJob"
             android:text="Fresher Python"
+            android:layout_marginStart="5dp"
             android:textAlignment="textStart"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             android:textColor="@color/black"

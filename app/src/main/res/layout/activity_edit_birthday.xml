@@ -5,70 +5,94 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".View.Edit.EditBirthdayActivity">
-    <TextView
-        android:id="@+id/tvEditBirthdayHeader"
-        android:layout_width="wrap_content"
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        android:text="Sửa ngày sinh"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textColor="@color/black"
-        android:textSize="26sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <TextView
-        android:id="@+id/editTextBirthday"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:text="Quản lí CV"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="100dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvEditBirthdayHeader"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp"
-        android:text="Ngày sinh"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:layout_marginStart="30dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/editTextBirthday"/>
-    <Button
-        android:id="@+id/btnSaveSelectDay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Chọn"
-        android:backgroundTint="@android:color/transparent"
-        android:textSize="16sp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textColor="#4CAF50"
-        app:cornerRadius="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextBirthday"/>
-
-    <Button
-        android:id="@+id/btnSaveEditBirthday"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:text="Hoàn thành"
-        android:backgroundTint="@android:color/transparent"
-        android:textSize="16sp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textColor="#4CAF50"
-        app:cornerRadius="30dp"
-        android:layout_margin="15dp"
+        android:layout_margin="30dp"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="20dp"
+        android:background="@color/teal_200"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tvEditBirthdayHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:text="Sửa ngày sinh"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/editTextBirthday"
+                android:text=""
+                android:layout_width="210dp"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="40dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvEditBirthdayHeader"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:text="Ngày sinh"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_marginStart="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/editTextBirthday"/>
+            <Button
+                android:id="@+id/btnSaveSelectDay"
+                android:text="Chọn"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:backgroundTint="#DAF4DB"
+                android:textSize="18sp"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="#4CAF50"
+                android:textStyle="bold"
+                app:cornerRadius="20dp"
+                android:layout_marginEnd="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/editTextBirthday"/>
+
+            <Button
+                android:id="@+id/btnSaveEditBirthday"
+                android:text="Hoàn thành"
+
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:backgroundTint="#DAF4DB"
+                android:textSize="18sp"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="#4CAF50"
+                android:textStyle="bold"
+                app:cornerRadius="20dp"
+                android:layout_margin="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextBirthday"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

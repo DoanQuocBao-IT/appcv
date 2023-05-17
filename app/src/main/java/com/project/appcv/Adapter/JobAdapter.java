@@ -1,6 +1,7 @@
 package com.project.appcv.Adapter;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,12 +12,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.project.appcv.APIService.APIService;
 import com.project.appcv.Model.Job;
 import com.project.appcv.R;
+import com.project.appcv.RetrofitClient;
 import com.project.appcv.SharedPrefManager;
 import com.project.appcv.View.CompanyDetailActivity;
 import com.project.appcv.View.JobCompanyActivity;
@@ -24,10 +28,15 @@ import com.project.appcv.View.JobDetailActivity;
 
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class JobAdapter extends RecyclerView.Adapter<JobAdapter.MyViewHolder> {
     List<Job> jobList;
     Fragment context;
     private boolean tag;
+    APIService apiService;
     public JobAdapter(List<Job> jobList, Fragment context) {
         this.jobList = jobList;
         this.context = context;
@@ -71,16 +80,63 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.MyViewHolder> {
         holder.experience.setText(job.getExperience());
         holder.salary.setText(job.getSalary());
         holder.countdown.setText("Còn "+job.getCountdown()+" ngày để ứng tuyẻn ");
-        tag=true;
+        String jwtToken= SharedPrefManager.getInstance(context.getContext()).getJwtToken();
+        apiService = RetrofitClient.getRetrofit().create(APIService.class);
+        apiService.followedJob("Bearer " + jwtToken,job.getId()).enqueue(new Callback<Boolean>() {
+            @Override
+            public void onResponse(Call<Boolean> call, Response<Boolean> response) {
+                if (response.isSuccessful()){
+                    tag=response.body();
+                    if (tag==false){
+                        holder.btnTag.setBackgroundResource(R.drawable.tag);
+                    }else holder.btnTag.setBackgroundResource(R.drawable.untag);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Boolean> call, Throwable t) {
+
+            }
+        });
         holder.btnTag.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (tag) {
-                    holder.btnTag.setBackgroundResource(R.drawable.untag);
-                    tag=false;
+                if (tag==false) {
+                    apiService.followJob("Bearer " + jwtToken,job.getId()).enqueue(new Callback<Void>() {
+                        @Override
+                        public void onResponse(Call<Void> call, Response<Void> response) {
+                            Log.d("khtarespone",response.toString());
+                            if (response.isSuccessful()){
+                                Toast.makeText(context.getContext(), "Follow thanh cong",Toast.LENGTH_SHORT).show();
+                                holder.btnTag.setBackgroundResource(R.drawable.untag);
+                                tag=false;
+                                showSuccessDialog();
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<Void> call, Throwable t) {
+
+                        }
+                    });
+
                 }else {
-                    holder.btnTag.setBackgroundResource(R.drawable.tag);
-                    tag=true;
+                    apiService.delfollowJob("Bearer " + jwtToken,job.getId()).enqueue(new Callback<Void>() {
+                        @Override
+                        public void onResponse(Call<Void> call, Response<Void> response) {
+                            if (response.isSuccessful()){
+                                Toast.makeText(context.getContext(), "Xoa Follow thanh cong",Toast.LENGTH_SHORT).show();
+                                holder.btnTag.setBackgroundResource(R.drawable.tag);
+                                tag=true;
+                                showSuccessDialog();
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<Void> call, Throwable t) {
+
+                        }
+                    });
                 }
             }
         });
@@ -106,5 +162,29 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.MyViewHolder> {
             countdown=itemView.findViewById(R.id.tvTime);
             btnTag=itemView.findViewById(R.id.btnTag);
         }
+    }
+    private void showSuccessDialog() {
+        // Tạo một AlertDialog
+        AlertDialog.Builder builder = new AlertDialog.Builder(context.getContext());
+        View view = LayoutInflater.from(context.getContext()).inflate(R.layout.success_message, null);
+        builder.setView(view);
+        AlertDialog dialog = builder.create();
+
+        // Lấy reference tới TextView và Button trong layout
+        TextView tvSuccessMessage = view.findViewById(R.id.tv_success_message);
+        Button btnOK = view.findViewById(R.id.btn_ok);
+
+        // Đặt message cho TextView
+        tvSuccessMessage.setText("Thao tác thành công");
+
+        // Xử lý khi người dùng nhấn OK
+        btnOK.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss(); // Đóng dialog
+            }
+        });
+
+        dialog.show(); // Hiển thị dialog
     }
 }

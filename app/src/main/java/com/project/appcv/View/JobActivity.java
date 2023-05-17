@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ScrollView;
+import android.widget.TextView;
 
 import com.project.appcv.APIService.APIService;
 import com.project.appcv.Adapter.JobCTAdapter;
@@ -16,6 +17,7 @@ import com.project.appcv.DTO.ItemSpacingDecoration;
 import com.project.appcv.Model.Job;
 import com.project.appcv.R;
 import com.project.appcv.RetrofitClient;
+import com.project.appcv.SharedPrefManager;
 
 import java.util.List;
 

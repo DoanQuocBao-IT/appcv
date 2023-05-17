@@ -16,13 +16,18 @@
         <EditText
             android:id="@+id/editTextSearchJob"
             android:layout_width="230dp"
-            android:layout_height="50dp"
-            android:hint="Tìm việc ngay hôm nay"
+            android:layout_height="wrap_content"
+            android:hint="  Tìm việc ngay hôm nay"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            android:textColor="@color/black"
             android:textSize="18sp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/custom_edittext"
+            android:drawablePadding="8dp"
+            android:textAlignment="textStart"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/cardview_dark_background"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
         <Button
@@ -35,9 +40,10 @@
             app:iconGravity="textTop"
             app:iconSize="35dp"
             app:iconTint="#4CAF50"
+            android:layout_marginTop="10dp"
             android:layout_marginStart="10dp"
             app:layout_constraintStart_toEndOf="@id/editTextSearchJob"
-            app:layout_constraintTop_toTopOf="@+id/editTextSearchJob"
+            app:layout_constraintTop_toTopOf="parent"
             app:strokeColor="#9E9F9E"
             app:strokeWidth="2dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>

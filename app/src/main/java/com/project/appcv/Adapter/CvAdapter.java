@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -106,7 +107,7 @@ public class CvAdapter extends RecyclerView.Adapter<CvAdapter.MyViewHolder> {
                         @Override
                         public void onResponse(Call<List<Cv>> call, Response<List<Cv>> response) {
                             if (response.isSuccessful()) {
-                                Log.d("ThanhCong", response.toString());
+                                showSuccessDialog();
                             }
                         }
 
@@ -152,5 +153,29 @@ public class CvAdapter extends RecyclerView.Adapter<CvAdapter.MyViewHolder> {
             textViewWork=itemView.findViewById(R.id.tvCvApplyExperienceWork);
             btnApproved=itemView.findViewById(R.id.btnApproved);
         }
+    }
+    private void showSuccessDialog() {
+        // Tạo một AlertDialog
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        View view = LayoutInflater.from(context).inflate(R.layout.success_message, null);
+        builder.setView(view);
+        AlertDialog dialog = builder.create();
+
+        // Lấy reference tới TextView và Button trong layout
+        TextView tvSuccessMessage = view.findViewById(R.id.tv_success_message);
+        Button btnOK = view.findViewById(R.id.btn_ok);
+
+        // Đặt message cho TextView
+        tvSuccessMessage.setText("Thao tác thành công");
+
+        // Xử lý khi người dùng nhấn OK
+        btnOK.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss(); // Đóng dialog
+            }
+        });
+
+        dialog.show(); // Hiển thị dialog
     }
 }

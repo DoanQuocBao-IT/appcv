@@ -16,13 +16,16 @@ import com.google.gson.JsonObject;
 import com.project.appcv.APIService.APIService;
 import com.project.appcv.DTO.AddressWorkDto;
 import com.project.appcv.Model.Company;
+import com.project.appcv.Model.Job;
 import com.project.appcv.Model.ProfileCandidate;
 import com.project.appcv.R;
 import com.project.appcv.RetrofitClient;
 import com.project.appcv.SharedPrefManager;
 import com.project.appcv.View.AddressActivity;
 import com.project.appcv.View.EditJob.EditAddressActivity;
+import com.project.appcv.View.EditJob.EditJobCompanyActivity;
 import com.project.appcv.View.EditJob.EditProfileCompanyActivity;
+import com.project.appcv.View.JobCompanyActivity;
 import com.project.appcv.View.ProfileUserActivity;
 
 import java.util.Calendar;
@@ -65,6 +68,10 @@ public class EditBirthdayActivity extends AppCompatActivity implements DatePicke
         } else if (role.equals("company")) {
             String foundedAt = (String) getIntent().getStringExtra("foundedAt");
             EditFoundedAt(foundedAt);
+            String job_id = (String) getIntent().getStringExtra("job_id");
+            int id=Integer.parseInt(job_id);
+            String toDate = (String) getIntent().getStringExtra("toDate");
+            EditToDate(toDate,id);
         }
     }
     private void EditBirthday(String birthday){
@@ -132,6 +139,42 @@ public class EditBirthdayActivity extends AppCompatActivity implements DatePicke
             });
         }
     }
+    private void EditToDate(String toDate,int id){
+        if (toDate!=null) {
+            editTextBirthday.setText(toDate);
+            textViewEditHeader.setText("Sửa ngày thành lập ");
+            buttonSave.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String jwtToken= SharedPrefManager.getInstance(getApplicationContext()).getJwtToken();
+                    String toDate=editTextBirthday.getText().toString();
+                    apiService= RetrofitClient.getRetrofit().create(APIService.class);
+                    JsonObject jsonObject = new JsonObject();
+                    jsonObject.addProperty("toDate", toDate);
+                    Call<Job> call= apiService.updateJobCompany("Bearer " + jwtToken,id,jsonObject);
+                    call.enqueue(new Callback<Job>() {
+                        @Override
+                        public void onResponse(Call<Job> call, Response<Job> response) {
+                            if (response.isSuccessful()){
+                                Intent intent=new Intent(EditBirthdayActivity.this, JobCompanyActivity.class);
+                                String id_job=Integer.toString(id);
+                                intent.putExtra("job_id", id_job);
+                                startActivity(intent);
+                                finish();
+                            }
+
+                        }
+
+                        @Override
+                        public void onFailure(Call<Job> call, Throwable t) {
+
+                        }
+                    });
+                }
+            });
+        }
+    }
+
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
         String sDay,sMonth;

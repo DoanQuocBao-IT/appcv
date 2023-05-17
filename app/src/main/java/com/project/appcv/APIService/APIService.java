@@ -15,6 +15,7 @@ import com.project.appcv.Model.ProfileUser;
 import java.util.List;
 
 import retrofit2.Call;
+import retrofit2.Response;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
@@ -114,6 +115,8 @@ public interface APIService {
 
     @GET("/api/candidate/apply/{id}")
     Call<Job> applyCvToRecruit(@Header("Authorization") String token,@Path("id") int id);
+    @GET("/api/candidate/all/recruit/approved/cv/{cv_id}")
+    Call<List<Job>> getAllJobPassed(@Header("Authorization") String token,@Path("cv_id") int cv_id);
 
 
     @GET("/api/company/cv/apply/approved/recruit/{id}")
@@ -124,5 +127,25 @@ public interface APIService {
     Call<List<Cv>> approvedCv(@Header("Authorization") String token,@Path("cv_id") int cv_id,@Path("recruit_id") int recruit_id);
 
 
+
+    @GET("/api/candidate/all/follow/company")
+    Call<List<Company>> getAllCompanyFollow(@Header("Authorization") String token);
+    @GET("/api/candidate/all/follow/recruit")
+    Call<List<Job>> getAllJobFollow(@Header("Authorization") String token);
+
+    @GET("/api/candidate/follow/company/{company_id}")
+    Call<Void> followCompany(@Header("Authorization") String token, @Path("company_id") int company_id);
+    @GET("/api/candidate/follow/recruit/{job_id}")
+    Call<Void> followJob(@Header("Authorization") String token, @Path("job_id") int job_id);
+
+    @GET("/api/candidate/del/follow/company/{company_id}")
+    Call<Void> delfollowCompany(@Header("Authorization") String token, @Path("company_id") int company_id);
+    @GET("/api/candidate/del/follow/recruit/{job_id}")
+    Call<Void> delfollowJob(@Header("Authorization") String token, @Path("job_id") int job_id);
+
+    @GET("/api/candidate/followed/company/{company_id}")
+    Call<Boolean> followedCompany(@Header("Authorization") String token, @Path("company_id") int company_id);
+    @GET("/api/candidate/followed/recruit/{job_id}")
+    Call<Boolean> followedJob(@Header("Authorization") String token, @Path("job_id") int job_id);
 
 }
