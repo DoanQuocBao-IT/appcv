@@ -293,6 +293,27 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnAllJob" />
         <Button
+            android:id="@+id/btnSendMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@android:color/white"
+            android:text="Nhắn tin"
+            android:textSize="16sp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="#4CAF50"
+            app:cornerRadius="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rc_DCjob"
+            app:strokeColor="#4CAF50"
+            app:strokeWidth="2dp"
+            app:icon="@drawable/send"
+            app:iconGravity="start"
+            app:iconSize="25dp"
+            app:iconTint="#4CAF50"/>
+        <Button
+            android:id="@+id/btnAllJobs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Xem thêm nhiều việc hơn "
@@ -305,6 +326,6 @@
             android:layout_marginTop="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rc_DCjob"/>
+            app:layout_constraintTop_toBottomOf="@id/btnSendMessage"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

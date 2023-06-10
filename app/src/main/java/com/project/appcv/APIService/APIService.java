@@ -4,6 +4,7 @@ import com.google.gson.JsonObject;
 import com.project.appcv.DTO.AddressWorkDto;
 import com.project.appcv.DTO.CompanyDto;
 import com.project.appcv.DTO.JWTTokenDto;
+import com.project.appcv.DTO.MessageDto;
 import com.project.appcv.DTO.ProfileUserDto;
 import com.project.appcv.DTO.UserPref;
 import com.project.appcv.Model.Company;
@@ -148,4 +149,10 @@ public interface APIService {
     @GET("/api/candidate/followed/recruit/{job_id}")
     Call<Boolean> followedJob(@Header("Authorization") String token, @Path("job_id") int job_id);
 
+    @GET("/user/message")
+    Call<List<MessageDto>> getAllMessages(@Header("Authorization") String token);
+    @GET("/user/message/user/{user_id}")
+    Call<List<MessageDto>> getDetailMessage(@Header("Authorization") String token, @Path("user_id") int user_id);
+    @POST("/user/message/user/{user_id}")
+    Call<Void> addMessage(@Header("Authorization") String token, @Path("user_id") int user_id, @Body JsonObject body);
 }

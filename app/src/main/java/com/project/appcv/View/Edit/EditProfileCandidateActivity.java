@@ -144,7 +144,7 @@ public class EditProfileCandidateActivity extends AppCompatActivity {
     private void EditIntroduce(String introduce){
         if (introduce!=null) {
             editTextName.setText(introduce);
-            textViewEditHeader.setText("Sửa địa chỉ website");
+            textViewEditHeader.setText("Sửa thông tin giới thiệu công ty");
             buttonSave.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

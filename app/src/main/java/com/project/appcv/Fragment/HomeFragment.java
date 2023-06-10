@@ -216,7 +216,8 @@ public class HomeFragment extends Fragment {
                         RoleDto firstRole = roles.iterator().next();
                         String roleName = firstRole.getName();
                         SharedPrefManager.getInstance(getContext()).saveRole(roleName);
-
+                        String id= Integer.toString(user.getId());
+                        SharedPrefManager.getInstance(getContext()).saveID(id);
                     }
                     // Xử lý thông tin user
                     if (user.getFname()!=null)

@@ -12,6 +12,7 @@ import com.google.android.material.navigation.NavigationBarView;
 import com.project.appcv.Fragment.ConnectFragment;
 import com.project.appcv.Fragment.CvFragment;
 import com.project.appcv.Fragment.HomeFragment;
+import com.project.appcv.Fragment.MessageFragment;
 import com.project.appcv.Fragment.NoticeFragment;
 import com.project.appcv.Fragment.ProfileFragment;
 
@@ -47,8 +48,8 @@ public class MainActivity extends AppCompatActivity {
                         transaction.commit();
                         return true;
                     case R.id.navigation_connect:
-                        ConnectFragment connectFragment = new ConnectFragment();
-                        transaction.replace(R.id.frame_container, connectFragment);
+                        MessageFragment messageFragment = new MessageFragment();
+                        transaction.replace(R.id.frame_container, messageFragment);
                         transaction.commit();
                         return true;
                     case R.id.navigation_notify:

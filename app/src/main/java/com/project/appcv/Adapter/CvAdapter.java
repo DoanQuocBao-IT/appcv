@@ -20,13 +20,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.project.appcv.APIService.APIService;
 import com.project.appcv.DTO.ItemSpacingDecoration;
+import com.project.appcv.DTO.UserPref;
 import com.project.appcv.Model.Cv;
 import com.project.appcv.Model.Job;
 import com.project.appcv.R;
 import com.project.appcv.RetrofitClient;
 import com.project.appcv.SharedPrefManager;
+import com.project.appcv.View.CompanyDetailActivity;
 import com.project.appcv.View.CvApplyActivity;
 import com.project.appcv.View.JobDetailActivity;
+import com.project.appcv.View.MessageDetailActivity;
 
 import java.util.List;
 
@@ -119,6 +122,15 @@ public class CvAdapter extends RecyclerView.Adapter<CvAdapter.MyViewHolder> {
                 }
             });
         }else holder.btnApproved.setVisibility(View.GONE);
+        holder.btnSendMessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, MessageDetailActivity.class);
+                UserPref userPref=new UserPref(cv.getCandidates().getCandidate().getId(),cv.getCandidates().getCandidate().getFname(),cv.getCandidates().getCandidate().getImage());
+                intent.putExtra("sender",userPref);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -131,7 +143,7 @@ public class CvAdapter extends RecyclerView.Adapter<CvAdapter.MyViewHolder> {
         public TextView nameCandidate,textViewPosition,textViewID,
                 textViewBirthday,textViewPhone,textViewGender,textViewEmail,textViewWebsite,textViewAddress,
                 textViewSkill,textViewPrize,textViewCertificate,textViewGoal,textViewStudy,textViewWork;
-        public Button btnApproved;
+        public Button btnApproved,btnSendMessage;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             imageAvatar=itemView.findViewById(R.id.imageCvApplyAvatar);
@@ -152,6 +164,7 @@ public class CvAdapter extends RecyclerView.Adapter<CvAdapter.MyViewHolder> {
             textViewStudy=itemView.findViewById(R.id.tvCvApplyStudy);
             textViewWork=itemView.findViewById(R.id.tvCvApplyExperienceWork);
             btnApproved=itemView.findViewById(R.id.btnApproved);
+            btnSendMessage=itemView.findViewById(R.id.btnSendMessageCandidate);
         }
     }
     private void showSuccessDialog() {

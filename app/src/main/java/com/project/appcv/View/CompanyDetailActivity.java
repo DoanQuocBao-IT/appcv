@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,10 +19,12 @@ import com.project.appcv.Adapter.AddressCompanyAdapter;
 import com.project.appcv.Adapter.JobCTAdapter;
 import com.project.appcv.DTO.AddressWorkDto;
 import com.project.appcv.DTO.ItemSpacingDecoration;
+import com.project.appcv.DTO.UserPref;
 import com.project.appcv.Model.Company;
 import com.project.appcv.Model.Job;
 import com.project.appcv.R;
 import com.project.appcv.RetrofitClient;
+import com.project.appcv.SharedPrefManager;
 
 import java.util.List;
 
@@ -38,6 +43,7 @@ public class CompanyDetailActivity extends AppCompatActivity {
     List<AddressWorkDto> addressWorkDtoList;
     List<Job> jobList;
     RecyclerView rcAddress,rcJob;
+    Button btnAllJobs, btnSendMessage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +56,16 @@ public class CompanyDetailActivity extends AppCompatActivity {
         textViewPhone=findViewById(R.id.tvDCPhone);
         textViewWebsite=findViewById(R.id.tvDCWebsite);
         imageViewAvatar=findViewById(R.id.imageDCAvatar);
+        btnAllJobs=findViewById(R.id.btnAllJobs);
+        btnSendMessage=findViewById(R.id.btnSendMessage);
+        btnAllJobs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getApplicationContext(), JobActivity.class);
+                startActivity(intent);
+            }
+        });
+
         String company_id = (String) getIntent().getStringExtra("company_id");
         int id=Integer.parseInt(company_id);
         rcAddress=findViewById(R.id.rc_DCAddress);
@@ -120,6 +136,33 @@ public class CompanyDetailActivity extends AppCompatActivity {
                     textViewEmail.setText(company.getCompany().getEmail());
                     textViewPhone.setText(company.getCompany().getPhone());
                     textViewWebsite.setText(company.getCompany().getWebsite());
+                    if (SharedPrefManager.getInstance(getApplicationContext()).getRole()!=null) {
+                        String role = SharedPrefManager.getInstance(getApplicationContext()).getRole();
+                        if (role.equals("company")) {
+                            btnSendMessage.setVisibility(View.GONE);
+                        } else if (role.equals("candidate")) {
+                            btnSendMessage.setVisibility(View.VISIBLE);
+                            btnSendMessage.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Intent intent = new Intent(CompanyDetailActivity.this, MessageDetailActivity.class);
+                                    UserPref userPref=new UserPref(company.getCompany().getId(),company.getCompany().getFname(),company.getCompany().getImage());
+                                    intent.putExtra("sender",userPref);
+                                    startActivity(intent);
+                                }
+                            });
+                        }
+                    }else {
+                        btnSendMessage.setVisibility(View.VISIBLE);
+                        btnSendMessage.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent=new Intent(CompanyDetailActivity.this,LoginActivity.class);
+                                startActivity(intent);
+                            }
+                        });
+                    }
+
                 }
             }
 

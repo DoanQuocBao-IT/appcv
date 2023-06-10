@@ -11,6 +11,8 @@ public class SharedPrefManager {
     private static final String SHARED_PREF_NAME = "my_shared_pref";
     private static final String KEY_JWT_TOKEN = "jwt_token";
     private static final String KEY_ROLE = "role";
+    private static final String KEY_ID = "id";
+
 
     private static SharedPrefManager instance;
     private Context context;
@@ -53,7 +55,17 @@ public class SharedPrefManager {
         SharedPreferences sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return sharedPreferences.getString(KEY_ROLE, null);
     }
+    public void saveID(String id) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(KEY_ID, id);
+        editor.apply();
+    }
 
+    public String getID() {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(KEY_ID, null);
+    }
     public void clear() {
         SharedPreferences sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
