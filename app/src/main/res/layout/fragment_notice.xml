@@ -21,17 +21,17 @@
         android:textStyle="bold"/>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/constraintPageJobApply"
         android:visibility="visible"
-        android:layout_gravity="center|center_horizontal"
-        android:layout_marginTop="40dp">
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="60dp">
         <Button
             android:id="@+id/btnAllJob"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:text="Xem thêm việc làm "
-            android:backgroundTint="#DAF4DB"
+            android:backgroundTint="#C3F1C5"
             android:textSize="18sp"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
@@ -40,7 +40,7 @@
             app:cornerRadius="20dp"
             app:icon="@android:drawable/ic_input_add"
             app:iconGravity="start"
-            app:iconSize="15dp"
+            app:iconSize="25dp"
             android:layout_marginEnd="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -57,11 +57,11 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/constraintPageCandidateApply"
         android:visibility="gone"
-        android:layout_gravity="center|center_horizontal"
-        android:layout_marginTop="40dp">
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="60dp">
         <Button
             android:id="@+id/btnAllCandidate"
             android:layout_width="wrap_content"

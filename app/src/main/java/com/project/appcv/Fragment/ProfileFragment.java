@@ -33,6 +33,7 @@ import com.project.appcv.View.Edit.EditImageActivity;
 import com.project.appcv.View.Edit.EditPasswordActivity;
 import com.project.appcv.View.EditJob.EditExperienceActivity;
 import com.project.appcv.View.EditJob.EditProfileCompanyActivity;
+import com.project.appcv.View.EditUser.EditInforActivity;
 import com.project.appcv.View.JobActivity;
 import com.project.appcv.View.JobFollowActivity;
 import com.project.appcv.View.JobPassedActivity;
@@ -130,7 +131,6 @@ public class ProfileFragment extends Fragment {
         btnCompanyFollow=view.findViewById(R.id.btnPFollowCompany);
         btnPCamera=view.findViewById(R.id.btnPCamera);
         btnChangePassword=view.findViewById(R.id.btnPChangePassword);
-
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -356,9 +356,10 @@ public class ProfileFragment extends Fragment {
                     textViewProfession.setText(user.getPosition());
                     textViewAddress.setText(user.getAddress().getCity());
                     EditInforCV();
-
                 } else {
                     // Xử lý khi API trả về lỗi
+                    Intent intent=new Intent(getContext(), EditInforActivity.class);
+                    startActivity(intent);
                 }
             }
 
@@ -406,6 +407,8 @@ public class ProfileFragment extends Fragment {
 
                 } else {
                     // Xử lý khi API trả về lỗi
+                    Intent intent=new Intent(getContext(), EditInforActivity.class);
+                    startActivity(intent);
                 }
             }
 

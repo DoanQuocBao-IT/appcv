@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -29,6 +30,7 @@ import com.project.appcv.View.CreateCvActivity;
 import com.project.appcv.View.CreateJobActivity;
 import com.project.appcv.View.Edit.EditCvCandidateActivity;
 import com.project.appcv.View.LoginActivity;
+import com.project.appcv.View.ProfileUserActivity;
 import com.project.appcv.View.SelectAddressActivity;
 
 import java.util.List;
@@ -56,7 +58,8 @@ public class CvFragment extends Fragment {
     TextView textViewHeader, textViewBirthday,textViewGender,textViewPhone,textViewEmail,textViewWebsite,
     textViewAddress, textViewIntroduce,textViewStudy,textViewExperienceWork,
     textViewSkill,textViewPrize, textViewCertificate,textViewName,textViewPosition,textViewID;
-    ImageView imageViewAvatar,btnEditSkill, btnEditPrize, btnEditCertificate, btnEditStudy,btnEditWork, btnEditGoal,btnEditAddress,btnEditPosition;
+    ImageView imageViewAvatar;
+    ImageButton btnEditSkill, btnEditPrize, btnEditCertificate, btnEditStudy,btnEditWork, btnEditGoal,btnEditAddress,btnEditPosition,btnEditUser;
     Button btnAddCv,btnAddJob;
     APIService apiService;
     List<Job> jobList;
@@ -116,6 +119,7 @@ public class CvFragment extends Fragment {
         textViewPosition=view.findViewById(R.id.tvCvPosition);
         textViewID=view.findViewById(R.id.tvCvID);
 
+        btnEditUser=view.findViewById(R.id.btnCCVInfor);
         btnEditGoal=view.findViewById(R.id.btnCCVGoal);
         btnEditStudy=view.findViewById(R.id.btnCCVStudy);
         btnEditWork=view.findViewById(R.id.btnCCVWork);
@@ -267,6 +271,13 @@ public class CvFragment extends Fragment {
                 intent.putExtra("cv_id", id);
                 String position=textViewPosition.getText().toString();
                 intent.putExtra("position", position);
+                startActivity(intent);
+            }
+        });
+        btnEditUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getContext(), ProfileUserActivity.class);
                 startActivity(intent);
             }
         });

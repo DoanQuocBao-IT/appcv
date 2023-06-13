@@ -17,6 +17,48 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".View.PasscodeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.ResetPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.ForgotPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.EditUser.EditFieldActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.EditUser.EditIntroActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.EditUser.EditCertificationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.EditUser.EditHobbyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.EditUser.EditGenActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.EditUser.EditDayActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.EditUser.EditInforActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.EditUser.EditWebsiteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.EditUser.EditPhoneActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.EditUser.EditEmailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.EditUser.EditNameActivity"
+            android:exported="false" />
+        <activity
             android:name=".View.MessageDetailActivity"
             android:exported="false" />
         <activity

@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         tools:context=".View.JobDetailActivity">
         <ImageView
             android:layout_width="100dp"
@@ -461,7 +461,9 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#E2F4E3"
+
             android:id="@+id/constraintCompanyJob"
             android:visibility="visible"
             android:layout_marginTop="10dp"
@@ -485,12 +487,18 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rc_DJjob"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:layout_width="20dp"
+                android:layout_height="50dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rc_DJjob"/>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
         <Button
             android:id="@+id/btnDJApply"
@@ -507,12 +515,5 @@
             android:layout_marginEnd="30dp"
             android:layout_marginTop="15dp"
             app:layout_constraintTop_toBottomOf="@+id/constraintInterests" />
-
-        <TextView
-            android:layout_width="20dp"
-            android:layout_height="50dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintCompanyJob"/>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

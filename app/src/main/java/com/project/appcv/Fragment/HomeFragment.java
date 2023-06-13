@@ -31,6 +31,7 @@ import com.project.appcv.R;
 import com.project.appcv.RetrofitClient;
 import com.project.appcv.SharedPrefManager;
 import com.project.appcv.View.CompanyActivity;
+import com.project.appcv.View.EditUser.EditNameActivity;
 import com.project.appcv.View.JobActivity;
 import com.project.appcv.View.LoginActivity;
 
@@ -222,7 +223,11 @@ public class HomeFragment extends Fragment {
                     // Xử lý thông tin user
                     if (user.getFname()!=null)
                         tvHHello.setText("Chào, "+user.getFname());
-                    else tvHHello.setText("Chào, Hãy cập nhật tên người dùng");
+                    else {
+                        tvHHello.setText("Chào, Hãy cập nhật tên người dùng");
+                        Intent intent=new Intent(getContext(), EditNameActivity.class);
+                        startActivity(intent);
+                    }
                     Glide.with(getContext()).load(user.getImage()).into(imageHAvatar);
                 } else {
                     // Xử lý khi API trả về lỗi

@@ -8,14 +8,15 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#E9E6E5"
+        android:background="#E2F4E3"
+
         tools:context=".Fragment.ProfileFragment">
 
         <!-- TODO: Update blank fragment layout -->
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="90dp"
-            android:background="#E2F4E3"/>
+            android:background="#E9E6E5"/>
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="350dp"
             android:layout_height="140dp"

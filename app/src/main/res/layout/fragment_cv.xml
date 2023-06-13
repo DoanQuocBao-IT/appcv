@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/constraintNoCv"
             android:layout_gravity="center|center_horizontal"
-            android:visibility="visible"
+            android:visibility="gone"
             android:layout_marginTop="30dp">
             <ImageButton
                 android:layout_width="360dp"
@@ -805,6 +805,13 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                     android:textColor="@color/black"
                     android:textSize="18dp"/>
+                <ImageButton
+                    android:id="@+id/btnCCVInfor"
+                    android:layout_width="17dp"
+                    android:layout_height="17dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/pen"/>
             </LinearLayout>
             <TextView
                 android:layout_width="40dp"
@@ -817,8 +824,9 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="#E2F4E3"
             android:id="@+id/constraintPageJob"
-            android:visibility="gone"
+            android:visibility="visible"
             android:layout_gravity="center|center_horizontal"
             android:layout_marginTop="40dp">
             <Button
@@ -842,6 +850,11 @@
                 android:layout_margin="20dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btnAddJob" />
+            <TextView
+                android:layout_width="10dp"
+                android:layout_height="70dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rc_JCjob"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>
 </ScrollView>

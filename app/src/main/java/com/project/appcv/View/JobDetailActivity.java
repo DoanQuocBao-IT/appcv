@@ -3,6 +3,8 @@ package com.project.appcv.View;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -78,11 +80,13 @@ public class JobDetailActivity extends AppCompatActivity {
                     constraintLayoutGender.setVisibility(View.GONE);
                     constraintLayoutExperience.setVisibility(View.GONE);
                     constraintLayoutAddress.setVisibility(View.GONE);
+                    btnExpend.setText("Mở rộng");
                     state=false;
                 }else {
                     constraintLayoutGender.setVisibility(View.VISIBLE);
                     constraintLayoutExperience.setVisibility(View.VISIBLE);
                     constraintLayoutAddress.setVisibility(View.VISIBLE);
+                    btnExpend.setText("Thu gọn");
                     state=true;
                 }
             }
@@ -126,6 +130,8 @@ public class JobDetailActivity extends AppCompatActivity {
                             @Override
                             public void onFailure(Call<Cv> call, Throwable t) {
                                 Toast.makeText(JobDetailActivity.this,"Bạn cần tạo CV trước khi ứng tuyển công việc này",Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(JobDetailActivity.this, CreateCvActivity.class);
+                                startActivity(intent);
                             }
                         });
 

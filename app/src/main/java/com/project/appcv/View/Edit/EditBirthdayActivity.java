@@ -69,9 +69,11 @@ public class EditBirthdayActivity extends AppCompatActivity implements DatePicke
             String foundedAt = (String) getIntent().getStringExtra("foundedAt");
             EditFoundedAt(foundedAt);
             String job_id = (String) getIntent().getStringExtra("job_id");
-            int id=Integer.parseInt(job_id);
-            String toDate = (String) getIntent().getStringExtra("toDate");
-            EditToDate(toDate,id);
+            if (job_id!=null) {
+                int id = Integer.parseInt(job_id);
+                String toDate = (String) getIntent().getStringExtra("toDate");
+                EditToDate(toDate, id);
+            }
         }
     }
     private void EditBirthday(String birthday){
@@ -106,9 +108,9 @@ public class EditBirthdayActivity extends AppCompatActivity implements DatePicke
             });
         }
     }
-    private void EditFoundedAt(String birthday){
-        if (birthday!=null) {
-            editTextBirthday.setText(birthday);
+    private void EditFoundedAt(String foundedAt){
+        if (foundedAt!=null) {
+            editTextBirthday.setText(foundedAt);
             textViewEditHeader.setText("Sửa ngày thành lập ");
             buttonSave.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -142,7 +144,7 @@ public class EditBirthdayActivity extends AppCompatActivity implements DatePicke
     private void EditToDate(String toDate,int id){
         if (toDate!=null) {
             editTextBirthday.setText(toDate);
-            textViewEditHeader.setText("Sửa ngày thành lập ");
+            textViewEditHeader.setText("Sửa hạn cuối ứng tuyển");
             buttonSave.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

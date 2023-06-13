@@ -55,6 +55,11 @@ public class SelectAddressActivity extends AppCompatActivity{
             public void onResponse(Call<List<AddressWorkDto>> call, Response<List<AddressWorkDto>> response) {
                 if (response.isSuccessful()) {
                     addressWorkDtoList = response.body();
+                    if (addressWorkDtoList.isEmpty()){
+                        Intent intent=new Intent(SelectAddressActivity.this,AddressActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
                     // Xử lý thông tin address
                     addressAdapter = new AddressListAdapter(SelectAddressActivity.this,R.layout.item_address_company,addressWorkDtoList);
                     rcAddress.setAdapter(addressAdapter);

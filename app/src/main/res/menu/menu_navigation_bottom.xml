@@ -10,7 +10,7 @@
         android:title="CV &amp; Job"/>
     <item
         android:id="@+id/navigation_connect"
-        android:icon="@drawable/searchjob"
+        android:icon="@drawable/connect"
         android:title="Top Connect"/>
     <item
         android:id="@+id/navigation_notify"
