@@ -127,19 +127,19 @@ public class SignupActivity extends AppCompatActivity {
                         if (response.isSuccessful()) {
                             String jwtToken = response.body().getJwtToken();
                             SharedPrefManager.getInstance(getApplicationContext()).saveJwtToken(jwtToken);
-                            Intent intent = new Intent(SignupActivity.this, MainActivity.class);
+                            Intent intent = new Intent(SignupActivity.this, ContinueActivity.class);
                             startActivity(intent);
                             finish();
                         } else {
-                            // Xử lý lỗi đăng nhập
-                            Toast.makeText(SignupActivity.this, "Đăng nhập thất bại", Toast.LENGTH_SHORT).show();
+                            // Xử lý lỗi đăng ki
+                            Toast.makeText(SignupActivity.this, "Tên đăng nhập đã tồn tại", Toast.LENGTH_SHORT).show();
                         }
                     }
 
                     @Override
                     public void onFailure(Call<JWTTokenDto> call, Throwable t) {
                         // Xử lý lỗi kết nối
-                        Toast.makeText(SignupActivity.this, "Lỗi kết nối", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SignupActivity.this, "Lỗi đăng kí, vui lòng đăng lí lại", Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -165,19 +165,19 @@ public class SignupActivity extends AppCompatActivity {
                         if (response.isSuccessful()) {
                             String jwtToken = response.body().getJwtToken();
                             SharedPrefManager.getInstance(getApplicationContext()).saveJwtToken(jwtToken);
-                            Intent intent = new Intent(SignupActivity.this, MainActivity.class);
+                            Intent intent = new Intent(SignupActivity.this, ContinueActivity.class);
                             startActivity(intent);
                             finish();
                         } else {
-                            // Xử lý lỗi đăng nhập
-                            Toast.makeText(SignupActivity.this, "Đăng nhập thất bại", Toast.LENGTH_SHORT).show();
+                            // Xử lý lỗi đăng kí
+                            Toast.makeText(SignupActivity.this, "Tên đăng nhập đã tồn tại", Toast.LENGTH_SHORT).show();
                         }
                     }
 
                     @Override
                     public void onFailure(Call<JWTTokenDto> call, Throwable t) {
                         // Xử lý lỗi kết nối
-                        Toast.makeText(SignupActivity.this, "Lỗi kết nối", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SignupActivity.this, "Lỗi đăng kí, vui lòng đăng lí lại", Toast.LENGTH_SHORT).show();
                     }
                 });
 

@@ -15,6 +15,7 @@ import com.project.appcv.Model.ProfileUser;
 
 import java.util.List;
 
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.http.Body;
@@ -30,6 +31,12 @@ public interface APIService {
     Call<JWTTokenDto> login(@Body JsonObject body);
     @POST("/api/auth/register")
     Call<JWTTokenDto> signup(@Body JsonObject body);
+    @POST("/api/auth/change-password")
+    Call<Void> changePassword(@Header("Authorization") String token,@Body String body);
+    @POST("/api/auth/forgot-password")
+    Call<Void> forgotPassword(@Body RequestBody body);
+    @POST("/api/auth/reset-password")
+    Call<Void> resetPassword(@Query("passcode") String passcode,@Body RequestBody body);
 
 
     @GET("/api/appcv/top6/company")

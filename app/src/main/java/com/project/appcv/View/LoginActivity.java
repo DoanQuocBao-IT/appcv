@@ -20,6 +20,7 @@ import com.project.appcv.MainActivity;
 import com.project.appcv.R;
 import com.project.appcv.RetrofitClient;
 import com.project.appcv.SharedPrefManager;
+import com.project.appcv.View.Edit.EditPasswordActivity;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -28,7 +29,7 @@ import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
     EditText editTextUsername,editTextPassword;
-    Button buttonLogin,buttonSignUp;
+    Button buttonLogin,buttonSignUp,btnNoLogin,btnForgotPassword;
     APIService apiService;
     TextView textViewErrorLogin;
     @Override
@@ -39,6 +40,8 @@ public class LoginActivity extends AppCompatActivity {
         editTextPassword=findViewById(R.id.editTextPassword);
         textViewErrorLogin=findViewById(R.id.tvErrorLogin);
         buttonLogin=findViewById(R.id.buttonLogin);
+        btnForgotPassword=findViewById(R.id.buttonForgotPassword);
+        btnNoLogin=findViewById(R.id.btnNoLogin);
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,6 +81,22 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(LoginActivity.this,SignupActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        btnForgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(LoginActivity.this, ForgotPasswordActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        btnNoLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }
