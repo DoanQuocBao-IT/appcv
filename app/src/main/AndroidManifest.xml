@@ -17,6 +17,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".View.UpdateCvActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.CreateAddressUserActivity"
+            android:exported="false" />
+        <activity
             android:name=".View.PasscodeActivity"
             android:exported="false" />
         <activity

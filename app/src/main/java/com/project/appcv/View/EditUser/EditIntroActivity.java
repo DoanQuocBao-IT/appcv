@@ -17,6 +17,8 @@ import com.project.appcv.Model.ProfileCandidate;
 import com.project.appcv.R;
 import com.project.appcv.RetrofitClient;
 import com.project.appcv.SharedPrefManager;
+import com.project.appcv.View.CreateAddressActivity;
+import com.project.appcv.View.CreateAddressUserActivity;
 import com.project.appcv.View.Edit.EditProfileCandidateActivity;
 import com.project.appcv.View.EditJob.EditProfileCompanyActivity;
 import com.project.appcv.View.ProfileUserActivity;
@@ -60,7 +62,7 @@ public class EditIntroActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<ProfileCandidate> call, Response<ProfileCandidate> response) {
                         if (response.isSuccessful()){
-                            Intent intent=new Intent(EditIntroActivity.this, MainActivity.class);
+                            Intent intent=new Intent(EditIntroActivity.this, CreateAddressUserActivity.class);
                             startActivity(intent);
                             finish();
                         }
@@ -89,9 +91,11 @@ public class EditIntroActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<Company> call, Response<Company> response) {
                         if (response.isSuccessful()){
-                            Intent intent=new Intent(EditIntroActivity.this, MainActivity.class);
-                            startActivity(intent);
-                            finish();
+                            if (response.isSuccessful()){
+                                Intent intent=new Intent(EditIntroActivity.this, CreateAddressUserActivity.class);
+                                startActivity(intent);
+                                finish();
+                            }
                         }
                     }
 

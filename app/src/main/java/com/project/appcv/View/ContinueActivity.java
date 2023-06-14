@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.project.appcv.MainActivity;
 import com.project.appcv.R;
 import com.project.appcv.SharedPrefManager;
 import com.project.appcv.View.EditUser.EditNameActivity;
@@ -22,7 +23,7 @@ public class ContinueActivity extends AppCompatActivity {
         btnContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(ContinueActivity.this, EditNameActivity.class);
+                Intent intent=new Intent(ContinueActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }
