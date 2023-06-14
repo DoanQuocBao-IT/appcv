@@ -134,7 +134,19 @@ https://github.com/DoanQuocBao-IT/appcv/assets/85630559/f21e009b-b9e8-46ef-a21a-
 
 https://github.com/DoanQuocBao-IT/appcv/assets/85630559/b4ae1a66-ae02-4117-abaf-37a25c8bbb59
 
+  <H3> Forgot password:
 
+https://github.com/DoanQuocBao-IT/appcv/assets/85630559/7cfa1304-75d7-47ad-a3f7-1e8ddbab8cfc
+
+![image](https://github.com/DoanQuocBao-IT/appcv/assets/85630559/dbecf528-848a-4cf8-b696-bc10440aa92c)
+
+
+  <H3> Change password:
+    
+    
+https://github.com/DoanQuocBao-IT/appcv/assets/85630559/d6fce2bb-6ce5-4abc-bcdf-3ff3fdea5d27
+
+    
   <H2> Sign up
     
   <H3> Sign up and create infomation Candidate:
