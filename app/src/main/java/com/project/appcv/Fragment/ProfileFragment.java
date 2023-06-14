@@ -27,6 +27,7 @@ import com.project.appcv.RetrofitClient;
 import com.project.appcv.SharedPrefManager;
 import com.project.appcv.View.AddressActivity;
 import com.project.appcv.View.CompanyFollowActivity;
+import com.project.appcv.View.CreateAddressActivity;
 import com.project.appcv.View.Edit.EditBirthdayActivity;
 import com.project.appcv.View.Edit.EditCvCandidateActivity;
 import com.project.appcv.View.Edit.EditImageActivity;
@@ -40,6 +41,7 @@ import com.project.appcv.View.JobPassedActivity;
 import com.project.appcv.View.LoginActivity;
 import com.project.appcv.View.ProfileUserActivity;
 import com.project.appcv.View.SelectAddressActivity;
+import com.project.appcv.View.UpdateCvActivity;
 import com.project.appcv.View.WelcomeActivity;
 
 import retrofit2.Call;
@@ -325,12 +327,12 @@ public class ProfileFragment extends Fragment {
     private void GetInforUser(){
         String jwtToken= SharedPrefManager.getInstance(getContext()).getJwtToken();
         apiService= RetrofitClient.getRetrofit().create(APIService.class);
-        Call<UserPref> call=apiService.getUserCandidate("Bearer " + jwtToken);
-        call.enqueue(new Callback<UserPref>() {
+        Call<ProfileUser> call=apiService.getInforUser("Bearer " + jwtToken);
+        call.enqueue(new Callback<ProfileUser>() {
             @Override
-            public void onResponse(Call<UserPref> call, Response<UserPref> response) {
+            public void onResponse(Call<ProfileUser> call, Response<ProfileUser> response) {
                 if (response.isSuccessful()) {
-                    UserPref user = response.body();
+                    ProfileUser user = response.body();
                     // Xử lý thông tin user
                     textViewName.setText(user.getFname());
                     Glide.with(getContext()).load(user.getImage()).into(imageButtonAvatar);
@@ -340,7 +342,7 @@ public class ProfileFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<UserPref> call, Throwable t) {
+            public void onFailure(Call<ProfileUser> call, Throwable t) {
 
             }
         });
@@ -358,14 +360,15 @@ public class ProfileFragment extends Fragment {
                     EditInforCV();
                 } else {
                     // Xử lý khi API trả về lỗi
-                    Intent intent=new Intent(getContext(), EditInforActivity.class);
+                    Intent intent=new Intent(getContext(), ProfileUserActivity.class);
                     startActivity(intent);
                 }
             }
 
             @Override
             public void onFailure(Call<ProfileUserDto> call, Throwable t) {
-
+                Intent intent=new Intent(getContext(), UpdateCvActivity.class);
+                startActivity(intent);
             }
         });
     }
@@ -381,6 +384,7 @@ public class ProfileFragment extends Fragment {
                     // Xử lý thông tin user
                     textViewName.setText(user.getFname());
                     Glide.with(getContext()).load(user.getImage()).into(imageButtonAvatar);
+
                 } else {
                     // Xử lý khi API trả về lỗi
                 }
@@ -407,14 +411,15 @@ public class ProfileFragment extends Fragment {
 
                 } else {
                     // Xử lý khi API trả về lỗi
-                    Intent intent=new Intent(getContext(), EditInforActivity.class);
+                    Intent intent=new Intent(getContext(), ProfileUserActivity.class);
                     startActivity(intent);
                 }
             }
 
             @Override
             public void onFailure(Call<Company> call, Throwable t) {
-
+                Intent intent=new Intent(getContext(), UpdateCvActivity.class);
+                startActivity(intent);
             }
         });
     }

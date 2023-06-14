@@ -51,7 +51,6 @@ public class EditNameActivity extends AppCompatActivity {
                         call.enqueue(new Callback<ProfileUser>() {
                             @Override
                             public void onResponse(Call<ProfileUser> call, Response<ProfileUser> response) {
-                                Log.d("Kiyfdwe", response.toString());
                                 if (response.isSuccessful()) {
                                     Intent intent = new Intent(EditNameActivity.this, EditEmailActivity.class);
                                     startActivity(intent);
